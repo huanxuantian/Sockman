@@ -9,7 +9,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "CPPSocket/Socket.hpp"
+//#include "CPPSocket/Socket.hpp"
+#include "TCPMan.hpp"
 
 #define IP   "127.0.0.1"
 #define PORT 10000
@@ -24,10 +25,10 @@ void tcp_receiver(void)
 {
     try
     {
-        Socket::TCP server;
+        Socket::TCP_MAN server;
 
         server.listen_on_port(10008);
-        Socket::TCP client = server.accept_client();
+        Socket::TCP_MAN client = server.accept_client();
 
         cout << "receiving ..." << endl;
         client.receive_file("output.bmp");
@@ -42,7 +43,7 @@ void tcp_sender(void)
 {
     try
     {
-        Socket::TCP server;
+        Socket::TCP_MAN server;
         server.connect_to(Socket::Address(IP, PORT));
 
         cout << "sending ..." << endl;

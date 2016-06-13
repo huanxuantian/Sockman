@@ -26,7 +26,7 @@ namespace Socket
 		#else
 			pthread_t thread_listen;
 		#endif
-		int thread_id;
+		unsigned long int thread_id;
     public:
 		TCP_MAN(void);
 		TCP_MAN(const TCP_MAN&);

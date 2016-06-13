@@ -11,15 +11,19 @@
 
 //#include "CPPSocket/Socket.hpp"
 #include "TCPMan.hpp"
+#include "colorout/colorout.cpp"
 
 #define IP   "127.0.0.1"
 #define PORT 10000
+
+extern void LOG(int iLogType, char* szFmt, ...);
 
 struct prova
 {
     int something;
     float somethingelse;
 };
+
 
 void tcp_receiver(void)
 {
@@ -125,6 +129,7 @@ void udp_sender(void)
 
 int main(void) {
 
+	LOG(LOG_TYPE_NORMAL,"start test\r\n");
 	tcp_receiver();
 	puts("end\r\n");
 	return EXIT_SUCCESS;

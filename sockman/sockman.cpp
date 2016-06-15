@@ -31,7 +31,7 @@ void tcp_receiver(void)
     {
         Socket::TCP_MAN server;
 
-        server.listen_on_port(10008);
+        server.listen_on_port(10008,SOMAXCONN);
         Socket::TCP_MAN client = server.accept_client();
 
         cout << "receiving ..." << endl;

@@ -3,21 +3,41 @@
 // Author      : 
 // Version     :
 // Copyright   : 
-// Description : Hello World in C, Ansi-style
+// Description :a socket manager system and message center model
 //============================================================================
 
 #include <stdio.h>
 #include <stdlib.h>
+#include<string.h>
+
+#include "TCPMan.hpp"
+#include "./log4z/log4z.h"
+
+using namespace zsummer::log4z;
 using namespace std;
 
-//#include "CPPSocket/Socket.hpp"
-#include "TCPMan.hpp"
-//#include "colorout/colorout.cpp"
-
 #define IP   "127.0.0.1"
-#define PORT 10000
+#define PORT 10009
 
-extern void LOG(int iLogType, char* szFmt, ...);
+#define SEND_FILE "test.hex"
+
+#define RECV_FILE "recv.hex"
+
+
+int setup_loger()
+{
+	//start log4z
+	cout<<__FUNCTION__<<"setup loger!!"<<endl;
+   // ILog4zManager::getRef().setLoggerPath(LOG4Z_MAIN_LOGGER_ID, "./log2");
+    ILog4zManager::getRef().start();
+    ILog4zManager::getRef().setLoggerLevel(LOG4Z_MAIN_LOGGER_ID,LOG_LEVEL_TRACE);
+    //LOGD: LOG WITH level LOG_DEBUG
+    //LOGI: LOG WITH level LOG_INFO
+    cout<<__FUNCTION__<<("setup finish!!")<<endl;
+    return 0;
+}
+
+//extern void LOG(int iLogType, char* szFmt, ...);
 
 struct prova
 {
@@ -32,11 +52,11 @@ void tcp_receiver(void)
     {
         Socket::TCP_MAN server;
 
-        server.listen_on_port(10008,SOMAXCONN);
+        server.listen_on_port(PORT,SOMAXCONN);
         Socket::TCP_MAN client = server.accept_client();
 
         cout << "receiving ..." << endl;
-        client.receive_file("output.hex");
+        client.receive_file(RECV_FILE);
     }
     catch (Socket::SocketException &e)
     {
@@ -52,7 +72,7 @@ void tcp_sender(void)
         server.connect_to(Socket::Address(IP, PORT));
 
         cout << "sending ..." << endl;
-        server.send_file("input.hex");
+        server.send_file(SEND_FILE);
     }
     catch (Socket::SocketException &e)
     {
@@ -128,10 +148,31 @@ void udp_sender(void)
 }
 */
 
-int main(void) {
+int main(int argc,char *argv[]){
+    if(argc < 2)
+    {
+        printf("%s should not take %d agrement\n  USAGE: %s server \n\t %s client\n",argv[0],argc-1,argv[0],argv[0]);
+        //argv[1] =(char*)"server";
+       // printf("default to %s\n",argv[1]);
 
-	//LOG(LOG_TYPE_NORMAL,"start test\r\n");
-	tcp_receiver();
+        return -1;
+    }
+    setup_loger();
+	LOGA("start test\r\n");
+	if(strcmp(argv[1],"server")==0)
+	{
+		LOGI("start server for recive\r\n");
+		tcp_receiver();
+	}
+	else if(strcmp(argv[1],"client")==0)
+	{
+		LOGI("start client for send "<<SEND_FILE);
+		tcp_sender();
+	}
+	else
+	{
+		LOGI("unknow cmd"<<argv[1]);
+	}
 	puts("end\r\n");
 	return EXIT_SUCCESS;
 }

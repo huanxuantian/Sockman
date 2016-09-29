@@ -1,4 +1,4 @@
-CXXFLAGS =	-O2 -g -Wall -fmessage-length=0
+CXXFLAGS = -std=c++0x	-O2 -g -Wall -fmessage-length=0
 
 OBJS =		sockman.o 
 

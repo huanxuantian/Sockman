@@ -16,12 +16,6 @@ using namespace std;
 
 namespace Socket
 {
-	#ifdef WINDOWS
-	typedef void (CALLBACK* DEALPROC)(SocketId s, int ServerPort, const char *ClientIP);
-	#else
-	typedef void (* DEALPROC)(SocketId s, int ServerPort, const char *ClientIP);
-	#endif
-
 	class TCP_MAN : public TCP
 	{
     private:
@@ -37,8 +31,6 @@ namespace Socket
 		TCP_MAN(void);
 		TCP_MAN(const TCP_MAN&);
 		TCP_MAN accept_client(void);
-		bool creat_server(Port, unsigned int);
-		bool start_server();
 
 	};
 }

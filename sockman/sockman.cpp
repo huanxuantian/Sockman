@@ -8,10 +8,11 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+using namespace std;
 
 //#include "CPPSocket/Socket.hpp"
 #include "TCPMan.hpp"
-#include "colorout/colorout.cpp"
+//#include "colorout/colorout.cpp"
 
 #define IP   "127.0.0.1"
 #define PORT 10000
@@ -31,7 +32,7 @@ void tcp_receiver(void)
     {
         Socket::TCP_MAN server;
 
-        server.listen_on_port(10008,SOMAXCONN);
+        server.listen_on_port(10008);
         Socket::TCP_MAN client = server.accept_client();
 
         cout << "receiving ..." << endl;
@@ -58,7 +59,7 @@ void tcp_sender(void)
         cout << e << endl;
     }
 }
-
+/*
 void udp_receiver(void)
 {
     try
@@ -115,7 +116,7 @@ void udp_sender(void)
         sock.send<double>(to, darr, 5);
 
         vector<prova> vec;
-        for (i = 0; i < 5; i++) vec.push_back( { i, i + 1 });
+        for (i = 0; i < 5; i++) vec.push_back( { i, (float)(i + 1.0) });
         sock.send<prova>(to, vec);
 
         sock.close();
@@ -125,11 +126,11 @@ void udp_sender(void)
         cout << e << endl;
     }
 }
-
+*/
 
 int main(void) {
 
-	LOG(LOG_TYPE_NORMAL,"start test\r\n");
+	//LOG(LOG_TYPE_NORMAL,"start test\r\n");
 	tcp_receiver();
 	puts("end\r\n");
 	return EXIT_SUCCESS;

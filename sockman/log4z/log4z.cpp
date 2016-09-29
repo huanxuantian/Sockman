@@ -1764,12 +1764,13 @@ bool LogerManager::popLog(LogData *& log)
 void LogerManager::run()
 {
     _runing = true;
-    LOGA("-----------------  log4z thread started!   ----------------------------");
+    //LOGA("-----------------  log4z thread started!   ----------------------------");
     for (int i = 0; i <= _lastId; i++)
     {
         if (_loggers[i]._enable)
         {
-            LOGA("logger id=" << i
+        	LOG_ALARM(i,"-----------------  log4z thread started!   ----------------------------");
+        	LOG_ALARM(i,"logger id=" << i
                 << " key=" << _loggers[i]._key
                 << " name=" << _loggers[i]._name
                 << " path=" << _loggers[i]._path

@@ -23,21 +23,28 @@ using namespace std;
 #define SEND_FILE "test.hex"
 
 #define RECV_FILE "recv.hex"
-
-
+/*
+LoggerId logid_test;
 int setup_loger()
 {
 	//start log4z
 	cout<<__FUNCTION__<<"setup loger!!"<<endl;
-   // ILog4zManager::getRef().setLoggerPath(LOG4Z_MAIN_LOGGER_ID, "./log2");
+	logid_test = ILog4zManager::getRef().createLogger("test" );
+    ILog4zManager::getRef().config("config.cfg");
+
+	ILog4zManager::getRef().setLoggerDisplay(logid_test, true);
+	ILog4zManager::getRef().setLoggerOutFile(logid_test, true);
     ILog4zManager::getRef().start();
-    ILog4zManager::getRef().setLoggerLevel(LOG4Z_MAIN_LOGGER_ID,LOG_LEVEL_TRACE);
+   // ILog4zManager::getRef().setLoggerPath(LOG4Z_MAIN_LOGGER_ID, "./log2");
+    //ILog4zManager::getRef().start();
+    //ILog4zManager::getRef().setLoggerLevel(LOG4Z_TESTLOGGER_ID,LOG_LEVEL_TRACE);
+    //ILog4zManager::getRef().setLoggerName(LOG4Z_TESTLOGGER_ID,"test");
     //LOGD: LOG WITH level LOG_DEBUG
     //LOGI: LOG WITH level LOG_INFO
     cout<<__FUNCTION__<<("setup finish!!")<<endl;
     return 0;
 }
-
+*/
 //extern void LOG(int iLogType, char* szFmt, ...);
 
 struct prova
@@ -160,20 +167,20 @@ int main(int argc,char *argv[]){
         //return -1;
     }
     setup_loger();
-	LOGA("start test\r\n");
+	LOG_TA("start test\r\n");
 	if(strcmp(argv[1],"server")==0)
 	{
-		LOGI("start server for recive\r\n");
+		LOG_TI("start server for recive\r\n");
 		tcp_receiver();
 	}
 	else if(strcmp(argv[1],"client")==0)
 	{
-		LOGI("start client for send "<<SEND_FILE);
+		LOG_TI("start client for send "<<SEND_FILE);
 		tcp_sender();
 	}
 	else
 	{
-		LOGI("unknow cmd"<<argv[1]);
+		LOG_TI("unknow cmd"<<argv[1]);
 	}
 	puts("end\r\n");
 	return EXIT_SUCCESS;

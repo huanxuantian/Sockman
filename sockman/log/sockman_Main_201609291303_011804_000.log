@@ -1,6 +1,0 @@
-2016-09-29 13:03:19.200 LOG_ALARM -----------------  log4z thread started!   ---------------------------- log4z.cpp:1767
-2016-09-29 13:03:19.200 LOG_ALARM logger id=0 key=Main name=Main path=./log/ level=1 display=true log4z.cpp:1777
-2016-09-29 13:03:19.251 LOG_ALARM start test
- sockman.cpp:162
-2016-09-29 13:03:19.251 LOG_INFO  start server for recive
- sockman.cpp:165

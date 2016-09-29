@@ -134,7 +134,7 @@ void tcp_sender(void)
         cout << e << endl;
     }
 }
-/*
+
 void udp_receiver(void)
 {
     try
@@ -143,14 +143,19 @@ void udp_receiver(void)
         double buffer[SOCKET_MAX_BUFFER_LEN];
         int i;
 
-        sock.listen_on_port(10000);
+        sock.listen_on_port(PORT);
 
         Socket::Datagram<string>            rec_str = sock.receive<string>();
+        LOG_TA("string data:"<<Log4zBinary(rec_str.data.c_str(),strlen(rec_str.data.c_str())));//log
         Socket::Datagram<int[5]>            rec_arr = sock.receive<int, 5>(); // ([, 5]);
+        LOG_TA("int array:"<<Log4zBinary(rec_arr.data,sizeof(rec_arr.data)));//log
         Socket::Datagram<float>             rec_var = sock.receive<float>();
+        LOG_TA("float:"<<Log4zBinary((char*)&rec_var.data,sizeof(rec_var.data)));//log
         Socket::Datagram<double*>           rec_pnt = sock.receive<double>(buffer); // (buffer [, SOCKET_MAX_BUFFER_LEN]);
+        LOG_TA("double array"<<Log4zBinary((char*)rec_pnt.data,sizeof(rec_pnt.data)*rec_pnt.received_elements));//log
         Socket::Datagram<vector<prova> >    rec_vec = sock.receive<prova>(5); // conflict with the first one, must be specified
-
+        LOG_TA("vec data:"<<Log4zBinary((char*)&rec_vec.data,sizeof(rec_vec.data)*rec_vec.received_elements));//log
+        /*
         cout << rec_str.data << endl;
         cout << endl;
         for (i = 0; i < 5; i++) cout << rec_arr.data[i] << endl;
@@ -162,7 +167,7 @@ void udp_receiver(void)
         for (i = 0; i < (int)rec_vec.data.size(); i++) cout << rec_vec.data[i].something << " - " << rec_vec.data[i].somethingelse << endl;
         cout << endl;
         cout << "from: " << rec_vec.address << endl; // I know could be always different, just for the sake of simplicity
-
+	*/
         sock.close();
     }
     catch (Socket::SocketException &e)
@@ -177,21 +182,24 @@ void udp_sender(void)
     {
     	int i;
         Socket::UDP sock;
-        Socket::Address to("127.0.0.1", 10000);
+        Socket::Address to(IP, PORT);
 
         sock.send<string>(to, "this is the string"); // ("127.0.0.1", 10000, "this is a string");
                                                      // as well as the others
 
         int iarr[5] = { 0, 1, 2, 3, 4 };
+        LOG_TA("int array:"<<Log4zBinary((char*)&iarr,sizeof(iarr)));//log
         sock.send<int>(to, iarr, 5);
 
         sock.send<float>(to, 5.0);
 
         double darr[5] = { 0.0, 1.0, 2.0, 3.0, 4.0 };
+        LOG_TA("double array:"<<Log4zBinary((char*)&darr,sizeof(darr)));//log
         sock.send<double>(to, darr, 5);
 
         vector<prova> vec;
         for (i = 0; i < 5; i++) vec.push_back( { i, (float)(i + 1.0) });
+        LOG_TA("vector data::"<<Log4zBinary((char*)vec.data(),sizeof(vec.data())*vec.size()));//log
         sock.send<prova>(to, vec);
 
         sock.close();
@@ -201,17 +209,17 @@ void udp_sender(void)
         cout << e << endl;
     }
 }
-*/
+
 
 int main(int argc,char *argv[]){
     if(argc < 2)
     {
-        printf("%s should not take %d agrement\n  USAGE: %s server \n\t %s client\n",argv[0],argc-1,argv[0],argv[0]);
+        printf("%s should not take %d agrement\n  USAGE: %s server \n\t %s client\n\t%s udpsrv\n\t %s udpcli\n",argv[0],argc-1,argv[0],argv[0],argv[0],argv[0]);
         //argv[1] =(char*)"server";
-        argv[1] =(char*)"client";
-       printf("default to %s\n",argv[1]);
+        //argv[1] =(char*)"client";
+       //printf("default to %s\n",argv[1]);
 
-        //return -1;
+        return -1;
     }
     setup_loger();
 	LOG_TA("start test\r\n");
@@ -225,6 +233,16 @@ int main(int argc,char *argv[]){
 		LOG_TI("start client for send "<<SEND_FILE);
 		json_test1();
 		tcp_sender();
+	}
+	else if(strcmp(argv[1],"udpcli")==0)
+	{
+		LOG_TI("start client for udp test "<<SEND_FILE);
+		udp_sender();
+	}
+	else if(strcmp(argv[1],"udpsrv")==0)
+	{
+		LOG_TI("start serve for udp test "<<SEND_FILE);
+		udp_receiver();
 	}
 	else
 	{

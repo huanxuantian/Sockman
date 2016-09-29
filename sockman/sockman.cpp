@@ -12,8 +12,10 @@
 
 #include "TCPMan.hpp"
 #include "./log4z/log4z.h"
+#include "./json/json.h"
 
 using namespace zsummer::log4z;
+using namespace Json;
 using namespace std;
 
 #define IP   "127.0.0.1"
@@ -46,6 +48,51 @@ int setup_loger()
 }
 */
 //extern void LOG(int iLogType, char* szFmt, ...);
+Value root;
+Reader reader;
+StyledWriter writer;
+
+int json_test1()
+{
+	LOGA( __FUNCTION__<<":read string and parse json rewrite json");
+	LOG_TI("input:"<< "json{\"Device_COM\":\"-1\",\"state\":-1,\"result\":true}");
+	LOG_TI("rewrite:"<< "Device_COM=\"2\",state=0,result=false");
+	bool parsingSuccessful = reader.parse("{\"Device_COM\":\"-1\",\"state\":-1,\"result\":true}", root );
+	if(!parsingSuccessful)
+	{
+		LOG_TE("\r\nfaile\r\n");
+		return -1;
+	}
+	string m_COM =root.get("Device_COM","0").asCString();
+	int m_state =root.get("state","0").asInt();
+	bool m_result =root.get("result",false).asBool();
+
+	LOG_TI("Reader1:Device_COM="<<m_COM<<",state="<<m_state<<",result="<<m_result);
+
+	root["Device_COM"] ="3";
+	root["state"] =0;
+	root["result"] =false;
+	string m_state2 =root.get("Device_COM","0").asCString();
+
+	string out = writer.write( root );
+	LOG_TI("Writer1:"<<(out));
+
+	LOG_TA(Log4zBinary(out.c_str(),strlen(out.c_str())));
+
+	 fstream fp(SEND_FILE, ios::out | ios::binary);
+	 if (!fp.is_open())
+	{
+		return -2;
+	}
+	fp.seekg(0, ifstream::beg);
+	const char* chunk = out.c_str();
+	int len = strlen(out.c_str());
+	fp.write((char*)chunk, len);
+	fp.close();
+
+	LOG_TA( __FUNCTION__<<":finish!");
+	return 0;
+}
 
 struct prova
 {
@@ -176,6 +223,7 @@ int main(int argc,char *argv[]){
 	else if(strcmp(argv[1],"client")==0)
 	{
 		LOG_TI("start client for send "<<SEND_FILE);
+		json_test1();
 		tcp_sender();
 	}
 	else

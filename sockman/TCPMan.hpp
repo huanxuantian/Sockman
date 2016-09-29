@@ -4,7 +4,9 @@
 #define _TCP_MAN_HPP_
 
 #include "CPPSocket/Socket.hpp"
+#include "./log4z/log4z.h"
 
+using namespace zsummer::log4z;
 using namespace std;
 
 #ifdef WINDOWS
@@ -39,7 +41,8 @@ namespace Socket
 		TCP_MAN accept_client(void);
 		bool creat_server(Port, unsigned int);
 		bool start_server();
-
+        void send_file(string);
+        void receive_file(string);
 	};
 }
 #include "TCPMan.cpp"

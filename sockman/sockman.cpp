@@ -17,6 +17,7 @@ using namespace zsummer::log4z;
 using namespace std;
 
 #define IP   "127.0.0.1"
+//#define IP   "120.25.166.144"
 #define PORT 10009
 
 #define SEND_FILE "test.hex"
@@ -153,9 +154,10 @@ int main(int argc,char *argv[]){
     {
         printf("%s should not take %d agrement\n  USAGE: %s server \n\t %s client\n",argv[0],argc-1,argv[0],argv[0]);
         //argv[1] =(char*)"server";
-       // printf("default to %s\n",argv[1]);
+        argv[1] =(char*)"client";
+       printf("default to %s\n",argv[1]);
 
-        return -1;
+        //return -1;
     }
     setup_loger();
 	LOGA("start test\r\n");

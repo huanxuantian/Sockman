@@ -1,0 +1,23 @@
+2016-09-29 13:33:09.401 LOG_ALARM -----------------  log4z thread started!   ---------------------------- log4z.cpp:1767
+2016-09-29 13:33:09.401 LOG_ALARM logger id=0 key=Main name=Main path=./log/ level=1 display=true log4z.cpp:1777
+2016-09-29 13:33:09.451 LOG_ALARM start test
+ sockman.cpp:163
+2016-09-29 13:33:09.451 LOG_INFO  start client for send test.hex sockman.cpp:171
+2016-09-29 13:33:09.451 LOG_DEBUG 
+	[
+	00007ffdc7ce53b0: 3b 00 00 00 00 00 00 00 
+	00007ffdc7ce53b0:  ;  .  .  .  .  .  .  . 
+	]
+	 TCPMan.cpp:66
+2016-09-29 13:33:09.452 LOG_DEBUG 
+	[
+	00007ffdc7ce5730: aa 55 11 22 33 44 55 66 77 88 99 00 bb cc dd ee 
+	00007ffdc7ce5730:  .  U  .  "  3  D  U  f  w  .  .  .  .  .  .  . 
+	00007ffdc7ce5740: ff fe fd fc fb fa f0 01 02 03 04 05 06 07 08 09 
+	00007ffdc7ce5740:  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . 
+	00007ffdc7ce5750: 12 23 34 45 56 67 78 89 9a ab bc cd de ef ff ad 
+	00007ffdc7ce5750:  .  #  4  E  V  g  x  .  .  .  .  .  .  .  .  . 
+	00007ffdc7ce5760: fb ce 56 83 53 56 77 88 98 39 20 
+	00007ffdc7ce5760:  .  .  V  .  S  V  w  .  .  9    
+	]
+	 TCPMan.cpp:80

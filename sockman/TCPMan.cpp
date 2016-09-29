@@ -32,5 +32,19 @@ namespace Socket
 
         return ret;
     }
+	bool TCP_MAN::creat_server(Port port, unsigned int listeners = 1)
+	{
+        CommonSocket::listen_on_port(port);
+
+        if (listen(this->_socket_id, listeners) != 0)
+        {
+            stringstream error;
+            error << "[listen_on_port] with [port=" << port << "] [listeners=" << listeners << "] Cannot bind socket";
+            throw SocketException(error.str());
+            return false;
+        }
+        return true;
+	}
+
 }
 #endif

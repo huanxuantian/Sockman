@@ -32,11 +32,11 @@ void tcp_receiver(void)
     {
         Socket::TCP_MAN server;
 
-        server.listen_on_port(10008);
+        server.listen_on_port(10008,SOMAXCONN);
         Socket::TCP_MAN client = server.accept_client();
 
         cout << "receiving ..." << endl;
-        client.receive_file("output.bmp");
+        client.receive_file("output.hex");
     }
     catch (Socket::SocketException &e)
     {
@@ -52,7 +52,7 @@ void tcp_sender(void)
         server.connect_to(Socket::Address(IP, PORT));
 
         cout << "sending ..." << endl;
-        server.send_file("input.bmp");
+        server.send_file("input.hex");
     }
     catch (Socket::SocketException &e)
     {

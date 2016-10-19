@@ -13,6 +13,7 @@
 #include "TCPMan.hpp"
 #include "./log4z/log4z.h"
 #include "./json/json.h"
+#include "./CQ/CRecycleQueue.h"
 
 using namespace zsummer::log4z;
 using namespace Json;
@@ -100,18 +101,20 @@ struct prova
     float somethingelse;
 };
 
+CRecycleQueue<Socket::TCP_MAN> *tcp_queue = new CRecycleQueue<Socket::TCP_MAN>;
 
 void tcp_receiver(void)
 {
     try
     {
         Socket::TCP_MAN server;
-
+        tcp_queue->InitRecycleQueue(3);
         server.listen_on_port(PORT,SOMAXCONN);
         Socket::TCP_MAN client = server.accept_client();
-
+        tcp_queue->Push(&client);
         cout << "receiving ..." << endl;
-        client.receive_file(RECV_FILE);
+        Socket::TCP_MAN* h_client=tcp_queue->Pop();
+        h_client->receive_file(RECV_FILE);
     }
     catch (Socket::SocketException &e)
     {

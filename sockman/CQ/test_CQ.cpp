@@ -27,7 +27,7 @@ class UserInfo{
         }
 };
 
-CRecycleQueue<UserInfo> *queue = new CRecycleQueue<UserInfo>;
+CRecycleQueue<UserInfo> *cq_queue = new CRecycleQueue<UserInfo>;
 
 void *write_func(void *args){
 
@@ -38,7 +38,7 @@ void *write_func(void *args){
         //这里仅仅是一个简单的测试用例   
         UserInfo *info = new UserInfo(num++);
 
-        if(!queue->Push(info)){
+        if(!cq_queue->Push(info)){
             //Push失败 删除手动分配的内存空间   
             delete info;
         }
@@ -51,7 +51,7 @@ void *read_func(void *args){
     while(1){
 
         UserInfo *info = NULL;
-        if(info = queue->Pop()){
+        if(info = cq_queue->Pop()){
 
             cout<<"pop:num:"<<info->getUserNum()<<",time:"<<info->getUserTime()<<endl;
             delete info;
@@ -62,7 +62,7 @@ void *read_func(void *args){
 #ifndef main
 int main(){
 
-    queue->InitRecycleQueue(8,INTMODE);
+	cq_queue->InitRecycleQueue(8,INTMODE);
 
     pthread_t pid1;
     pthread_t pid2;

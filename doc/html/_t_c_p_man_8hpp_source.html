@@ -1,0 +1,192 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.6"/>
+<title>sockman: /home/shinki/work2/Sockman/sockman/TCPMan.hpp 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">sockman
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.8.6 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'搜索');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>首页</span></a></li>
+      <li><a href="pages.html"><span>相关页面</span></a></li>
+      <li><a href="namespaces.html"><span>命名空间</span></a></li>
+      <li><a href="annotated.html"><span>类</span></a></li>
+      <li class="current"><a href="files.html"><span>文件</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="搜索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>文件列表</span></a></li>
+      <li><a href="globals.html"><span>文件成员</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全部</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>类</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>命名空间</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>文件</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>函数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>变量</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>类型定义</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>枚举</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>枚举值</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>友元</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>宏定义</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>页</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_9f4f03fde754d2553b7ed179b30a1650.html">sockman</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">TCPMan.hpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="_t_c_p_man_8hpp.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#ifndef _TCP_MAN_HPP_</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#define _TCP_MAN_HPP_</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_socket_8hpp.html">CPPSocket/Socket.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="log4z_8h.html">./log4z/log4z.h</a>&quot;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">using namespace </span>zsummer::log4z;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">using namespace </span>std;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#ifdef WINDOWS</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor"></span><span class="preprocessor">    #include &lt;pthread.h&gt;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="_t_c_p_man_8hpp.html#af479ff0d4c68d458620a8efd94d1a357">   16</a></span>&#160;<span class="preprocessor">    #define USE_PTHREAD</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="_t_c_p_man_8hpp.html#a4b9160c3dd6a7afa81ac8718d14d8c19">   18</a></span>&#160;<span class="preprocessor"></span><a class="code" href="log4z_8h.html#a99f61f92fb9519f319b5989fb14ff6e0">LoggerId</a> <a class="code" href="_t_c_p_man_8hpp.html#a4b9160c3dd6a7afa81ac8718d14d8c19">LOGID_TEST</a>;;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="_t_c_p_man_8hpp.html#ab826ffefaf5be77b5213de0381b0de2e">   20</a></span>&#160;<span class="preprocessor">#define LOG_TT( log ) LOG_TRACE(LOGID_TEST, log )</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="_t_c_p_man_8hpp.html#aebeceeab99da82fe841ed27c69f75189">   21</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define LOG_TD( log ) LOG_DEBUG(LOGID_TEST, log )</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="_t_c_p_man_8hpp.html#a384cef99c23aa1ce2076d6df96851fda">   22</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define LOG_TI( log ) LOG_INFO(LOGID_TEST, log )</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="_t_c_p_man_8hpp.html#a0a5f9927b8d58f3a66d7c7afc6a0cb2a">   23</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define LOG_TW( log ) LOG_WARN(LOGID_TEST, log )</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="_t_c_p_man_8hpp.html#a669c25c985d80ea17319de206d4fb1e0">   24</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define LOG_TE( log ) LOG_ERROR(LOGID_TEST, log )</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="_t_c_p_man_8hpp.html#a446745ad68a306ce8a3fef53450cc875">   25</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define LOG_TA( log ) LOG_ALARM(LOGID_TEST, log )</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="_t_c_p_man_8hpp.html#a473dd34aaae3f097a6373025ee74e603">   26</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define LOG_TF( log ) LOG_FATAL(LOGID_TEST, log )</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="_t_c_p_man_8hpp.html#a245306f7a0e9d637fc74de5f3fd5508a">   28</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="_t_c_p_man_8hpp.html#a245306f7a0e9d637fc74de5f3fd5508a">setup_loger</a>()</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;{</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="comment">//start log4z</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    cout&lt;&lt;<span class="stringliteral">&quot;setup loger!!&quot;</span>&lt;&lt;endl;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <a class="code" href="_t_c_p_man_8hpp.html#a4b9160c3dd6a7afa81ac8718d14d8c19">LOGID_TEST</a> = <a class="code" href="class_i_log4z_manager.html#a5998a8365814ef8ece74cb0e28d66ca0">ILog4zManager::getRef</a>().<a class="code" href="class_i_log4z_manager.html#a85f95c276de4e5efd57bba78dc602819">createLogger</a>(<span class="stringliteral">&quot;test&quot;</span> );</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;   <span class="comment">// ILog4zManager::getRef().config(&quot;config.cfg&quot;);</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <a class="code" href="class_i_log4z_manager.html#a5998a8365814ef8ece74cb0e28d66ca0">ILog4zManager::getRef</a>().<a class="code" href="class_i_log4z_manager.html#a0a8cc7d2b6b1d51c0726660473df58a5">setLoggerDisplay</a>(<a class="code" href="log4z_8h.html#af7e2e6c734863d4c9568502debc056d4">LOG4Z_MAIN_LOGGER_ID</a>, <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <a class="code" href="class_i_log4z_manager.html#a5998a8365814ef8ece74cb0e28d66ca0">ILog4zManager::getRef</a>().<a class="code" href="class_i_log4z_manager.html#a7614db95ddf5b57b2136d8007f6b712d">setLoggerOutFile</a>(<a class="code" href="log4z_8h.html#af7e2e6c734863d4c9568502debc056d4">LOG4Z_MAIN_LOGGER_ID</a>, <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <a class="code" href="class_i_log4z_manager.html#a5998a8365814ef8ece74cb0e28d66ca0">ILog4zManager::getRef</a>().<a class="code" href="class_i_log4z_manager.html#a0a8cc7d2b6b1d51c0726660473df58a5">setLoggerDisplay</a>(<a class="code" href="_t_c_p_man_8hpp.html#a4b9160c3dd6a7afa81ac8718d14d8c19">LOGID_TEST</a>, <span class="keyword">true</span>);</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <a class="code" href="class_i_log4z_manager.html#a5998a8365814ef8ece74cb0e28d66ca0">ILog4zManager::getRef</a>().<a class="code" href="class_i_log4z_manager.html#a7614db95ddf5b57b2136d8007f6b712d">setLoggerOutFile</a>(<a class="code" href="_t_c_p_man_8hpp.html#a4b9160c3dd6a7afa81ac8718d14d8c19">LOGID_TEST</a>, <span class="keyword">true</span>);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <a class="code" href="class_i_log4z_manager.html#a5998a8365814ef8ece74cb0e28d66ca0">ILog4zManager::getRef</a>().<a class="code" href="class_i_log4z_manager.html#aa34202d655a2534ef3f4eddca7d3782e">start</a>();</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    cout&lt;&lt;<span class="stringliteral">&quot;LOGID_TEST:&quot;</span>&lt;&lt;<a class="code" href="_t_c_p_man_8hpp.html#a4b9160c3dd6a7afa81ac8718d14d8c19">LOGID_TEST</a>&lt;&lt;(<span class="stringliteral">&quot;!setup finish!!&quot;</span>)&lt;&lt;endl;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;}</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keyword">namespace </span>Socket</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;{</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor">    #ifdef WINDOWS</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="preprocessor"></span>    <span class="keyword">typedef</span> void (CALLBACK* <a class="code" href="namespace_socket.html#a7422fb5b571a2a9203d47b2549d9e3bc">DEALPROC</a>)(<a class="code" href="namespace_socket.html#af400f8c28780f5ac43f8132f4a17f3b8">SocketId</a> s, <span class="keywordtype">int</span> ServerPort, <span class="keyword">const</span> <span class="keywordtype">char</span> *ClientIP);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor">    #else</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="namespace_socket.html#a7422fb5b571a2a9203d47b2549d9e3bc">   48</a></span>&#160;<span class="preprocessor"></span>    <span class="keyword">typedef</span> void (* <a class="code" href="namespace_socket.html#a7422fb5b571a2a9203d47b2549d9e3bc">DEALPROC</a>)(<a class="code" href="namespace_socket.html#af400f8c28780f5ac43f8132f4a17f3b8">SocketId</a> s, <span class="keywordtype">int</span> ServerPort, <span class="keyword">const</span> <span class="keywordtype">char</span> *ClientIP);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor">    #endif</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="class_socket_1_1_t_c_p___m_a_n.html">   51</a></span>&#160;    <span class="keyword">class </span><a class="code" href="class_socket_1_1_t_c_p___m_a_n.html">TCP_MAN</a> : <span class="keyword">public</span> <a class="code" href="class_socket_1_1_t_c_p.html">TCP</a></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    {</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <a class="code" href="struct_socket_1_1_address.html">Address</a> _address;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="preprocessor">        #ifdef WINDOWS</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="preprocessor"></span>            HANDLE  m_hServerThread;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="preprocessor">        #else</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="preprocessor"></span>            pthread_t thread_listen;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="preprocessor">        #endif</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="preprocessor"></span>        <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">int</span> thread_id;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <a class="code" href="class_socket_1_1_t_c_p___m_a_n.html">TCP_MAN</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <a class="code" href="class_socket_1_1_t_c_p___m_a_n.html">TCP_MAN</a>(<span class="keyword">const</span> <a class="code" href="class_socket_1_1_t_c_p___m_a_n.html">TCP_MAN</a>&amp;);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <a class="code" href="class_socket_1_1_t_c_p___m_a_n.html">TCP_MAN</a> accept_client(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="keywordtype">bool</span> creat_server(<a class="code" href="namespace_socket.html#ab3e21fdc4c3718a292b430305c892481">Port</a>, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>);</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <span class="keywordtype">bool</span> start_server();</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="keywordtype">void</span> send_file(<span class="keywordtype">string</span>);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="keywordtype">void</span> receive_file(<span class="keywordtype">string</span>);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    };</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;}</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_t_c_p_man_8cpp.html">TCPMan.cpp</a>&quot;</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="namespace_socket_html_af400f8c28780f5ac43f8132f4a17f3b8"><div class="ttname"><a href="namespace_socket.html#af400f8c28780f5ac43f8132f4a17f3b8">Socket::SocketId</a></div><div class="ttdeci">int SocketId</div><div class="ttdef"><b>Definition:</b> <a href="_socket_8hpp_source.html#l00054">Socket.hpp:54</a></div></div>
+<div class="ttc" id="namespace_socket_html_a7422fb5b571a2a9203d47b2549d9e3bc"><div class="ttname"><a href="namespace_socket.html#a7422fb5b571a2a9203d47b2549d9e3bc">Socket::DEALPROC</a></div><div class="ttdeci">void(* DEALPROC)(SocketId s, int ServerPort, const char *ClientIP)</div><div class="ttdef"><b>Definition:</b> <a href="_t_c_p_man_8hpp_source.html#l00048">TCPMan.hpp:48</a></div></div>
+<div class="ttc" id="log4z_8h_html_af7e2e6c734863d4c9568502debc056d4"><div class="ttname"><a href="log4z_8h.html#af7e2e6c734863d4c9568502debc056d4">LOG4Z_MAIN_LOGGER_ID</a></div><div class="ttdeci">const int LOG4Z_MAIN_LOGGER_ID</div><div class="ttdef"><b>Definition:</b> <a href="log4z_8h_source.html#l00212">log4z.h:212</a></div></div>
+<div class="ttc" id="_t_c_p_man_8hpp_html_a245306f7a0e9d637fc74de5f3fd5508a"><div class="ttname"><a href="_t_c_p_man_8hpp.html#a245306f7a0e9d637fc74de5f3fd5508a">setup_loger</a></div><div class="ttdeci">int setup_loger()</div><div class="ttdef"><b>Definition:</b> <a href="_t_c_p_man_8hpp_source.html#l00028">TCPMan.hpp:28</a></div></div>
+<div class="ttc" id="class_i_log4z_manager_html_a5998a8365814ef8ece74cb0e28d66ca0"><div class="ttname"><a href="class_i_log4z_manager.html#a5998a8365814ef8ece74cb0e28d66ca0">ILog4zManager::getRef</a></div><div class="ttdeci">static ILog4zManager &amp; getRef()</div><div class="ttdef"><b>Definition:</b> <a href="log4z_8h_source.html#l00308">log4z.h:308</a></div></div>
+<div class="ttc" id="_t_c_p_man_8hpp_html_a4b9160c3dd6a7afa81ac8718d14d8c19"><div class="ttname"><a href="_t_c_p_man_8hpp.html#a4b9160c3dd6a7afa81ac8718d14d8c19">LOGID_TEST</a></div><div class="ttdeci">LoggerId LOGID_TEST</div><div class="ttdef"><b>Definition:</b> <a href="_t_c_p_man_8hpp_source.html#l00018">TCPMan.hpp:18</a></div></div>
+<div class="ttc" id="struct_socket_1_1_address_html"><div class="ttname"><a href="struct_socket_1_1_address.html">Socket::Address</a></div><div class="ttdef"><b>Definition:</b> <a href="_socket_8hpp_source.html#l00074">Socket.hpp:74</a></div></div>
+<div class="ttc" id="_t_c_p_man_8cpp_html"><div class="ttname"><a href="_t_c_p_man_8cpp.html">TCPMan.cpp</a></div></div>
+<div class="ttc" id="class_socket_1_1_t_c_p___m_a_n_html"><div class="ttname"><a href="class_socket_1_1_t_c_p___m_a_n.html">Socket::TCP_MAN</a></div><div class="ttdef"><b>Definition:</b> <a href="_t_c_p_man_8hpp_source.html#l00051">TCPMan.hpp:51</a></div></div>
+<div class="ttc" id="class_i_log4z_manager_html_aa34202d655a2534ef3f4eddca7d3782e"><div class="ttname"><a href="class_i_log4z_manager.html#aa34202d655a2534ef3f4eddca7d3782e">ILog4zManager::start</a></div><div class="ttdeci">virtual bool start()=0</div><div class="ttdoc">Start Log Thread. This method can only be called once by one process. </div></div>
+<div class="ttc" id="class_i_log4z_manager_html_a7614db95ddf5b57b2136d8007f6b712d"><div class="ttname"><a href="class_i_log4z_manager.html#a7614db95ddf5b57b2136d8007f6b712d">ILog4zManager::setLoggerOutFile</a></div><div class="ttdeci">virtual bool setLoggerOutFile(LoggerId id, bool enable)=0</div></div>
+<div class="ttc" id="log4z_8h_html_a99f61f92fb9519f319b5989fb14ff6e0"><div class="ttname"><a href="log4z_8h.html#a99f61f92fb9519f319b5989fb14ff6e0">LoggerId</a></div><div class="ttdeci">int LoggerId</div><div class="ttdoc">logger ID type. DO NOT TOUCH </div><div class="ttdef"><b>Definition:</b> <a href="log4z_8h_source.html#l00202">log4z.h:202</a></div></div>
+<div class="ttc" id="_socket_8hpp_html"><div class="ttname"><a href="_socket_8hpp.html">Socket.hpp</a></div></div>
+<div class="ttc" id="class_socket_1_1_t_c_p_html"><div class="ttname"><a href="class_socket_1_1_t_c_p.html">Socket::TCP</a></div><div class="ttdef"><b>Definition:</b> <a href="_socket_8hpp_source.html#l00154">Socket.hpp:154</a></div></div>
+<div class="ttc" id="class_i_log4z_manager_html_a85f95c276de4e5efd57bba78dc602819"><div class="ttname"><a href="class_i_log4z_manager.html#a85f95c276de4e5efd57bba78dc602819">ILog4zManager::createLogger</a></div><div class="ttdeci">virtual LoggerId createLogger(const char *key)=0</div></div>
+<div class="ttc" id="namespace_socket_html_ab3e21fdc4c3718a292b430305c892481"><div class="ttname"><a href="namespace_socket.html#ab3e21fdc4c3718a292b430305c892481">Socket::Port</a></div><div class="ttdeci">unsigned int Port</div><div class="ttdef"><b>Definition:</b> <a href="_socket_8hpp_source.html#l00056">Socket.hpp:56</a></div></div>
+<div class="ttc" id="class_i_log4z_manager_html_a0a8cc7d2b6b1d51c0726660473df58a5"><div class="ttname"><a href="class_i_log4z_manager.html#a0a8cc7d2b6b1d51c0726660473df58a5">ILog4zManager::setLoggerDisplay</a></div><div class="ttdeci">virtual bool setLoggerDisplay(LoggerId id, bool enable)=0</div></div>
+<div class="ttc" id="log4z_8h_html"><div class="ttname"><a href="log4z_8h.html">log4z.h</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+生成于 2016年 十月 28日 星期五 15:56:07 , 为 sockman使用  &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.6
+</small></address>
+</body>
+</html>

@@ -1,0 +1,3 @@
+doc: sockman.doxygen
+	doxygen $^
+

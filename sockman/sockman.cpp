@@ -102,7 +102,7 @@ struct prova
 };
 
 CRecycleQueue<Socket::TCP_MAN> *tcp_queue = new CRecycleQueue<Socket::TCP_MAN>;
-
+/*@brief test for tcp server mode */
 void tcp_receiver(void)
 {
     try
@@ -121,7 +121,7 @@ void tcp_receiver(void)
         cout << e << endl;
     }
 }
-
+/*@brief test for tcp server mode */
 void tcp_sender(void)
 {
     try
@@ -157,7 +157,8 @@ void udp_receiver(void)
         Socket::Datagram<double*>           rec_pnt = sock.receive<double>(buffer); // (buffer [, SOCKET_MAX_BUFFER_LEN]);
         LOG_TA("double array"<<Log4zBinary((char*)rec_pnt.data,sizeof(rec_pnt.data)*rec_pnt.received_elements));//log
         Socket::Datagram<vector<prova> >    rec_vec = sock.receive<prova>(5); // conflict with the first one, must be specified
-        LOG_TA("vec data:"<<Log4zBinary((char*)&rec_vec.data,sizeof(rec_vec.data)*rec_vec.received_elements));//log
+        for (i = 0; i < (int)rec_vec.data.size(); i++)
+        LOG_TA("vec data["<<i<<"]:"<<Log4zBinary((char*)&rec_vec.data[i],sizeof(prova)));//log
         /*
         cout << rec_str.data << endl;
         cout << endl;
@@ -220,9 +221,11 @@ int main(int argc,char *argv[]){
         printf("%s should not take %d agrement\n  USAGE: %s server \n\t %s client\n\t%s udpsrv\n\t %s udpcli\n",argv[0],argc-1,argv[0],argv[0],argv[0],argv[0]);
         //argv[1] =(char*)"server";
         //argv[1] =(char*)"client";
-       //printf("default to %s\n",argv[1]);
+        argv[1] =(char*)"udpsrv";
+        //argv[1] =(char*)"udpcli";
+       printf("default to %s\n",argv[1]);
 
-        return -1;
+        //return -1;
     }
     setup_loger();
 	LOG_TA("start test\r\n");
@@ -249,7 +252,7 @@ int main(int argc,char *argv[]){
 	}
 	else
 	{
-		LOG_TI("unknow cmd"<<argv[1]);
+		LOG_TI("unknow cmd:"<<argv[1]);
 	}
 	puts("end\r\n");
 	return EXIT_SUCCESS;

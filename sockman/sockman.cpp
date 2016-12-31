@@ -10,8 +10,9 @@
 #include <stdlib.h>
 #include<string.h>
 
+#include "loger.hpp"
 #include "TCPMan.hpp"
-#include "./log4z/log4z.h"
+//#include "./log4z/log4z.h"
 #include "./json/json.h"
 #include "./CQ/CRecycleQueue.h"
 
@@ -19,36 +20,20 @@ using namespace zsummer::log4z;
 using namespace Json;
 using namespace std;
 
+
+
 #define IP   "127.0.0.1"
 //#define IP   "120.25.166.144"
 #define PORT 10009
 
+int s_port=PORT;
+
+char* s_ip=IP;
+
 #define SEND_FILE "test.hex"
 
 #define RECV_FILE "recv.hex"
-/*
-LoggerId logid_test;
-int setup_loger()
-{
-	//start log4z
-	cout<<__FUNCTION__<<"setup loger!!"<<endl;
-	logid_test = ILog4zManager::getRef().createLogger("test" );
-    ILog4zManager::getRef().config("config.cfg");
 
-	ILog4zManager::getRef().setLoggerDisplay(logid_test, true);
-	ILog4zManager::getRef().setLoggerOutFile(logid_test, true);
-    ILog4zManager::getRef().start();
-   // ILog4zManager::getRef().setLoggerPath(LOG4Z_MAIN_LOGGER_ID, "./log2");
-    //ILog4zManager::getRef().start();
-    //ILog4zManager::getRef().setLoggerLevel(LOG4Z_TESTLOGGER_ID,LOG_LEVEL_TRACE);
-    //ILog4zManager::getRef().setLoggerName(LOG4Z_TESTLOGGER_ID,"test");
-    //LOGD: LOG WITH level LOG_DEBUG
-    //LOGI: LOG WITH level LOG_INFO
-    cout<<__FUNCTION__<<("setup finish!!")<<endl;
-    return 0;
-}
-*/
-//extern void LOG(int iLogType, char* szFmt, ...);
 Value root;
 Reader reader;
 StyledWriter writer;
@@ -109,7 +94,7 @@ void tcp_receiver(void)
     {
         Socket::TCP_MAN server;
         tcp_queue->InitRecycleQueue(3);
-        server.listen_on_port(PORT,SOMAXCONN);
+        server.listen_on_port(s_port,SOMAXCONN);
         Socket::TCP_MAN client = server.accept_client();
         tcp_queue->Push(&client);
         cout << "receiving ..." << endl;
@@ -127,7 +112,7 @@ void tcp_sender(void)
     try
     {
         Socket::TCP_MAN server;
-        server.connect_to(Socket::Address(IP, PORT));
+        server.connect_to(Socket::Address(s_ip, s_port));
 
         cout << "sending ..." << endl;
         server.send_file(SEND_FILE);
@@ -221,23 +206,37 @@ int main(int argc,char *argv[]){
         printf("%s should not take %d agrement\n  USAGE: %s server \n\t %s client\n\t%s udpsrv\n\t %s udpcli\n",argv[0],argc-1,argv[0],argv[0],argv[0],argv[0]);
         //argv[1] =(char*)"server";
         //argv[1] =(char*)"client";
-        argv[1] =(char*)"udpsrv";
-        //argv[1] =(char*)"udpcli";
-       printf("default to %s\n",argv[1]);
+       //printf("default to %s\n",argv[1]);
 
-        //return -1;
+        return -1;
     }
     setup_loger();
 	LOG_TA("start test\r\n");
 	if(strcmp(argv[1],"server")==0)
 	{
 		LOG_TI("start server for recive\r\n");
+        if(argc>=3)
+        {
+            s_port=atoi(argv[2]);
+            LOG_TA("server listen_on port "<<s_port);
+        }
 		tcp_receiver();
 	}
 	else if(strcmp(argv[1],"client")==0)
 	{
 		LOG_TI("start client for send "<<SEND_FILE);
 		json_test1();
+        if(argc>=3)
+        {
+            s_port=atoi(argv[2]);
+            if(argc>=4)
+            {
+                s_ip=argv[3];
+                LOG_TA("start client connect to ip "<<s_ip);
+            }
+            LOG_TA("client connect to port "<<s_port);
+        }
+        
 		tcp_sender();
 	}
 	else if(strcmp(argv[1],"udpcli")==0)
@@ -252,7 +251,7 @@ int main(int argc,char *argv[]){
 	}
 	else
 	{
-		LOG_TI("unknow cmd:"<<argv[1]);
+		LOG_TI("unknow cmd"<<argv[1]);
 	}
 	puts("end\r\n");
 	return EXIT_SUCCESS;

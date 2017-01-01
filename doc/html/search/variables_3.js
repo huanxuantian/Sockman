@@ -16,5 +16,5 @@ var searchData=
   ['log4z_5flogger_5fmax',['LOG4Z_LOGGER_MAX',['../log4z_8h.html#a23c49e7ce103aaaea4cb7aa04f18c8f8',1,'log4z.h']]],
   ['log4z_5fmain_5flogger_5fid',['LOG4Z_MAIN_LOGGER_ID',['../log4z_8h.html#af7e2e6c734863d4c9568502debc056d4',1,'log4z.h']]],
   ['log4z_5fmain_5flogger_5fkey',['LOG4Z_MAIN_LOGGER_KEY',['../log4z_8h.html#a90b0cc1c6d0bd2e7bcd546661cea2799',1,'log4z.h']]],
-  ['logid_5ftest',['LOGID_TEST',['../_t_c_p_man_8hpp.html#a4b9160c3dd6a7afa81ac8718d14d8c19',1,'TCPMan.hpp']]]
+  ['logid_5ftest',['LOGID_TEST',['../loger_8hpp.html#a4b9160c3dd6a7afa81ac8718d14d8c19',1,'loger.hpp']]]
 ];

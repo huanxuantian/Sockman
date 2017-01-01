@@ -13,7 +13,7 @@ var searchData=
   ['setloggername',['setLoggerName',['../class_loger_manager.html#af606c5bcf82cebb31601122e6255542e',1,'LogerManager::setLoggerName()'],['../class_i_log4z_manager.html#a3d46a6b386f5b405d7215023ea609d33',1,'ILog4zManager::setLoggerName()']]],
   ['setloggeroutfile',['setLoggerOutFile',['../class_loger_manager.html#a2a6bef6cb366d053c3a2a58c6d65a70c',1,'LogerManager::setLoggerOutFile()'],['../class_i_log4z_manager.html#a7614db95ddf5b57b2136d8007f6b712d',1,'ILog4zManager::setLoggerOutFile()']]],
   ['setloggerpath',['setLoggerPath',['../class_loger_manager.html#a54a787e25fbddfa702daa268d01aeb24',1,'LogerManager::setLoggerPath()'],['../class_i_log4z_manager.html#a07f1947f0a99bfe5d83dc2f23db196d7',1,'ILog4zManager::setLoggerPath()']]],
-  ['setup_5floger',['setup_loger',['../_t_c_p_man_8hpp.html#a245306f7a0e9d637fc74de5f3fd5508a',1,'TCPMan.hpp']]],
+  ['setup_5floger',['setup_loger',['../loger_8hpp.html#a245306f7a0e9d637fc74de5f3fd5508a',1,'loger.hpp']]],
   ['showcolortext',['showColorText',['../class_loger_manager.html#a9b4d30d1c154f2a826e3a278f6d1abad',1,'LogerManager']]],
   ['size',['size',['../class_json_1_1_value.html#a4ca8ee6c48a34ca6c2f131956bab5e05',1,'Json::Value']]],
   ['socketexception',['SocketException',['../class_socket_1_1_socket_exception.html#a999827b0114cb4996e85e9184a39488d',1,'Socket::SocketException']]],

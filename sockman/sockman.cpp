@@ -12,7 +12,6 @@
 
 #include "loger.hpp"
 #include "TCPMan.hpp"
-//#include "./log4z/log4z.h"
 #include "./json/json.h"
 #include "./CQ/CRecycleQueue.h"
 
@@ -23,12 +22,11 @@ using namespace std;
 
 
 #define IP   "127.0.0.1"
-//#define IP   "120.25.166.144"
 #define PORT 10009
 
 int s_port=PORT;
 
-char* s_ip=IP;
+const char* s_ip=IP;
 
 #define SEND_FILE "test.hex"
 
@@ -40,7 +38,7 @@ StyledWriter writer;
 
 int json_test1()
 {
-	LOGA( __FUNCTION__<<":read string and parse json rewrite json");
+	LOG_TA( __FUNCTION__<<":read string and parse json rewrite json");
 	LOG_TI("input:"<< "json{\"Device_COM\":\"-1\",\"state\":-1,\"result\":true}");
 	LOG_TI("rewrite:"<< "Device_COM=\"2\",state=0,result=false");
 	bool parsingSuccessful = reader.parse("{\"Device_COM\":\"-1\",\"state\":-1,\"result\":true}", root );

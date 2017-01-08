@@ -102,6 +102,7 @@ void tcp_receiver(void)
     catch (Socket::SocketException &e)
     {
         cout << e << endl;
+        LOG_TE("err:"<<e.what());
     }
 }
 /*@brief test for tcp server mode */
@@ -118,6 +119,7 @@ void tcp_sender(void)
     catch (Socket::SocketException &e)
     {
         cout << e << endl;
+        LOG_TE("err:"<<e.what());
     }
 }
 
@@ -126,11 +128,19 @@ void udp_receiver(void)
     try
     {
         Socket::UDP sock;
-        double buffer[SOCKET_MAX_BUFFER_LEN];
+        //double buffer[SOCKET_MAX_BUFFER_LEN];
+        unsigned char char_buffer[SOCKET_MAX_BUFFER_LEN];
         int i;
+         Socket::Datagram<unsigned char*> recv_Byte;
 
-        sock.listen_on_port(PORT);
-
+        sock.listen_on_port(s_port);
+        //while(1)
+        {
+            recv_Byte = sock.receive<unsigned char>(char_buffer);
+            //received_bytes
+            LOG_TI("data:"<<Log4zBinary(recv_Byte.data,recv_Byte.received_bytes));
+        }
+        /*
         Socket::Datagram<string>            rec_str = sock.receive<string>();
         LOG_TA("string data:"<<Log4zBinary(rec_str.data.c_str(),strlen(rec_str.data.c_str())));//log
         Socket::Datagram<int[5]>            rec_arr = sock.receive<int, 5>(); // ([, 5]);
@@ -140,8 +150,8 @@ void udp_receiver(void)
         Socket::Datagram<double*>           rec_pnt = sock.receive<double>(buffer); // (buffer [, SOCKET_MAX_BUFFER_LEN]);
         LOG_TA("double array"<<Log4zBinary((char*)rec_pnt.data,sizeof(rec_pnt.data)*rec_pnt.received_elements));//log
         Socket::Datagram<vector<prova> >    rec_vec = sock.receive<prova>(5); // conflict with the first one, must be specified
-        for (i = 0; i < (int)rec_vec.data.size(); i++)
-        LOG_TA("vec data["<<i<<"]:"<<Log4zBinary((char*)&rec_vec.data[i],sizeof(prova)));//log
+        LOG_TA("vec data:"<<Log4zBinary((char*)&rec_vec.data,sizeof(rec_vec.data)*rec_vec.received_elements));//log
+        */
         /*
         cout << rec_str.data << endl;
         cout << endl;
@@ -160,8 +170,15 @@ void udp_receiver(void)
     catch (Socket::SocketException &e)
     {
         cout << e << endl;
+        LOG_TE("err:"<<e.what());
     }
 }
+
+unsigned char udp_test[]=
+{
+    0x24,0x24,0x01,0x00,0x02,0x00,0x00,0x00,0x00,0x02,0x00,0x15,0x45,0x01,0x00,0x02,0xae,0x3f
+};
+
 
 void udp_sender(void)
 {
@@ -169,8 +186,18 @@ void udp_sender(void)
     {
     	int i;
         Socket::UDP sock;
-        Socket::Address to(IP, PORT);
-
+        Socket::Address to(s_ip, s_port);
+        Socket::Datagram<unsigned char*> recv_Byte;
+        unsigned char char_buffer[SOCKET_MAX_BUFFER_LEN];
+        LOG_TI("send:"<<Log4zBinary((char*)&udp_test,sizeof(udp_test)));
+        sock.send<unsigned char>(to, udp_test, sizeof(udp_test));
+        while(1)
+        {
+            recv_Byte = sock.receive<unsigned char>(char_buffer);
+            //received_bytes
+            LOG_TI("data:"<<Log4zBinary(recv_Byte.data,recv_Byte.received_bytes));
+        }
+        /*
         sock.send<string>(to, "this is the string"); // ("127.0.0.1", 10000, "this is a string");
                                                      // as well as the others
 
@@ -188,12 +215,13 @@ void udp_sender(void)
         for (i = 0; i < 5; i++) vec.push_back( { i, (float)(i + 1.0) });
         LOG_TA("vector data::"<<Log4zBinary((char*)vec.data(),sizeof(vec.data())*vec.size()));//log
         sock.send<prova>(to, vec);
-
+        */
         sock.close();
     }
     catch (Socket::SocketException &e)
     {
         cout << e << endl;
+        LOG_TE("err:"<<e.what());
     }
 }
 
@@ -240,6 +268,18 @@ int main(int argc,char *argv[]){
 	else if(strcmp(argv[1],"udpcli")==0)
 	{
 		LOG_TI("start client for udp test "<<SEND_FILE);
+        
+        if(argc>=3)
+        {
+            s_port=atoi(argv[2]);
+            if(argc>=4)
+            {
+                s_ip=argv[3];
+                LOG_TA("start client connect to ip "<<s_ip);
+            }
+            LOG_TA("client connect to port "<<s_port);
+        }
+        
 		udp_sender();
 	}
 	else if(strcmp(argv[1],"udpsrv")==0)

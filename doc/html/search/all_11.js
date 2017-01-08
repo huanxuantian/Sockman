@@ -1,10 +1,11 @@
 var searchData=
 [
   ['readcontent',['readContent',['../class_log4z_file_handler.html#a639fa6eebbf5f2072a80afef04d8a949',1,'Log4zFileHandler']]],
-  ['reader',['Reader',['../class_json_1_1_reader.html#a0b3c4e24c8393354bab57a6ba3ffc27f',1,'Json::Reader::Reader()'],['../class_json_1_1_reader.html#a45f17831118337309180313e93ac33f8',1,'Json::Reader::Reader(const Features &amp;features)'],['../sockman_8cpp.html#a9d07a025276cef85d7d7ba72209d022e',1,'reader():&#160;sockman.cpp']]],
   ['reader',['Reader',['../class_json_1_1_reader.html',1,'Json']]],
+  ['reader',['Reader',['../class_json_1_1_reader.html#a0b3c4e24c8393354bab57a6ba3ffc27f',1,'Json::Reader::Reader()'],['../class_json_1_1_reader.html#a45f17831118337309180313e93ac33f8',1,'Json::Reader::Reader(const Features &amp;features)'],['../sockman_8cpp.html#a9d07a025276cef85d7d7ba72209d022e',1,'reader():&#160;sockman.cpp']]],
   ['readline',['readLine',['../class_log4z_file_handler.html#a9471a82ee63d65e6c0e2d320dfd82929',1,'Log4zFileHandler']]],
   ['readme_2emd',['README.md',['../_r_e_a_d_m_e_8md.html',1,'']]],
+  ['readme_2emd',['README.md',['../_c_p_p_socket_2_r_e_a_d_m_e_8md.html',1,'']]],
   ['realvalue',['realValue',['../namespace_json.html#a7d654b75c16a57007925868e38212b4eab837c7b869c14d8be712deb45c9e490e',1,'Json']]],
   ['receive',['receive',['../class_socket_1_1_u_d_p.html#aa17812525370f98f0f71f0048f6f5ab6',1,'Socket::UDP::receive(Address *, T *, size_t, unsigned int *)'],['../class_socket_1_1_u_d_p.html#a864b03acc2a4b817348db2e438859f1b',1,'Socket::UDP::receive(T *, size_t)'],['../class_socket_1_1_u_d_p.html#aded2962c662ed416f5348de3f5d7844c',1,'Socket::UDP::receive(size_t)'],['../class_socket_1_1_u_d_p.html#a95ae1da3302976e876308767312e27b3',1,'Socket::UDP::receive(void)'],['../class_socket_1_1_u_d_p.html#a49b41a18f0d4d59394c2bdd1ec7a2a99',1,'Socket::UDP::receive(size_t)'],['../class_socket_1_1_t_c_p.html#a057924c803288f515d1006fa70a53596',1,'Socket::TCP::receive()'],['../class_socket_1_1_u_d_p.html#a7be18c2d086294ea7edad319af7ef0c9',1,'Socket::UDP::receive()']]],
   ['receive_5ffile',['receive_file',['../class_socket_1_1_t_c_p___m_a_n.html#adea79aeb8cf51a34e983d5fffff257fb',1,'Socket::TCP_MAN::receive_file()'],['../class_socket_1_1_t_c_p.html#a6343ebbe9ca8ad7741785b67c8d97298',1,'Socket::TCP::receive_file()']]],

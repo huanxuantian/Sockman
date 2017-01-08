@@ -1,6 +1,9 @@
 var searchData=
 [
-  ['socket',['Socket',['../md__home_shinki_work2__sockman_sockman__c_p_p_socket__r_e_a_d_m_e.html',1,'']]],
+  ['socket',['Socket',['../md__home_shinki_github__sockman_sockman__c_p_p_socket__r_e_a_d_m_e.html',1,'']]],
+  ['sockman',['Sockman',['../md__home_shinki_github__sockman_sockman__r_e_a_d_m_e.html',1,'']]],
+  ['s_5fip',['s_ip',['../sockman_8cpp.html#ad311ed7d7e88b8e684caa349998a45f7',1,'sockman.cpp']]],
+  ['s_5fport',['s_port',['../sockman_8cpp.html#a64a4e967ab04459f1c52927c32bede66',1,'sockman.cpp']]],
   ['selftype',['SelfType',['../class_json_1_1_value_iterator_base.html#a9d2a940d03ea06d20d972f41a89149ee',1,'Json::ValueIteratorBase::SelfType()'],['../class_json_1_1_value_const_iterator.html#a0c2e33e7eb5a80dd8709fb28ece83933',1,'Json::ValueConstIterator::SelfType()'],['../class_json_1_1_value_iterator.html#a23357670fdad61792670d86f62db7e16',1,'Json::ValueIterator::SelfType()']]],
   ['semhelper',['SemHelper',['../class_sem_helper.html',1,'SemHelper'],['../class_sem_helper.html#a415035f4e56178c59f860ee7cd76b14c',1,'SemHelper::SemHelper()']]],
   ['send',['send',['../class_socket_1_1_u_d_p.html#a647e332e5602a198bb25456f02b9028c',1,'Socket::UDP::send(Ip, Port, const T *, size_t)'],['../class_socket_1_1_u_d_p.html#ac433ce5d7b3fc48f1ce2fa5428dceda3',1,'Socket::UDP::send(Address, const T *, size_t)'],['../class_socket_1_1_u_d_p.html#aca27202652e8cffadf0034470f5cb5ab',1,'Socket::UDP::send(Ip, Port, T)'],['../class_socket_1_1_u_d_p.html#a7970b42c051953718f6fb74a103c2dc3',1,'Socket::UDP::send(Address, T)'],['../class_socket_1_1_u_d_p.html#a52b86ec468b4dd17588ddc33d60e87a5',1,'Socket::UDP::send(Ip, Port, vector&lt; T &gt;)'],['../class_socket_1_1_u_d_p.html#ac6891abeaa97359d6e2f7b1967f0f8af',1,'Socket::UDP::send(Address, vector&lt; T &gt;)'],['../class_socket_1_1_t_c_p.html#a7084a00d06faff1a23aa49b9dd3d5b63',1,'Socket::TCP::send()'],['../class_socket_1_1_u_d_p.html#a5899cbe7c8b9ee0621331ec93af3ef5a',1,'Socket::UDP::send(Ip ip, Port port, string data)'],['../class_socket_1_1_u_d_p.html#a674eb51e0bb993bf574819925aacf7b6',1,'Socket::UDP::send(Address address, string data)']]],
@@ -15,7 +18,7 @@ var searchData=
   ['setloggername',['setLoggerName',['../class_loger_manager.html#af606c5bcf82cebb31601122e6255542e',1,'LogerManager::setLoggerName()'],['../class_i_log4z_manager.html#a3d46a6b386f5b405d7215023ea609d33',1,'ILog4zManager::setLoggerName()']]],
   ['setloggeroutfile',['setLoggerOutFile',['../class_loger_manager.html#a2a6bef6cb366d053c3a2a58c6d65a70c',1,'LogerManager::setLoggerOutFile()'],['../class_i_log4z_manager.html#a7614db95ddf5b57b2136d8007f6b712d',1,'ILog4zManager::setLoggerOutFile()']]],
   ['setloggerpath',['setLoggerPath',['../class_loger_manager.html#a54a787e25fbddfa702daa268d01aeb24',1,'LogerManager::setLoggerPath()'],['../class_i_log4z_manager.html#a07f1947f0a99bfe5d83dc2f23db196d7',1,'ILog4zManager::setLoggerPath()']]],
-  ['setup_5floger',['setup_loger',['../_t_c_p_man_8hpp.html#a245306f7a0e9d637fc74de5f3fd5508a',1,'TCPMan.hpp']]],
+  ['setup_5floger',['setup_loger',['../loger_8hpp.html#a245306f7a0e9d637fc74de5f3fd5508a',1,'loger.hpp']]],
   ['showcolortext',['showColorText',['../class_loger_manager.html#a9b4d30d1c154f2a826e3a278f6d1abad',1,'LogerManager']]],
   ['size',['size',['../class_json_1_1_value.html#a4ca8ee6c48a34ca6c2f131956bab5e05',1,'Json::Value']]],
   ['size_5ft',['size_t',['../class_json_1_1_value_iterator_base.html#a9d3a3c7ce5cdefe23cb486239cf07bb5',1,'Json::ValueIteratorBase::size_t()'],['../class_json_1_1_value_const_iterator.html#a8685219d214dbd2b763357ae94fb0f27',1,'Json::ValueConstIterator::size_t()'],['../class_json_1_1_value_iterator.html#a308b8932ffc83eaa9d12dadd5c11a7dd',1,'Json::ValueIterator::size_t()']]],

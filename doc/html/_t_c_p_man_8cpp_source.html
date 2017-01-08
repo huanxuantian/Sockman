@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>sockman: /home/shinki/work2/Sockman/sockman/TCPMan.cpp 源文件</title>
+<title>sockman: /home/shinki/github/Sockman/sockman/TCPMan.cpp 源文件</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -154,13 +154,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'搜索');
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        file_size = fp.tellg();</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        fp.seekg(0, ifstream::beg);</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        this-&gt;send&lt;unsigned long long&gt;(&amp;file_size, 1);</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <a class="code" href="_t_c_p_man_8hpp.html#a384cef99c23aa1ce2076d6df96851fda">LOG_TI</a>(<a class="code" href="class_log4z_binary.html">Log4zBinary</a>(&amp;file_size, <span class="keyword">sizeof</span>(file_size)));<span class="comment">//debug 2016-9-29</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <a class="code" href="loger_8hpp.html#a384cef99c23aa1ce2076d6df96851fda">LOG_TI</a>(<a class="code" href="class_log4z_binary.html">Log4zBinary</a>(&amp;file_size, <span class="keyword">sizeof</span>(file_size)));<span class="comment">//debug 2016-9-29</span></div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">long</span> i = 0; i &lt; file_size / <a class="code" href="_socket_8hpp.html#a53bbb0386990bed294fda40cf77c889f">SOCKET_MAX_BUFFER_LEN</a>; i++)</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        {</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            this-&gt;receive&lt;unsigned char&gt;(&amp;sync, 1);</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            fp.read((<span class="keywordtype">char</span>*)chunk, <a class="code" href="_socket_8hpp.html#a53bbb0386990bed294fda40cf77c889f">SOCKET_MAX_BUFFER_LEN</a>);</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            <a class="code" href="_t_c_p_man_8hpp.html#a384cef99c23aa1ce2076d6df96851fda">LOG_TI</a>(<a class="code" href="class_log4z_binary.html">Log4zBinary</a>(&amp;chunk, <a class="code" href="_socket_8hpp.html#a53bbb0386990bed294fda40cf77c889f">SOCKET_MAX_BUFFER_LEN</a>));<span class="comment">//debug 2016-9-29</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            <a class="code" href="loger_8hpp.html#a384cef99c23aa1ce2076d6df96851fda">LOG_TI</a>(<a class="code" href="class_log4z_binary.html">Log4zBinary</a>(&amp;chunk, <a class="code" href="_socket_8hpp.html#a53bbb0386990bed294fda40cf77c889f">SOCKET_MAX_BUFFER_LEN</a>));<span class="comment">//debug 2016-9-29</span></div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            this-&gt;send&lt;unsigned char&gt;(chunk, <a class="code" href="_socket_8hpp.html#a53bbb0386990bed294fda40cf77c889f">SOCKET_MAX_BUFFER_LEN</a>);</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        }</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
@@ -168,7 +168,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'搜索');
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        {</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;            this-&gt;receive&lt;unsigned char&gt;(&amp;sync, 1);</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            fp.read((<span class="keywordtype">char</span>*)chunk, file_size % SOCKET_MAX_BUFFER_LEN);</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            <a class="code" href="_t_c_p_man_8hpp.html#a384cef99c23aa1ce2076d6df96851fda">LOG_TI</a>(<a class="code" href="class_log4z_binary.html">Log4zBinary</a>(&amp;chunk, file_size % SOCKET_MAX_BUFFER_LEN));<span class="comment">//debug 2016-9-29</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            <a class="code" href="loger_8hpp.html#a384cef99c23aa1ce2076d6df96851fda">LOG_TI</a>(<a class="code" href="class_log4z_binary.html">Log4zBinary</a>(&amp;chunk, file_size % SOCKET_MAX_BUFFER_LEN));<span class="comment">//debug 2016-9-29</span></div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            this-&gt;send&lt;unsigned char&gt;(chunk, file_size % <a class="code" href="_socket_8hpp.html#a53bbb0386990bed294fda40cf77c889f">SOCKET_MAX_BUFFER_LEN</a>);</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        }</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;</div>
@@ -190,13 +190,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'搜索');
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        }</div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        this-&gt;receive&lt;unsigned long long&gt;(&amp;file_size, 1);</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        <a class="code" href="_t_c_p_man_8hpp.html#a384cef99c23aa1ce2076d6df96851fda">LOG_TI</a>(<a class="code" href="class_log4z_binary.html">Log4zBinary</a>(&amp;file_size, <span class="keyword">sizeof</span>(file_size)));<span class="comment">//debug 2016-9-29</span></div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        <a class="code" href="loger_8hpp.html#a384cef99c23aa1ce2076d6df96851fda">LOG_TI</a>(<a class="code" href="class_log4z_binary.html">Log4zBinary</a>(&amp;file_size, <span class="keyword">sizeof</span>(file_size)));<span class="comment">//debug 2016-9-29</span></div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;</div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">long</span> i = 0; i &lt; file_size / <a class="code" href="_socket_8hpp.html#a53bbb0386990bed294fda40cf77c889f">SOCKET_MAX_BUFFER_LEN</a>; i++)</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        {</div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;            this-&gt;send&lt;unsigned char&gt;(&amp;sync, 1);</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;            this-&gt;receive&lt;unsigned char&gt;(chunk, <a class="code" href="_socket_8hpp.html#a53bbb0386990bed294fda40cf77c889f">SOCKET_MAX_BUFFER_LEN</a>);</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;            <a class="code" href="_t_c_p_man_8hpp.html#a384cef99c23aa1ce2076d6df96851fda">LOG_TI</a>(<a class="code" href="class_log4z_binary.html">Log4zBinary</a>(&amp;chunk, <a class="code" href="_socket_8hpp.html#a53bbb0386990bed294fda40cf77c889f">SOCKET_MAX_BUFFER_LEN</a>));<span class="comment">//debug 2016-9-29</span></div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;            <a class="code" href="loger_8hpp.html#a384cef99c23aa1ce2076d6df96851fda">LOG_TI</a>(<a class="code" href="class_log4z_binary.html">Log4zBinary</a>(&amp;chunk, <a class="code" href="_socket_8hpp.html#a53bbb0386990bed294fda40cf77c889f">SOCKET_MAX_BUFFER_LEN</a>));<span class="comment">//debug 2016-9-29</span></div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;            fp.write((<span class="keywordtype">char</span>*)chunk, <a class="code" href="_socket_8hpp.html#a53bbb0386990bed294fda40cf77c889f">SOCKET_MAX_BUFFER_LEN</a>);</div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        }</div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;</div>
@@ -204,7 +204,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'搜索');
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        {</div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;            this-&gt;send&lt;unsigned char&gt;(&amp;sync, 1);</div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;            this-&gt;receive&lt;unsigned char&gt;(chunk, file_size % <a class="code" href="_socket_8hpp.html#a53bbb0386990bed294fda40cf77c889f">SOCKET_MAX_BUFFER_LEN</a>);</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;            <a class="code" href="_t_c_p_man_8hpp.html#a384cef99c23aa1ce2076d6df96851fda">LOG_TI</a>(<a class="code" href="class_log4z_binary.html">Log4zBinary</a>(&amp;chunk,  file_size % SOCKET_MAX_BUFFER_LEN));<span class="comment">//debug 2016-9-29</span></div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;            <a class="code" href="loger_8hpp.html#a384cef99c23aa1ce2076d6df96851fda">LOG_TI</a>(<a class="code" href="class_log4z_binary.html">Log4zBinary</a>(&amp;chunk,  file_size % SOCKET_MAX_BUFFER_LEN));<span class="comment">//debug 2016-9-29</span></div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;            fp.write((<span class="keywordtype">char</span>*)chunk, file_size % SOCKET_MAX_BUFFER_LEN);</div>
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;        }</div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;</div>
@@ -220,10 +220,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'搜索');
 <div class="ttc" id="class_socket_1_1_common_socket_html_a63fa8d1c21f415facdb18b2e7d4e43c8"><div class="ttname"><a href="class_socket_1_1_common_socket.html#a63fa8d1c21f415facdb18b2e7d4e43c8">Socket::CommonSocket::listen_on_port</a></div><div class="ttdeci">virtual void listen_on_port(Port)</div><div class="ttdef"><b>Definition:</b> <a href="_common_socket_8cpp_source.html#l00097">CommonSocket.cpp:97</a></div></div>
 <div class="ttc" id="class_log4z_binary_html"><div class="ttname"><a href="class_log4z_binary.html">Log4zBinary</a></div><div class="ttdoc">optimze from std::stringstream to Log4zStream </div><div class="ttdef"><b>Definition:</b> <a href="log4z_8h_source.html#l00482">log4z.h:482</a></div></div>
 <div class="ttc" id="_t_c_p_man_8hpp_html"><div class="ttname"><a href="_t_c_p_man_8hpp.html">TCPMan.hpp</a></div></div>
-<div class="ttc" id="class_socket_1_1_t_c_p___m_a_n_html"><div class="ttname"><a href="class_socket_1_1_t_c_p___m_a_n.html">Socket::TCP_MAN</a></div><div class="ttdef"><b>Definition:</b> <a href="_t_c_p_man_8hpp_source.html#l00051">TCPMan.hpp:51</a></div></div>
+<div class="ttc" id="class_socket_1_1_t_c_p___m_a_n_html"><div class="ttname"><a href="class_socket_1_1_t_c_p___m_a_n.html">Socket::TCP_MAN</a></div><div class="ttdef"><b>Definition:</b> <a href="_t_c_p_man_8hpp_source.html#l00027">TCPMan.hpp:27</a></div></div>
 <div class="ttc" id="class_socket_1_1_t_c_p___m_a_n_html_a81f4f78e02c8d4f3cfa0083add683ca3"><div class="ttname"><a href="class_socket_1_1_t_c_p___m_a_n.html#a81f4f78e02c8d4f3cfa0083add683ca3">Socket::TCP_MAN::TCP_MAN</a></div><div class="ttdeci">TCP_MAN(void)</div><div class="ttdef"><b>Definition:</b> <a href="_t_c_p_man_8cpp_source.html#l00010">TCPMan.cpp:10</a></div></div>
 <div class="ttc" id="class_socket_1_1_t_c_p___m_a_n_html_ad40d25c543d08c7de599b90a72bd1b95"><div class="ttname"><a href="class_socket_1_1_t_c_p___m_a_n.html#ad40d25c543d08c7de599b90a72bd1b95">Socket::TCP_MAN::creat_server</a></div><div class="ttdeci">bool creat_server(Port, unsigned int)</div><div class="ttdef"><b>Definition:</b> <a href="_t_c_p_man_8cpp_source.html#l00035">TCPMan.cpp:35</a></div></div>
-<div class="ttc" id="_t_c_p_man_8hpp_html_a384cef99c23aa1ce2076d6df96851fda"><div class="ttname"><a href="_t_c_p_man_8hpp.html#a384cef99c23aa1ce2076d6df96851fda">LOG_TI</a></div><div class="ttdeci">#define LOG_TI(log)</div><div class="ttdef"><b>Definition:</b> <a href="_t_c_p_man_8hpp_source.html#l00022">TCPMan.hpp:22</a></div></div>
+<div class="ttc" id="loger_8hpp_html_a384cef99c23aa1ce2076d6df96851fda"><div class="ttname"><a href="loger_8hpp.html#a384cef99c23aa1ce2076d6df96851fda">LOG_TI</a></div><div class="ttdeci">#define LOG_TI(log)</div><div class="ttdef"><b>Definition:</b> <a href="loger_8hpp_source.html#l00022">loger.hpp:22</a></div></div>
 <div class="ttc" id="class_socket_1_1_common_socket_html_a29ce9d9bedd51d136620c700a95a5789"><div class="ttname"><a href="class_socket_1_1_common_socket.html#a29ce9d9bedd51d136620c700a95a5789">Socket::CommonSocket::close</a></div><div class="ttdeci">void close(void)</div><div class="ttdef"><b>Definition:</b> <a href="_common_socket_8cpp_source.html#l00084">CommonSocket.cpp:84</a></div></div>
 <div class="ttc" id="_socket_8hpp_html_a53bbb0386990bed294fda40cf77c889f"><div class="ttname"><a href="_socket_8hpp.html#a53bbb0386990bed294fda40cf77c889f">SOCKET_MAX_BUFFER_LEN</a></div><div class="ttdeci">#define SOCKET_MAX_BUFFER_LEN</div><div class="ttdef"><b>Definition:</b> <a href="_socket_8hpp_source.html#l00048">Socket.hpp:48</a></div></div>
 <div class="ttc" id="namespace_socket_html_ab3e21fdc4c3718a292b430305c892481"><div class="ttname"><a href="namespace_socket.html#ab3e21fdc4c3718a292b430305c892481">Socket::Port</a></div><div class="ttdeci">unsigned int Port</div><div class="ttdef"><b>Definition:</b> <a href="_socket_8hpp_source.html#l00056">Socket.hpp:56</a></div></div>
@@ -234,7 +234,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'搜索');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-生成于 2016年 十月 28日 星期五 15:56:07 , 为 sockman使用  &#160;<a href="http://www.doxygen.org/index.html">
+生成于 2017年 一月 1日 星期日 16:29:20 , 为 sockman使用  &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

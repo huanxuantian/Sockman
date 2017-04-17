@@ -4,10 +4,9 @@
 #define _TCP_MAN_HPP_
 
 #include "CPPSocket/Socket.hpp"
-#include "./log4z/log4z.h"
+//#include "./log4z/log4z.h"
 
-using namespace zsummer::log4z;
-using namespace std;
+
 
 #ifdef WINDOWS
 
@@ -19,7 +18,7 @@ using namespace std;
 namespace Socket
 {
 	#ifdef WINDOWS
-	typedef void (CALLBACK* DEALPROC)(SocketId s, int ServerPort, const char *ClientIP);
+	//typedef void (CALLBACK* DEALPROC)(SocketId s, int ServerPort, const char *ClientIP);
 	#else
 	typedef void (* DEALPROC)(SocketId s, int ServerPort, const char *ClientIP);
 	#endif
@@ -45,6 +44,7 @@ namespace Socket
         void receive_file(string);
 	};
 }
+#ifndef WINDOWS
 #include "TCPMan.cpp"
-
+#endif
 #endif

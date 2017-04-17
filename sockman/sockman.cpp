@@ -11,10 +11,11 @@
 #include<string.h>
 
 #include "loger.hpp"
+#include "CPPSocket/Socket.hpp"
 #include "TCPMan.hpp"
-//#include "./log4z/log4z.h"
+#include "./log4z/log4z.h"
 #include "./json/json.h"
-#include "./CQ/CRecycleQueue.h"
+//#include "./CQ/CRecycleQueue.h"
 
 using namespace zsummer::log4z;
 using namespace Json;
@@ -86,19 +87,19 @@ struct prova
     float somethingelse;
 };
 
-CRecycleQueue<Socket::TCP_MAN> *tcp_queue = new CRecycleQueue<Socket::TCP_MAN>;
+//CRecycleQueue<Socket::TCP_MAN> *tcp_queue = new CRecycleQueue<Socket::TCP_MAN>;
 /*@brief test for tcp server mode */
 void tcp_receiver(void)
 {
     try
     {
         Socket::TCP_MAN server;
-        tcp_queue->InitRecycleQueue(3);
+        //tcp_queue->InitRecycleQueue(3);
         server.listen_on_port(s_port,SOMAXCONN);
         Socket::TCP_MAN client = server.accept_client();
-        tcp_queue->Push(&client);
+        //tcp_queue->Push(&client);
         cout << "receiving ..." << endl;
-        Socket::TCP_MAN* h_client=tcp_queue->Pop();
+        Socket::TCP_MAN* h_client=&client;//tcp_queue->Pop();
         h_client->receive_file(RECV_FILE);
     }
     catch (Socket::SocketException &e)
@@ -138,12 +139,16 @@ void udp_receiver(void)
         Socket::Datagram<int[5]>            rec_arr = sock.receive<int, 5>(); // ([, 5]);
         LOG_TA("int array:"<<Log4zBinary(rec_arr.data,sizeof(rec_arr.data)));//log
         Socket::Datagram<float>             rec_var = sock.receive<float>();
-        LOG_TA("float:"<<Log4zBinary((char*)&rec_var.data,sizeof(rec_var.data)));//log
-        Socket::Datagram<double*>           rec_pnt = sock.receive<double>(buffer); // (buffer [, SOCKET_MAX_BUFFER_LEN]);
+        LOG_TA("float:"<<Log4zBinary((char*)&rec_var.data,sizeof(rec_var.received_bytes)));//log
+		
+		/*
+		Socket::Datagram<double*>           rec_pnt = sock.receive<double>(buffer); // (buffer [, SOCKET_MAX_BUFFER_LEN]);
         LOG_TA("double array"<<Log4zBinary((char*)rec_pnt.data,sizeof(rec_pnt.data)*rec_pnt.received_elements));//log
-        Socket::Datagram<vector<prova> >    rec_vec = sock.receive<prova>(5); // conflict with the first one, must be specified
+
+		Socket::Datagram<vector<prova> >    rec_vec = sock.receive<prova>(5); // conflict with the first one, must be specified
         for (i = 0; i < (int)rec_vec.data.size(); i++)
         LOG_TA("vec data["<<i<<"]:"<<Log4zBinary((char*)&rec_vec.data[i],sizeof(prova)));//log
+		*/
         /*
         cout << rec_str.data << endl;
         cout << endl;
@@ -177,11 +182,17 @@ void udp_sender(void)
                                                      // as well as the others
 
         int iarr[5] = { 0, 1, 2, 3, 4 };
+		char iarr1[5] = { 0, 1, 2, 3, 4 };
+		float f_send=5.0;
         LOG_TA("int array:"<<Log4zBinary((char*)&iarr,sizeof(iarr)));//log
+
+		 //sock.send<INT8>(to, 'A');
+		
         sock.send<int>(to, iarr, 5);
-
+		LOG_TA("float:"<<Log4zBinary((char*)&f_send,sizeof(float)));//log
         sock.send<float>(to, 5.0);
-
+		
+		/*
         double darr[5] = { 0.0, 1.0, 2.0, 3.0, 4.0 };
         LOG_TA("double array:"<<Log4zBinary((char*)&darr,sizeof(darr)));//log
         sock.send<double>(to, darr, 5);
@@ -190,7 +201,7 @@ void udp_sender(void)
         for (i = 0; i < 5; i++) vec.push_back( { i, (float)(i + 1.0) });
         LOG_TA("vector data::"<<Log4zBinary((char*)vec.data(),sizeof(vec.data())*vec.size()));//log
         sock.send<prova>(to, vec);
-
+		*/
         sock.close();
     }
     catch (Socket::SocketException &e)
@@ -198,6 +209,7 @@ void udp_sender(void)
         cout << e << endl;
     }
 }
+#endif
 
 
 int main(int argc,char *argv[]){

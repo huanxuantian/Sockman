@@ -21,11 +21,12 @@
  * Boston, MA  02110-1301  USA
  */
 
+
 #ifndef _UDP_CPP_
 
 #define _UDP_CPP_
-
 #include "Socket.hpp"
+using namespace Socket;
 
 namespace Socket
 {
@@ -40,6 +41,7 @@ namespace Socket
         this->_binded = udp._binded;
     }
 
+#ifndef WINDOWS
     template <class T>
     int UDP::send(Ip ip, Port port, const T *data, size_t len)
     {
@@ -185,6 +187,7 @@ namespace Socket
         
         return ret;
     }
+    #endif
 }
-
 #endif
+

@@ -6,7 +6,7 @@
 #include <iostream>
 #include "./log4z/log4z.h"
 
-using namespace zsummer::log4z;
+//using namespace zsummer::log4z;
 using namespace std;
 
 #ifdef WINDOWS
@@ -15,16 +15,30 @@ using namespace std;
 	#include <pthread.h>
 	#define USE_PTHREAD
 #endif
-LoggerId LOGID_TEST;;
 
-#define LOG_TT( log ) LOG_TRACE(LOGID_TEST, log )
-#define LOG_TD( log ) LOG_DEBUG(LOGID_TEST, log )
-#define LOG_TI( log ) LOG_INFO(LOGID_TEST, log )
-#define LOG_TW( log ) LOG_WARN(LOGID_TEST, log )
-#define LOG_TE( log ) LOG_ERROR(LOGID_TEST, log )
-#define LOG_TA( log ) LOG_ALARM(LOGID_TEST, log )
-#define LOG_TF( log ) LOG_FATAL(LOGID_TEST, log )
+LoggerId get_logger();
 
+#define LOG_TT( log ) LOG_TRACE((LoggerId)get_logger(), log )
+#define LOG_TD( log ) LOG_DEBUG((LoggerId)get_logger(), log )
+#define LOG_TI( log ) LOG_INFO((LoggerId)get_logger(), log )
+#define LOG_TW( log ) LOG_WARN((LoggerId)get_logger(), log )
+#define LOG_TE( log ) LOG_ERROR((LoggerId)get_logger(), log )
+#define LOG_TA( log ) LOG_ALARM((LoggerId)get_logger(), log )
+#define LOG_TF( log ) LOG_FATAL((LoggerId)get_logger(), log )
+
+/*
+#define setup_loger() { cout<<"setup loger!!"<<endl; \
+	LOGID_TEST = ILog4zManager::getRef().createLogger("test" ); \
+	ILog4zManager::getRef().setLoggerDisplay(LOG4Z_MAIN_LOGGER_ID, false); \
+	ILog4zManager::getRef().setLoggerOutFile(LOG4Z_MAIN_LOGGER_ID, false); \
+	ILog4zManager::getRef().setLoggerDisplay(LOGID_TEST, true); \
+	ILog4zManager::getRef().setLoggerOutFile(LOGID_TEST, true); \
+    ILog4zManager::getRef().start(); \
+    cout<<"LOGID_TEST:"<<LOGID_TEST<<("!setup finish!!")<<endl; \
+    }
+*/
+int setup_loger();
+/*
 int setup_loger()
 {
 	//start log4z
@@ -40,5 +54,6 @@ int setup_loger()
     cout<<"LOGID_TEST:"<<LOGID_TEST<<("!setup finish!!")<<endl;
     return 0;
 }
+*/
 
 #endif

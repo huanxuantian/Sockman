@@ -26,9 +26,11 @@
 #define _DATAGRAM_CPP_
 
 #include "Socket.hpp"
+//using namespace Socket;
 
 namespace Socket
 {
+
     template <class DataType>
     template <class T>
     void Datagram<DataType>::operator= (const Datagram<T> &datagram)
@@ -36,6 +38,8 @@ namespace Socket
         this->address = datagram.address;
         this->data = datagram.data;
     }
+
 }
+
 
 #endif

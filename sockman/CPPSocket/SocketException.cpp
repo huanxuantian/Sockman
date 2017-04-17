@@ -26,9 +26,11 @@
 #define _SOCKETEXCEPTION_CPP_
 
 #include "Socket.hpp"
+//using namespace Socket;
 
 namespace Socket
 {
+
     SocketException::SocketException(const string &message)
     {
         this->_error = message;
@@ -48,6 +50,8 @@ namespace Socket
         out << e.what();
         return out;
     }
+
 }
+
 
 #endif

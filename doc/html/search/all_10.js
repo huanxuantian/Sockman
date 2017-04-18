@@ -8,9 +8,10 @@ var searchData=
   ['pointer',['pointer',['../class_json_1_1_value_const_iterator.html#a400136bd8bc09e9fddec0785fa2cff14',1,'Json::ValueConstIterator::pointer()'],['../class_json_1_1_value_iterator.html#acec45feb1ef1f3bf81240157d06d5432',1,'Json::ValueIterator::pointer()']]],
   ['pop',['Pop',['../class_c_recycle_queue.html#afb93db227f526127c96623cd6cd74a84',1,'CRecycleQueue']]],
   ['poplog',['popLog',['../class_loger_manager.html#ae9f2ad163003cf4cdcf207a95a172bb7',1,'LogerManager']]],
-  ['port',['port',['../struct_socket_1_1_address.html#ad51afdf91d812ada421ed6309b351779',1,'Socket::Address::port(void)'],['../struct_socket_1_1_address.html#a7ed98305e55f6b4e467df1548e919cdb',1,'Socket::Address::port(Port)'],['../class_socket_1_1_t_c_p.html#aac9c6d33625b3b84039e6c9838333db5',1,'Socket::TCP::port()'],['../namespace_socket.html#ab3e21fdc4c3718a292b430305c892481',1,'Socket::Port()'],['../sockman_8cpp.html#a614217d263be1fb1a5f76e2ff7be19a2',1,'PORT():&#160;sockman.cpp']]],
+  ['port',['port',['../struct_socket_1_1_address.html#ad51afdf91d812ada421ed6309b351779',1,'Socket::Address::port(void)'],['../struct_socket_1_1_address.html#a7ed98305e55f6b4e467df1548e919cdb',1,'Socket::Address::port(Port)'],['../class_socket_1_1_t_c_p.html#aac9c6d33625b3b84039e6c9838333db5',1,'Socket::TCP::port()'],['../sockman_8cpp.html#a614217d263be1fb1a5f76e2ff7be19a2',1,'PORT():&#160;sockman.cpp'],['../namespace_socket.html#ab3e21fdc4c3718a292b430305c892481',1,'Socket::Port()']]],
   ['post',['post',['../class_sem_helper.html#ab354476e200587e528289c2307d131ea',1,'SemHelper']]],
   ['prepushlog',['prePushLog',['../class_loger_manager.html#a8714a8ae0d3650103a113c2e87e3219e',1,'LogerManager::prePushLog()'],['../class_i_log4z_manager.html#a68d0185e2938fe9b22833ddfa3525670',1,'ILog4zManager::prePushLog()']]],
+  ['progress_5fbar_5fsimple',['progress_bar_simple',['../bar_8c.html#acb60d2c1274e65627f749459c6a1cff3',1,'bar.c']]],
   ['prova',['prova',['../structprova.html',1,'']]],
   ['push',['Push',['../class_c_recycle_queue.html#ad4cd421a518a8173cf6033276351643a',1,'CRecycleQueue']]],
   ['pushlog',['pushLog',['../class_loger_manager.html#ac3204b4651cbdbec5ade2e7ac42931e2',1,'LogerManager::pushLog()'],['../class_i_log4z_manager.html#a225c36b0136a9edc870c5f9812bd0b53',1,'ILog4zManager::pushLog()']]]

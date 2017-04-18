@@ -3,15 +3,16 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<meta name="generator" content="Doxygen 1.8.6"/>
+<meta name="generator" content="Doxygen 1.8.11"/>
 <title>sockman: ILog4zManager类 参考</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
-  $(document).ready(function() { searchBox.OnSelectItem(0); });
+  $(document).ready(function() { init_search(); });
 </script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
@@ -21,7 +22,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td style="padding-left: 0.5em;">
+  <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">sockman
    </div>
   </td>
@@ -30,7 +31,7 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- 制作者 Doxygen 1.8.6 -->
+<!-- 制作者 Doxygen 1.8.11 -->
 <script type="text/javascript">
 var searchBox = new SearchBox("searchBox", "search",false,'搜索');
 </script>
@@ -72,7 +73,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'搜索');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全部</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>类</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>命名空间</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>文件</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>函数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>变量</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>类型定义</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>枚举</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>枚举值</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>友元</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>宏定义</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>页</a></div>
+</div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -119,20 +120,20 @@ Public 成员函数</h2></td></tr>
 <tr class="memitem:a85f95c276de4e5efd57bba78dc602819"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="log4z_8h.html#a99f61f92fb9519f319b5989fb14ff6e0">LoggerId</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_log4z_manager.html#a85f95c276de4e5efd57bba78dc602819">createLogger</a> (const char *key)=0</td></tr>
 <tr class="separator:a85f95c276de4e5efd57bba78dc602819"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa34202d655a2534ef3f4eddca7d3782e"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_log4z_manager.html#aa34202d655a2534ef3f4eddca7d3782e">start</a> ()=0</td></tr>
-<tr class="memdesc:aa34202d655a2534ef3f4eddca7d3782e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Start Log Thread. This method can only be called once by one process.  <a href="#aa34202d655a2534ef3f4eddca7d3782e">更多...</a><br/></td></tr>
+<tr class="memdesc:aa34202d655a2534ef3f4eddca7d3782e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Start Log Thread. This method can only be called once by one process.  <a href="#aa34202d655a2534ef3f4eddca7d3782e">更多...</a><br /></td></tr>
 <tr class="separator:aa34202d655a2534ef3f4eddca7d3782e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac2d946a78abd3eb5a26b8ea96e674d06"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_log4z_manager.html#ac2d946a78abd3eb5a26b8ea96e674d06">stop</a> ()=0</td></tr>
 <tr class="separator:ac2d946a78abd3eb5a26b8ea96e674d06"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:affc1ab73fb7b6679ac3230cfcc9fa02f"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="log4z_8h.html#a99f61f92fb9519f319b5989fb14ff6e0">LoggerId</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_log4z_manager.html#affc1ab73fb7b6679ac3230cfcc9fa02f">findLogger</a> (const char *key)=0</td></tr>
-<tr class="memdesc:affc1ab73fb7b6679ac3230cfcc9fa02f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find logger. thread safe.  <a href="#affc1ab73fb7b6679ac3230cfcc9fa02f">更多...</a><br/></td></tr>
+<tr class="memdesc:affc1ab73fb7b6679ac3230cfcc9fa02f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find logger. thread safe.  <a href="#affc1ab73fb7b6679ac3230cfcc9fa02f">更多...</a><br /></td></tr>
 <tr class="separator:affc1ab73fb7b6679ac3230cfcc9fa02f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a68d0185e2938fe9b22833ddfa3525670"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_log4z_manager.html#a68d0185e2938fe9b22833ddfa3525670">prePushLog</a> (<a class="el" href="log4z_8h.html#a99f61f92fb9519f319b5989fb14ff6e0">LoggerId</a> id, int level)=0</td></tr>
 <tr class="separator:a68d0185e2938fe9b22833ddfa3525670"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a225c36b0136a9edc870c5f9812bd0b53"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_log4z_manager.html#a225c36b0136a9edc870c5f9812bd0b53">pushLog</a> (<a class="el" href="struct_log_data.html">LogData</a> *pLog, const char *file=NULL, int line=0)=0</td></tr>
-<tr class="memdesc:a225c36b0136a9edc870c5f9812bd0b53"><td class="mdescLeft">&#160;</td><td class="mdescRight">Push log, thread safe.  <a href="#a225c36b0136a9edc870c5f9812bd0b53">更多...</a><br/></td></tr>
+<tr class="memdesc:a225c36b0136a9edc870c5f9812bd0b53"><td class="mdescLeft">&#160;</td><td class="mdescRight">Push log, thread safe.  <a href="#a225c36b0136a9edc870c5f9812bd0b53">更多...</a><br /></td></tr>
 <tr class="separator:a225c36b0136a9edc870c5f9812bd0b53"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9f4ffc5ae933288bd8a6241297a4a9d8"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_log4z_manager.html#a9f4ffc5ae933288bd8a6241297a4a9d8">enableLogger</a> (<a class="el" href="log4z_8h.html#a99f61f92fb9519f319b5989fb14ff6e0">LoggerId</a> id, bool enable)=0</td></tr>
-<tr class="memdesc:a9f4ffc5ae933288bd8a6241297a4a9d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">set logger's attribute, thread safe.  <a href="#a9f4ffc5ae933288bd8a6241297a4a9d8">更多...</a><br/></td></tr>
+<tr class="memdesc:a9f4ffc5ae933288bd8a6241297a4a9d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">set logger's attribute, thread safe.  <a href="#a9f4ffc5ae933288bd8a6241297a4a9d8">更多...</a><br /></td></tr>
 <tr class="separator:a9f4ffc5ae933288bd8a6241297a4a9d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3d46a6b386f5b405d7215023ea609d33"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_log4z_manager.html#a3d46a6b386f5b405d7215023ea609d33">setLoggerName</a> (<a class="el" href="log4z_8h.html#a99f61f92fb9519f319b5989fb14ff6e0">LoggerId</a> id, const char *name)=0</td></tr>
 <tr class="separator:a3d46a6b386f5b405d7215023ea609d33"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -151,12 +152,12 @@ Public 成员函数</h2></td></tr>
 <tr class="memitem:ad55095e6d26fd05686f33afac3b3d561"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_log4z_manager.html#ad55095e6d26fd05686f33afac3b3d561">setLoggerMonthdir</a> (<a class="el" href="log4z_8h.html#a99f61f92fb9519f319b5989fb14ff6e0">LoggerId</a> id, bool enable)=0</td></tr>
 <tr class="separator:ad55095e6d26fd05686f33afac3b3d561"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaba3905d17500219ab3e0ef11f8c1587"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_log4z_manager.html#aaba3905d17500219ab3e0ef11f8c1587">setAutoUpdate</a> (int interval)=0</td></tr>
-<tr class="memdesc:aaba3905d17500219ab3e0ef11f8c1587"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update logger's attribute from config file, thread safe.  <a href="#aaba3905d17500219ab3e0ef11f8c1587">更多...</a><br/></td></tr>
+<tr class="memdesc:aaba3905d17500219ab3e0ef11f8c1587"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update logger's attribute from config file, thread safe.  <a href="#aaba3905d17500219ab3e0ef11f8c1587">更多...</a><br /></td></tr>
 <tr class="separator:aaba3905d17500219ab3e0ef11f8c1587"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac500f0d2607fcf38632b67f5d92541ed"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_log4z_manager.html#ac500f0d2607fcf38632b67f5d92541ed">updateConfig</a> ()=0</td></tr>
 <tr class="separator:ac500f0d2607fcf38632b67f5d92541ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9d85a12491c585f1ababeafdddb97930"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_log4z_manager.html#a9d85a12491c585f1ababeafdddb97930">isLoggerEnable</a> (<a class="el" href="log4z_8h.html#a99f61f92fb9519f319b5989fb14ff6e0">LoggerId</a> id)=0</td></tr>
-<tr class="memdesc:a9d85a12491c585f1ababeafdddb97930"><td class="mdescLeft">&#160;</td><td class="mdescRight">Log4z status statistics, thread safe.  <a href="#a9d85a12491c585f1ababeafdddb97930">更多...</a><br/></td></tr>
+<tr class="memdesc:a9d85a12491c585f1ababeafdddb97930"><td class="mdescLeft">&#160;</td><td class="mdescRight">Log4z status statistics, thread safe.  <a href="#a9d85a12491c585f1ababeafdddb97930">更多...</a><br /></td></tr>
 <tr class="separator:a9d85a12491c585f1ababeafdddb97930"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa4a3e5bfe129adfa0a5309fafbfd9119"><td class="memItemLeft" align="right" valign="top">virtual unsigned long long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_log4z_manager.html#aa4a3e5bfe129adfa0a5309fafbfd9119">getStatusTotalWriteCount</a> ()=0</td></tr>
 <tr class="separator:aa4a3e5bfe129adfa0a5309fafbfd9119"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -176,7 +177,7 @@ Public 成员函数</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 静态 Public 成员函数</h2></td></tr>
 <tr class="memitem:a91e7aa428af26ce26c80109a1c94edfd"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_i_log4z_manager.html">ILog4zManager</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_log4z_manager.html#a91e7aa428af26ce26c80109a1c94edfd">getInstance</a> ()</td></tr>
-<tr class="memdesc:a91e7aa428af26ce26c80109a1c94edfd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Log4z Singleton.  <a href="#a91e7aa428af26ce26c80109a1c94edfd">更多...</a><br/></td></tr>
+<tr class="memdesc:a91e7aa428af26ce26c80109a1c94edfd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Log4z Singleton.  <a href="#a91e7aa428af26ce26c80109a1c94edfd">更多...</a><br /></td></tr>
 <tr class="separator:a91e7aa428af26ce26c80109a1c94edfd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5998a8365814ef8ece74cb0e28d66ca0"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_i_log4z_manager.html">ILog4zManager</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_log4z_manager.html#a5998a8365814ef8ece74cb0e28d66ca0">getRef</a> ()</td></tr>
 <tr class="separator:a5998a8365814ef8ece74cb0e28d66ca0"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1152,15 +1153,15 @@ Public 成员函数</h2></td></tr>
 </div>
 </div>
 <hr/>该类的文档由以下文件生成:<ul>
-<li>/home/shinki/github/Sockman/sockman/log4z/<a class="el" href="log4z_8h_source.html">log4z.h</a></li>
-<li>/home/shinki/github/Sockman/sockman/log4z/<a class="el" href="log4z_8cpp_source.html">log4z.cpp</a></li>
+<li>E:/work/code/SockWin/git/Sockman/sockman/log4z/<a class="el" href="log4z_8h_source.html">log4z.h</a></li>
+<li>E:/work/code/SockWin/git/Sockman/sockman/log4z/<a class="el" href="log4z_8cpp_source.html">log4z.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-生成于 2017年 一月 1日 星期日 16:29:20 , 为 sockman使用  &#160;<a href="http://www.doxygen.org/index.html">
+生成于 2017年 四月 17日 星期一 16:50:41 , 为 sockman使用  &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.6
+</a> 1.8.11
 </small></address>
 </body>
 </html>

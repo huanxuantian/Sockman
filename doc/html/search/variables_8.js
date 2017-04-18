@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['tcp_5fqueue',['tcp_queue',['../sockman_8cpp.html#a2c0f5a164e780771750f991591e70780',1,'sockman.cpp']]]
+  ['writer',['writer',['../sockman_8cpp.html#a64f3fa3304e448d5a426129e69c2d0d2',1,'sockman.cpp']]]
 ];

@@ -3,15 +3,16 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<meta name="generator" content="Doxygen 1.8.6"/>
-<title>sockman: /home/shinki/github/Sockman/sockman/sockman.cpp 文件参考</title>
+<meta name="generator" content="Doxygen 1.8.11"/>
+<title>sockman: E:/work/code/SockWin/git/Sockman/sockman/sockman.cpp 文件参考</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
-  $(document).ready(function() { searchBox.OnSelectItem(0); });
+  $(document).ready(function() { init_search(); });
 </script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
@@ -21,7 +22,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td style="padding-left: 0.5em;">
+  <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">sockman
    </div>
   </td>
@@ -30,7 +31,7 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- 制作者 Doxygen 1.8.6 -->
+<!-- 制作者 Doxygen 1.8.11 -->
 <script type="text/javascript">
 var searchBox = new SearchBox("searchBox", "search",false,'搜索');
 </script>
@@ -70,7 +71,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'搜索');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全部</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>类</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>命名空间</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>文件</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>函数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>变量</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>类型定义</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>枚举</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>枚举值</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>友元</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>宏定义</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>页</a></div>
+</div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -94,13 +95,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'搜索');
 <div class="title">sockman.cpp 文件参考</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;stdio.h&gt;</code><br/>
-<code>#include &lt;stdlib.h&gt;</code><br/>
-<code>#include &lt;string.h&gt;</code><br/>
-<code>#include &quot;<a class="el" href="loger_8hpp_source.html">loger.hpp</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="_t_c_p_man_8hpp_source.html">TCPMan.hpp</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="json_8h_source.html">./json/json.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="_c_recycle_queue_8h_source.html">./CQ/CRecycleQueue.h</a>&quot;</code><br/>
+<div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &lt;string.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="loger_8hpp_source.html">loger.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_socket_8hpp_source.html">CPPSocket/Socket.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_t_c_p_man_8hpp_source.html">TCPMan.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="log4z_8h_source.html">./log4z/log4z.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="json_8h_source.html">./json/json.h</a>&quot;</code><br />
 </div>
 <p><a href="sockman_8cpp_source.html">浏览源代码.</a></p>
 <table class="memberdecls">
@@ -139,16 +141,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'搜索');
 变量</h2></td></tr>
 <tr class="memitem:a64a4e967ab04459f1c52927c32bede66"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sockman_8cpp.html#a64a4e967ab04459f1c52927c32bede66">s_port</a> =<a class="el" href="sockman_8cpp.html#a614217d263be1fb1a5f76e2ff7be19a2">PORT</a></td></tr>
 <tr class="separator:a64a4e967ab04459f1c52927c32bede66"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad311ed7d7e88b8e684caa349998a45f7"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sockman_8cpp.html#ad311ed7d7e88b8e684caa349998a45f7">s_ip</a> =<a class="el" href="sockman_8cpp.html#af00e4b63d736381e1c527ac5ef2c8f3c">IP</a></td></tr>
-<tr class="separator:ad311ed7d7e88b8e684caa349998a45f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4cb64b8b8e7e5bfa9c25fc65b06991cd"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sockman_8cpp.html#a4cb64b8b8e7e5bfa9c25fc65b06991cd">s_ip</a> =<a class="el" href="sockman_8cpp.html#af00e4b63d736381e1c527ac5ef2c8f3c">IP</a></td></tr>
+<tr class="separator:a4cb64b8b8e7e5bfa9c25fc65b06991cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aee43da4e9117b04a03d47cfb325445d4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_json_1_1_value.html">Value</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sockman_8cpp.html#aee43da4e9117b04a03d47cfb325445d4">root</a></td></tr>
 <tr class="separator:aee43da4e9117b04a03d47cfb325445d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9d07a025276cef85d7d7ba72209d022e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_json_1_1_reader.html">Reader</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sockman_8cpp.html#a9d07a025276cef85d7d7ba72209d022e">reader</a></td></tr>
 <tr class="separator:a9d07a025276cef85d7d7ba72209d022e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a64f3fa3304e448d5a426129e69c2d0d2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_json_1_1_styled_writer.html">StyledWriter</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sockman_8cpp.html#a64f3fa3304e448d5a426129e69c2d0d2">writer</a></td></tr>
 <tr class="separator:a64f3fa3304e448d5a426129e69c2d0d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2c0f5a164e780771750f991591e70780"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_c_recycle_queue.html">CRecycleQueue</a>&lt; <a class="el" href="class_socket_1_1_t_c_p___m_a_n.html">Socket::TCP_MAN</a> &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sockman_8cpp.html#a2c0f5a164e780771750f991591e70780">tcp_queue</a> = new <a class="el" href="class_c_recycle_queue.html">CRecycleQueue</a>&lt;<a class="el" href="class_socket_1_1_t_c_p___m_a_n.html">Socket::TCP_MAN</a>&gt;</td></tr>
-<tr class="separator:a2c0f5a164e780771750f991591e70780"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">宏定义说明</h2>
 <a class="anchor" id="af00e4b63d736381e1c527ac5ef2c8f3c"></a>
@@ -161,7 +161,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'搜索');
       </table>
 </div><div class="memdoc">
 
-<p>在文件 <a class="el" href="sockman_8cpp_source.html">sockman.cpp</a> 第 <a class="el" href="sockman_8cpp_source.html#l00024">24</a> 行定义.</p>
+<p>在文件 <a class="el" href="sockman_8cpp_source.html">sockman.cpp</a> 第 <a class="el" href="sockman_8cpp_source.html#l00026">26</a> 行定义.</p>
 
 </div>
 </div>
@@ -175,7 +175,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'搜索');
       </table>
 </div><div class="memdoc">
 
-<p>在文件 <a class="el" href="sockman_8cpp_source.html">sockman.cpp</a> 第 <a class="el" href="sockman_8cpp_source.html#l00025">25</a> 行定义.</p>
+<p>在文件 <a class="el" href="sockman_8cpp_source.html">sockman.cpp</a> 第 <a class="el" href="sockman_8cpp_source.html#l00028">28</a> 行定义.</p>
 
 </div>
 </div>
@@ -189,7 +189,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'搜索');
       </table>
 </div><div class="memdoc">
 
-<p>在文件 <a class="el" href="sockman_8cpp_source.html">sockman.cpp</a> 第 <a class="el" href="sockman_8cpp_source.html#l00033">33</a> 行定义.</p>
+<p>在文件 <a class="el" href="sockman_8cpp_source.html">sockman.cpp</a> 第 <a class="el" href="sockman_8cpp_source.html#l00036">36</a> 行定义.</p>
 
 </div>
 </div>
@@ -203,7 +203,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'搜索');
       </table>
 </div><div class="memdoc">
 
-<p>在文件 <a class="el" href="sockman_8cpp_source.html">sockman.cpp</a> 第 <a class="el" href="sockman_8cpp_source.html#l00031">31</a> 行定义.</p>
+<p>在文件 <a class="el" href="sockman_8cpp_source.html">sockman.cpp</a> 第 <a class="el" href="sockman_8cpp_source.html#l00034">34</a> 行定义.</p>
 
 </div>
 </div>
@@ -221,7 +221,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'搜索');
       </table>
 </div><div class="memdoc">
 
-<p>在文件 <a class="el" href="sockman_8cpp_source.html">sockman.cpp</a> 第 <a class="el" href="sockman_8cpp_source.html#l00039">39</a> 行定义.</p>
+<p>在文件 <a class="el" href="sockman_8cpp_source.html">sockman.cpp</a> 第 <a class="el" href="sockman_8cpp_source.html#l00042">42</a> 行定义.</p>
 
 </div>
 </div>
@@ -249,7 +249,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'搜索');
       </table>
 </div><div class="memdoc">
 
-<p>在文件 <a class="el" href="sockman_8cpp_source.html">sockman.cpp</a> 第 <a class="el" href="sockman_8cpp_source.html#l00201">201</a> 行定义.</p>
+<p>在文件 <a class="el" href="sockman_8cpp_source.html">sockman.cpp</a> 第 <a class="el" href="sockman_8cpp_source.html#l00215">215</a> 行定义.</p>
 
 </div>
 </div>
@@ -267,7 +267,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'搜索');
       </table>
 </div><div class="memdoc">
 
-<p>在文件 <a class="el" href="sockman_8cpp_source.html">sockman.cpp</a> 第 <a class="el" href="sockman_8cpp_source.html#l00089">89</a> 行定义.</p>
+<p>在文件 <a class="el" href="sockman_8cpp_source.html">sockman.cpp</a> 第 <a class="el" href="sockman_8cpp_source.html#l00092">92</a> 行定义.</p>
 
 </div>
 </div>
@@ -285,7 +285,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'搜索');
       </table>
 </div><div class="memdoc">
 
-<p>在文件 <a class="el" href="sockman_8cpp_source.html">sockman.cpp</a> 第 <a class="el" href="sockman_8cpp_source.html#l00108">108</a> 行定义.</p>
+<p>在文件 <a class="el" href="sockman_8cpp_source.html">sockman.cpp</a> 第 <a class="el" href="sockman_8cpp_source.html#l00111">111</a> 行定义.</p>
 
 </div>
 </div>
@@ -303,7 +303,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'搜索');
       </table>
 </div><div class="memdoc">
 
-<p>在文件 <a class="el" href="sockman_8cpp_source.html">sockman.cpp</a> 第 <a class="el" href="sockman_8cpp_source.html#l00124">124</a> 行定义.</p>
+<p>在文件 <a class="el" href="sockman_8cpp_source.html">sockman.cpp</a> 第 <a class="el" href="sockman_8cpp_source.html#l00127">127</a> 行定义.</p>
 
 </div>
 </div>
@@ -321,7 +321,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'搜索');
       </table>
 </div><div class="memdoc">
 
-<p>在文件 <a class="el" href="sockman_8cpp_source.html">sockman.cpp</a> 第 <a class="el" href="sockman_8cpp_source.html#l00166">166</a> 行定义.</p>
+<p>在文件 <a class="el" href="sockman_8cpp_source.html">sockman.cpp</a> 第 <a class="el" href="sockman_8cpp_source.html#l00173">173</a> 行定义.</p>
 
 </div>
 </div>
@@ -336,7 +336,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'搜索');
       </table>
 </div><div class="memdoc">
 
-<p>在文件 <a class="el" href="sockman_8cpp_source.html">sockman.cpp</a> 第 <a class="el" href="sockman_8cpp_source.html#l00036">36</a> 行定义.</p>
+<p>在文件 <a class="el" href="sockman_8cpp_source.html">sockman.cpp</a> 第 <a class="el" href="sockman_8cpp_source.html#l00039">39</a> 行定义.</p>
 
 </div>
 </div>
@@ -350,21 +350,21 @@ var searchBox = new SearchBox("searchBox", "search",false,'搜索');
       </table>
 </div><div class="memdoc">
 
-<p>在文件 <a class="el" href="sockman_8cpp_source.html">sockman.cpp</a> 第 <a class="el" href="sockman_8cpp_source.html#l00035">35</a> 行定义.</p>
+<p>在文件 <a class="el" href="sockman_8cpp_source.html">sockman.cpp</a> 第 <a class="el" href="sockman_8cpp_source.html#l00038">38</a> 行定义.</p>
 
 </div>
 </div>
-<a class="anchor" id="ad311ed7d7e88b8e684caa349998a45f7"></a>
+<a class="anchor" id="a4cb64b8b8e7e5bfa9c25fc65b06991cd"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const char* s_ip =<a class="el" href="sockman_8cpp.html#af00e4b63d736381e1c527ac5ef2c8f3c">IP</a></td>
+          <td class="memname">char* s_ip =<a class="el" href="sockman_8cpp.html#af00e4b63d736381e1c527ac5ef2c8f3c">IP</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>在文件 <a class="el" href="sockman_8cpp_source.html">sockman.cpp</a> 第 <a class="el" href="sockman_8cpp_source.html#l00029">29</a> 行定义.</p>
+<p>在文件 <a class="el" href="sockman_8cpp_source.html">sockman.cpp</a> 第 <a class="el" href="sockman_8cpp_source.html#l00032">32</a> 行定义.</p>
 
 </div>
 </div>
@@ -378,21 +378,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'搜索');
       </table>
 </div><div class="memdoc">
 
-<p>在文件 <a class="el" href="sockman_8cpp_source.html">sockman.cpp</a> 第 <a class="el" href="sockman_8cpp_source.html#l00027">27</a> 行定义.</p>
-
-</div>
-</div>
-<a class="anchor" id="a2c0f5a164e780771750f991591e70780"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_c_recycle_queue.html">CRecycleQueue</a>&lt;<a class="el" href="class_socket_1_1_t_c_p___m_a_n.html">Socket::TCP_MAN</a>&gt;* tcp_queue = new <a class="el" href="class_c_recycle_queue.html">CRecycleQueue</a>&lt;<a class="el" href="class_socket_1_1_t_c_p___m_a_n.html">Socket::TCP_MAN</a>&gt;</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>在文件 <a class="el" href="sockman_8cpp_source.html">sockman.cpp</a> 第 <a class="el" href="sockman_8cpp_source.html#l00087">87</a> 行定义.</p>
+<p>在文件 <a class="el" href="sockman_8cpp_source.html">sockman.cpp</a> 第 <a class="el" href="sockman_8cpp_source.html#l00030">30</a> 行定义.</p>
 
 </div>
 </div>
@@ -406,16 +392,16 @@ var searchBox = new SearchBox("searchBox", "search",false,'搜索');
       </table>
 </div><div class="memdoc">
 
-<p>在文件 <a class="el" href="sockman_8cpp_source.html">sockman.cpp</a> 第 <a class="el" href="sockman_8cpp_source.html#l00037">37</a> 行定义.</p>
+<p>在文件 <a class="el" href="sockman_8cpp_source.html">sockman.cpp</a> 第 <a class="el" href="sockman_8cpp_source.html#l00040">40</a> 行定义.</p>
 
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-生成于 2017年 一月 1日 星期日 16:29:20 , 为 sockman使用  &#160;<a href="http://www.doxygen.org/index.html">
+生成于 2017年 四月 17日 星期一 16:50:41 , 为 sockman使用  &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.6
+</a> 1.8.11
 </small></address>
 </body>
 </html>

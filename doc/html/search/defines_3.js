@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['intmode',['INTMODE',['../_c_recycle_queue_8h.html#a74bbd28fa2f0df5458b5e9725f8fc4d7',1,'CRecycleQueue.h']]],
-  ['ip',['IP',['../sockman_8cpp.html#af00e4b63d736381e1c527ac5ef2c8f3c',1,'sockman.cpp']]]
+  ['hex_5fdata_5fprintf',['hex_data_printf',['../log__debug_8h.html#a548b8152098408b1e9b333abd6ece425',1,'log_debug.h']]]
 ];

@@ -3,15 +3,16 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<meta name="generator" content="Doxygen 1.8.6"/>
-<title>sockman: /home/shinki/github/Sockman/sockman/log4z/log4z.cpp 文件参考</title>
+<meta name="generator" content="Doxygen 1.8.11"/>
+<title>sockman: E:/work/code/SockWin/git/Sockman/sockman/log4z/log4z.cpp 文件参考</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
-  $(document).ready(function() { searchBox.OnSelectItem(0); });
+  $(document).ready(function() { init_search(); });
 </script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
@@ -21,7 +22,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td style="padding-left: 0.5em;">
+  <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">sockman
    </div>
   </td>
@@ -30,7 +31,7 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- 制作者 Doxygen 1.8.6 -->
+<!-- 制作者 Doxygen 1.8.11 -->
 <script type="text/javascript">
 var searchBox = new SearchBox("searchBox", "search",false,'搜索');
 </script>
@@ -70,7 +71,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'搜索');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全部</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>类</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>命名空间</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>文件</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>函数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>变量</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>类型定义</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>枚举</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>枚举值</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>友元</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>宏定义</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>页</a></div>
+</div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -92,75 +93,75 @@ var searchBox = new SearchBox("searchBox", "search",false,'搜索');
 <div class="title">log4z.cpp 文件参考</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="log4z_8h_source.html">log4z.h</a>&quot;</code><br/>
-<code>#include &lt;stdio.h&gt;</code><br/>
-<code>#include &lt;stdlib.h&gt;</code><br/>
-<code>#include &lt;errno.h&gt;</code><br/>
-<code>#include &lt;time.h&gt;</code><br/>
-<code>#include &lt;string.h&gt;</code><br/>
-<code>#include &lt;string&gt;</code><br/>
-<code>#include &lt;vector&gt;</code><br/>
-<code>#include &lt;map&gt;</code><br/>
-<code>#include &lt;list&gt;</code><br/>
-<code>#include &lt;sstream&gt;</code><br/>
-<code>#include &lt;iostream&gt;</code><br/>
-<code>#include &lt;fstream&gt;</code><br/>
-<code>#include &lt;algorithm&gt;</code><br/>
-<code>#include &lt;unistd.h&gt;</code><br/>
-<code>#include &lt;netinet/in.h&gt;</code><br/>
-<code>#include &lt;arpa/inet.h&gt;</code><br/>
-<code>#include &lt;sys/types.h&gt;</code><br/>
-<code>#include &lt;sys/socket.h&gt;</code><br/>
-<code>#include &lt;pthread.h&gt;</code><br/>
-<code>#include &lt;sys/time.h&gt;</code><br/>
-<code>#include &lt;sys/stat.h&gt;</code><br/>
-<code>#include &lt;dirent.h&gt;</code><br/>
-<code>#include &lt;fcntl.h&gt;</code><br/>
-<code>#include &lt;semaphore.h&gt;</code><br/>
+<div class="textblock"><code>#include &quot;<a class="el" href="log4z_8h_source.html">log4z.h</a>&quot;</code><br />
+<code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &lt;errno.h&gt;</code><br />
+<code>#include &lt;time.h&gt;</code><br />
+<code>#include &lt;string.h&gt;</code><br />
+<code>#include &lt;string&gt;</code><br />
+<code>#include &lt;vector&gt;</code><br />
+<code>#include &lt;map&gt;</code><br />
+<code>#include &lt;list&gt;</code><br />
+<code>#include &lt;sstream&gt;</code><br />
+<code>#include &lt;iostream&gt;</code><br />
+<code>#include &lt;fstream&gt;</code><br />
+<code>#include &lt;algorithm&gt;</code><br />
+<code>#include &lt;unistd.h&gt;</code><br />
+<code>#include &lt;netinet/in.h&gt;</code><br />
+<code>#include &lt;arpa/inet.h&gt;</code><br />
+<code>#include &lt;sys/types.h&gt;</code><br />
+<code>#include &lt;sys/socket.h&gt;</code><br />
+<code>#include &lt;pthread.h&gt;</code><br />
+<code>#include &lt;sys/time.h&gt;</code><br />
+<code>#include &lt;sys/stat.h&gt;</code><br />
+<code>#include &lt;dirent.h&gt;</code><br />
+<code>#include &lt;fcntl.h&gt;</code><br />
+<code>#include &lt;semaphore.h&gt;</code><br />
 </div>
 <p><a href="log4z_8cpp_source.html">浏览源代码.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 类</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_log4z_file_handler.html">Log4zFileHandler</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_log4z_file_handler.html" title="Log4zFileHandler. ">Log4zFileHandler</a>.  <a href="class_log4z_file_handler.html#details">更多...</a><br/></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_log4z_file_handler.html" title="Log4zFileHandler. ">Log4zFileHandler</a>.  <a href="class_log4z_file_handler.html#details">更多...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lock_helper.html">LockHelper</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_lock_helper.html" title="LockHelper. ">LockHelper</a>.  <a href="class_lock_helper.html#details">更多...</a><br/></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_lock_helper.html" title="LockHelper. ">LockHelper</a>.  <a href="class_lock_helper.html#details">更多...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_auto_lock.html">AutoLock</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_auto_lock.html" title="AutoLock. ">AutoLock</a>.  <a href="class_auto_lock.html#details">更多...</a><br/></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_auto_lock.html" title="AutoLock. ">AutoLock</a>.  <a href="class_auto_lock.html#details">更多...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sem_helper.html">SemHelper</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_sem_helper.html" title="SemHelper. ">SemHelper</a>.  <a href="class_sem_helper.html#details">更多...</a><br/></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_sem_helper.html" title="SemHelper. ">SemHelper</a>.  <a href="class_sem_helper.html#details">更多...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_thread_helper.html">ThreadHelper</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_logger_info.html">LoggerInfo</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="struct_logger_info.html" title="LoggerInfo. ">LoggerInfo</a>.  <a href="struct_logger_info.html#details">更多...</a><br/></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="struct_logger_info.html" title="LoggerInfo. ">LoggerInfo</a>.  <a href="struct_logger_info.html#details">更多...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_loger_manager.html">LogerManager</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_loger_manager.html" title="LogerManager. ">LogerManager</a>.  <a href="class_loger_manager.html#details">更多...</a><br/></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_loger_manager.html" title="LogerManager. ">LogerManager</a>.  <a href="class_loger_manager.html#details">更多...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 枚举</h2></td></tr>
-<tr class="memitem:a0c5f04bf26207082f2a96ceb9c98f7d7"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="log4z_8cpp.html#a0c5f04bf26207082f2a96ceb9c98f7d7">LogDataType</a> { <br/>
+<tr class="memitem:a0c5f04bf26207082f2a96ceb9c98f7d7"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="log4z_8cpp.html#a0c5f04bf26207082f2a96ceb9c98f7d7">LogDataType</a> { <br />
 &#160;&#160;<a class="el" href="log4z_8cpp.html#a0c5f04bf26207082f2a96ceb9c98f7d7a4e2bf8469dc230c3bf7097f40e54a59c">LDT_GENERAL</a>, 
 <a class="el" href="log4z_8cpp.html#a0c5f04bf26207082f2a96ceb9c98f7d7a2d780eeb331e585120952aab96abe716">LDT_ENABLE_LOGGER</a>, 
 <a class="el" href="log4z_8cpp.html#a0c5f04bf26207082f2a96ceb9c98f7d7ad3e940d574cdc1fdc88f845b06af01c1">LDT_SET_LOGGER_NAME</a>, 
 <a class="el" href="log4z_8cpp.html#a0c5f04bf26207082f2a96ceb9c98f7d7ab5d5e4b680a0a0e7d716d859da90978a">LDT_SET_LOGGER_PATH</a>, 
-<br/>
+<br />
 &#160;&#160;<a class="el" href="log4z_8cpp.html#a0c5f04bf26207082f2a96ceb9c98f7d7a4fd848d5952aecd2cef7fc11c41c821e">LDT_SET_LOGGER_LEVEL</a>, 
 <a class="el" href="log4z_8cpp.html#a0c5f04bf26207082f2a96ceb9c98f7d7a03ed311a99b977a461fb04fab753432c">LDT_SET_LOGGER_FILELINE</a>, 
 <a class="el" href="log4z_8cpp.html#a0c5f04bf26207082f2a96ceb9c98f7d7aec3cddd6649d20ad8726afde8eea1d53">LDT_SET_LOGGER_DISPLAY</a>, 
 <a class="el" href="log4z_8cpp.html#a0c5f04bf26207082f2a96ceb9c98f7d7a8146ccb15a6dfc9e7f071eb983fd0187">LDT_SET_LOGGER_OUTFILE</a>, 
-<br/>
+<br />
 &#160;&#160;<a class="el" href="log4z_8cpp.html#a0c5f04bf26207082f2a96ceb9c98f7d7a9bd109cb3a7c621479d97255b9312b39">LDT_SET_LOGGER_LIMITSIZE</a>, 
 <a class="el" href="log4z_8cpp.html#a0c5f04bf26207082f2a96ceb9c98f7d7ac489023ea1c330593cdc081b5f90c5c9">LDT_SET_LOGGER_MONTHDIR</a>
-<br/>
- }</td></tr>
-<tr class="memdesc:a0c5f04bf26207082f2a96ceb9c98f7d7"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="struct_log_data.html">LogData</a>.  <a href="log4z_8cpp.html#a0c5f04bf26207082f2a96ceb9c98f7d7">更多...</a><br/></td></tr>
+<br />
+ }<tr class="memdesc:a0c5f04bf26207082f2a96ceb9c98f7d7"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="struct_log_data.html">LogData</a>.  <a href="log4z_8cpp.html#a0c5f04bf26207082f2a96ceb9c98f7d7">更多...</a><br /></td></tr>
+</td></tr>
 <tr class="separator:a0c5f04bf26207082f2a96ceb9c98f7d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">枚举类型说明</h2>
@@ -176,25 +177,25 @@ var searchBox = new SearchBox("searchBox", "search",false,'搜索');
 
 <p><a class="el" href="struct_log_data.html">LogData</a>. </p>
 <table class="fieldtable">
-<tr><th colspan="2">枚举值</th></tr><tr><td class="fieldname"><em><a class="anchor" id="a0c5f04bf26207082f2a96ceb9c98f7d7a4e2bf8469dc230c3bf7097f40e54a59c"></a>LDT_GENERAL</em>&#160;</td><td class="fielddoc">
+<tr><th colspan="2">枚举值</th></tr><tr><td class="fieldname"><a class="anchor" id="a0c5f04bf26207082f2a96ceb9c98f7d7a4e2bf8469dc230c3bf7097f40e54a59c"></a>LDT_GENERAL&#160;</td><td class="fielddoc">
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="a0c5f04bf26207082f2a96ceb9c98f7d7a2d780eeb331e585120952aab96abe716"></a>LDT_ENABLE_LOGGER</em>&#160;</td><td class="fielddoc">
+<tr><td class="fieldname"><a class="anchor" id="a0c5f04bf26207082f2a96ceb9c98f7d7a2d780eeb331e585120952aab96abe716"></a>LDT_ENABLE_LOGGER&#160;</td><td class="fielddoc">
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="a0c5f04bf26207082f2a96ceb9c98f7d7ad3e940d574cdc1fdc88f845b06af01c1"></a>LDT_SET_LOGGER_NAME</em>&#160;</td><td class="fielddoc">
+<tr><td class="fieldname"><a class="anchor" id="a0c5f04bf26207082f2a96ceb9c98f7d7ad3e940d574cdc1fdc88f845b06af01c1"></a>LDT_SET_LOGGER_NAME&#160;</td><td class="fielddoc">
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="a0c5f04bf26207082f2a96ceb9c98f7d7ab5d5e4b680a0a0e7d716d859da90978a"></a>LDT_SET_LOGGER_PATH</em>&#160;</td><td class="fielddoc">
+<tr><td class="fieldname"><a class="anchor" id="a0c5f04bf26207082f2a96ceb9c98f7d7ab5d5e4b680a0a0e7d716d859da90978a"></a>LDT_SET_LOGGER_PATH&#160;</td><td class="fielddoc">
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="a0c5f04bf26207082f2a96ceb9c98f7d7a4fd848d5952aecd2cef7fc11c41c821e"></a>LDT_SET_LOGGER_LEVEL</em>&#160;</td><td class="fielddoc">
+<tr><td class="fieldname"><a class="anchor" id="a0c5f04bf26207082f2a96ceb9c98f7d7a4fd848d5952aecd2cef7fc11c41c821e"></a>LDT_SET_LOGGER_LEVEL&#160;</td><td class="fielddoc">
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="a0c5f04bf26207082f2a96ceb9c98f7d7a03ed311a99b977a461fb04fab753432c"></a>LDT_SET_LOGGER_FILELINE</em>&#160;</td><td class="fielddoc">
+<tr><td class="fieldname"><a class="anchor" id="a0c5f04bf26207082f2a96ceb9c98f7d7a03ed311a99b977a461fb04fab753432c"></a>LDT_SET_LOGGER_FILELINE&#160;</td><td class="fielddoc">
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="a0c5f04bf26207082f2a96ceb9c98f7d7aec3cddd6649d20ad8726afde8eea1d53"></a>LDT_SET_LOGGER_DISPLAY</em>&#160;</td><td class="fielddoc">
+<tr><td class="fieldname"><a class="anchor" id="a0c5f04bf26207082f2a96ceb9c98f7d7aec3cddd6649d20ad8726afde8eea1d53"></a>LDT_SET_LOGGER_DISPLAY&#160;</td><td class="fielddoc">
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="a0c5f04bf26207082f2a96ceb9c98f7d7a8146ccb15a6dfc9e7f071eb983fd0187"></a>LDT_SET_LOGGER_OUTFILE</em>&#160;</td><td class="fielddoc">
+<tr><td class="fieldname"><a class="anchor" id="a0c5f04bf26207082f2a96ceb9c98f7d7a8146ccb15a6dfc9e7f071eb983fd0187"></a>LDT_SET_LOGGER_OUTFILE&#160;</td><td class="fielddoc">
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="a0c5f04bf26207082f2a96ceb9c98f7d7a9bd109cb3a7c621479d97255b9312b39"></a>LDT_SET_LOGGER_LIMITSIZE</em>&#160;</td><td class="fielddoc">
+<tr><td class="fieldname"><a class="anchor" id="a0c5f04bf26207082f2a96ceb9c98f7d7a9bd109cb3a7c621479d97255b9312b39"></a>LDT_SET_LOGGER_LIMITSIZE&#160;</td><td class="fielddoc">
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="a0c5f04bf26207082f2a96ceb9c98f7d7ac489023ea1c330593cdc081b5f90c5c9"></a>LDT_SET_LOGGER_MONTHDIR</em>&#160;</td><td class="fielddoc">
+<tr><td class="fieldname"><a class="anchor" id="a0c5f04bf26207082f2a96ceb9c98f7d7ac489023ea1c330593cdc081b5f90c5c9"></a>LDT_SET_LOGGER_MONTHDIR&#160;</td><td class="fielddoc">
 </td></tr>
 </table>
 
@@ -205,9 +206,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'搜索');
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-生成于 2017年 一月 1日 星期日 16:29:20 , 为 sockman使用  &#160;<a href="http://www.doxygen.org/index.html">
+生成于 2017年 四月 17日 星期一 16:50:41 , 为 sockman使用  &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.6
+</a> 1.8.11
 </small></address>
 </body>
 </html>

@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['read_5ffunc',['read_func',['../queue__test_8cpp.html#ae42b6ddd4c8558fbd711d1722ed4ee7f',1,'queue_test.cpp']]],
   ['readcontent',['readContent',['../class_log4z_file_handler.html#a639fa6eebbf5f2072a80afef04d8a949',1,'Log4zFileHandler']]],
   ['reader',['Reader',['../class_json_1_1_reader.html#a0b3c4e24c8393354bab57a6ba3ffc27f',1,'Json::Reader::Reader()'],['../class_json_1_1_reader.html#a45f17831118337309180313e93ac33f8',1,'Json::Reader::Reader(const Features &amp;features)']]],
   ['readline',['readLine',['../class_log4z_file_handler.html#a9471a82ee63d65e6c0e2d320dfd82929',1,'Log4zFileHandler']]],

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['recv_5ffile',['RECV_FILE',['../sockman_8cpp.html#a3511b736f3b0fa8d0b381b5669d1bfc5',1,'sockman.cpp']]]
+  ['max_5frepix',['MAX_REPIX',['../bar_8c.html#a1986358bcb51bd40a9fc869952589fb3',1,'bar.c']]]
 ];

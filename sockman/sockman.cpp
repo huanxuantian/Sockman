@@ -13,15 +13,20 @@
 #include "loger.hpp"
 #include "CPPSocket/Socket.hpp"
 #include "TCPMan.hpp"
+#include "TCP_CS.hpp"
 #include "./log4z/log4z.h"
 #include "./json/json.h"
 //#include "./CQ/CRecycleQueue.h"
+
+
+TCP_CS* new_client;
+TCP_CS server;
 
 using namespace zsummer::log4z;
 using namespace Json;
 using namespace std;
 
-
+unsigned char test_data[] ={0x7E ,0x07 ,0x86 ,0x02 ,0x00 ,0x3F ,0x00 ,0x00 ,0x00 ,0x5E ,0x01 ,0xE3 ,0x7E};
 
 #define IP   "127.0.0.1"
 //#define IP   "120.25.166.144"
@@ -123,7 +128,7 @@ void tcp_sender(void)
         cout << e << endl;
     }
 }
-
+#if 1
 void udp_receiver(void)
 {
     try
@@ -260,6 +265,50 @@ int main(int argc,char *argv[]){
 	{
 		LOG_TI("start serve for udp test "<<SEND_FILE);
 		udp_receiver();
+	}
+	else if(strcmp(argv[1],"cserver")==0)
+	{
+		if(argc>=3)
+		{
+			s_port=atoi(argv[2]);
+			LOG_TA("server listen_on port "<<s_port);
+			server.creat_server(s_port,10);
+			server.start_server();
+		}
+
+		while(1)
+		    {
+
+			 try
+		        {
+		        if(new_client!=NULL&&new_client->is_connecteed())
+			    {
+				int i;
+				int data_len =sizeof(test_data);
+				int n_send_byte = new_client->send<char>((char*)test_data,data_len);
+				printf("%s,%d socket sned start len=%d:  ++++++\r\n",__FUNCTION__,__LINE__,n_send_byte);
+				     for(i=0;i<data_len;i++)
+				     {
+					    printf("send_buff[%d]=0x%02x\r\n",i,test_data[i]&0xff);
+				    }
+				    printf("%s,%d socket data end:  ++++++\r\n",__FUNCTION__,__LINE__);
+				//printf("send data to %d!!!\r\n",new_client->_socket_id);
+				sleep(20);
+				break;
+			    }
+			    else
+			    {
+				sleep(1);
+			    }
+		        }
+		        catch(SocketException& me)
+		        {
+			    cout<<me.what();
+		        }
+
+			//test_data
+		    }
+
 	}
 	else
 	{

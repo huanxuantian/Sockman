@@ -215,7 +215,7 @@ void udp_sender(void)
     }
 }
 #endif
-
+bool server_ok =false;
 
 int main(int argc,char *argv[]){
     if(argc < 2)
@@ -228,6 +228,7 @@ int main(int argc,char *argv[]){
         return -1;
     }
     setup_loger();
+	int count =0;
 	LOG_TA("start test\r\n");
 	if(strcmp(argv[1],"server")==0)
 	{
@@ -272,18 +273,35 @@ int main(int argc,char *argv[]){
 		{
 			s_port=atoi(argv[2]);
 			LOG_TA("server listen_on port "<<s_port);
-			try
+			while(count<30)
 			{
-			server.creat_server(s_port,10);
-			server.start_server();
+			    try
+			    {
+
+				    server_ok = server.creat_server(s_port,10);
+				    if(server_ok)
+				    {
+				    server.start_server();
+				    break;
+				    }
+
+			    }
+			    catch(SocketException& me)
+			    {
+				LOG_TE(me.what());
+				server.stop_server();
+				    //puts("end\r\n");
+				    //return -1;
+			    }
+			    sleep(10);
+			    count++;
 			}
-			catch(SocketException& me)
-		        {
-			    cout<<me.what();
-			    server.stop_server();
-			    	puts("end\r\n");
-				return -1;
-		        }
+			if(count==30)
+			{
+				server.stop_server();
+				puts("end\r\n");
+				return -1; 
+			}
 		}
 
 		while(1)

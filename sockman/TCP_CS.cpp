@@ -111,11 +111,11 @@ namespace Socket
         if (listen(this->_socket_id, listeners) != 0)
         {
             stringstream error;
-            error << "[listen_on_port] with [port=" << port << "] [listeners=" << listeners << "] Cannot bind socket";
+            error << "[creat_server] with [port=" << port << "] [listeners=" << listeners << "] Cannot listen socket";
             throw SocketException(error.str());
             return false;
         }
-		this->listen_port = port;
+	this->listen_port = port;
         this->_type = TCP_SERVER_TYPE;
         this->_bserver = true;
         this->_bconnected = true;

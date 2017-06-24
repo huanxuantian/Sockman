@@ -174,7 +174,7 @@ namespace Socket
 
 	bool TCP_CS::stop_client(void)
 	{
-		if(this->_bserver||this->_type!=TCP_CLIENT_TYPE)
+		if(this->_bserver||this->_type!=TCP_CLIENT_TYPE||!this->_bconnected)
 		{
 			return false;//not client
 		}
@@ -344,6 +344,11 @@ namespace Socket
     {
          printf("%s,%d new socket %d accept ,start for server socket %d ++++++\r\n",__FUNCTION__,__LINE__,
 			 client->_socket_id,server->_socket_id);
+	if(server->_socket_id<=0||client->_socket_id<=0)
+	{
+	    client->stop_client();
+	    return;
+	}
 	if(new_client!=NULL)
 	{
 	    
@@ -383,6 +388,19 @@ namespace Socket
                 }
 		*/
             }
+	    else if(rcv_byte ==0)
+	    {
+		if(client ==new_client)
+		{
+		new_client = NULL;
+		}
+		if(client->is_connecteed())
+		{
+			client->stop_client();
+		}
+		printf("%s,%d,exit server socket %d for port %d,state:%d,%d ++++++\r\n",__FUNCTION__,__LINE__,server->_socket_id,server->listen_port,server->is_on_server(),client->is_connecteed());
+		return;
+	    }
 	    else
 	    {
 		 usleep(20*1000);

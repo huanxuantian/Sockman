@@ -272,8 +272,18 @@ int main(int argc,char *argv[]){
 		{
 			s_port=atoi(argv[2]);
 			LOG_TA("server listen_on port "<<s_port);
+			try
+			{
 			server.creat_server(s_port,10);
 			server.start_server();
+			}
+			catch(SocketException& me)
+		        {
+			    cout<<me.what();
+			    server.stop_server();
+			    	puts("end\r\n");
+				return -1;
+		        }
 		}
 
 		while(1)
@@ -314,6 +324,7 @@ int main(int argc,char *argv[]){
 	{
 		LOG_TI("unknow cmd"<<argv[1]);
 	}
+	server.stop_server();
 	puts("end\r\n");
 	return EXIT_SUCCESS;
 }

@@ -42,5 +42,6 @@ var searchData=
   ['logfmtw',['LOGFMTW',['../log4z_8h.html#aa25f0e532570dd18ea0f8657a2e613a6',1,'log4z.h']]],
   ['logi',['LOGI',['../log4z_8h.html#a77eb198175ea0848af3f4376b67f2ce0',1,'log4z.h']]],
   ['logt',['LOGT',['../log4z_8h.html#a4f500f2589a72b95fbffe418848c683f',1,'log4z.h']]],
-  ['logw',['LOGW',['../log4z_8h.html#a15a8cb552140b97571fccfa4055a3176',1,'log4z.h']]]
+  ['logw',['LOGW',['../log4z_8h.html#a15a8cb552140b97571fccfa4055a3176',1,'log4z.h']]],
+  ['lpvoid',['LPVOID',['../_t_c_p___c_s_8hpp.html#a085f5f68a0ee4ab24d9f3954a78e8063',1,'TCP_CS.hpp']]]
 ];

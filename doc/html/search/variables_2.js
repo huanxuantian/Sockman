@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['data',['data',['../struct_socket_1_1_datagram.html#aa513904f9b1609db60441a92241d3b4c',1,'Socket::Datagram']]],
-  ['debugstate',['DebugState',['../log__debug_8cpp.html#a9725fec9c1a89217a7db3f1466f27843',1,'log_debug.cpp']]]
+  ['bexit',['bExit',['../struct_socket_1_1_t_c_p___c_s_1_1_t_c_p___c_s___t_i_m_e_p_a_r_a.html#a9bf122f8a46077ccdc77395db40abf4d',1,'Socket::TCP_CS::TCP_CS_TIMEPARA']]]
 ];

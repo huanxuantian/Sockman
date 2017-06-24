@@ -1,7 +1,10 @@
 var searchData=
 [
+  ['_5fbconnected',['_bconnected',['../class_socket_1_1_t_c_p___c_s.html#a9814ad6264d20e2eb289014c36189e51',1,'Socket::TCP_CS']]],
   ['_5fbinded',['_binded',['../class_socket_1_1_common_socket.html#a6d2e4973c37eab8a4bd4a0774e786601',1,'Socket::CommonSocket']]],
+  ['_5fbserver',['_bserver',['../class_socket_1_1_t_c_p___c_s.html#ad89fe9961ce0eb87eff0d09d5e70eb90',1,'Socket::TCP_CS']]],
   ['_5fbuf',['_buf',['../class_log4z_binary.html#a5c4c25d43503397388b5d6ad4624f32f',1,'Log4zBinary']]],
+  ['_5fclient',['_client',['../class_socket_1_1_t_c_p___c_s.html#aa33b9724a75109516a5a09b2310a9380',1,'Socket::TCP_CS']]],
   ['_5fcontent',['_content',['../struct_log_data.html#a2dfce4e4e4cf528d5c1924808a3f2df2',1,'LogData']]],
   ['_5fcontentlen',['_contentLen',['../struct_log_data.html#a4f97726221b3d62a7a01e40c299caa13',1,'LogData']]],
   ['_5fcurfilecreatetime',['_curFileCreateTime',['../struct_logger_info.html#af895806d4fbf34c47cf6779cbf2d276f',1,'LoggerInfo']]],
@@ -23,9 +26,10 @@ var searchData=
   ['_5foutfile',['_outfile',['../struct_logger_info.html#a5de05feda2ce3073086d9c8b851298c4',1,'LoggerInfo']]],
   ['_5fpath',['_path',['../struct_logger_info.html#ac5ad0ca3a053a8452082a9af2a0f52b6',1,'LoggerInfo']]],
   ['_5fprecise',['_precise',['../struct_log_data.html#accee90a55cfbb7abca17e7acda0cbead',1,'LogData']]],
+  ['_5fserver',['_server',['../class_socket_1_1_t_c_p___c_s.html#a96cf174a1139d60c9ca65f5c70c93f1b',1,'Socket::TCP_CS']]],
   ['_5fsocket_5fid',['_socket_id',['../class_socket_1_1_common_socket.html#a6d18e0441ab4fe38aac876c49ebacf18',1,'Socket::CommonSocket']]],
   ['_5fsocket_5ftype',['_socket_type',['../class_socket_1_1_common_socket.html#ab741c21593ce2a76ba36f7c3965a1772',1,'Socket::CommonSocket']]],
   ['_5ftime',['_time',['../struct_log_data.html#ace377e8829706c4a78c6af6c31c3dca5',1,'LogData']]],
-  ['_5ftype',['_type',['../struct_log_data.html#aeea5ae53c93f72df7b6ad27f3af12a09',1,'LogData']]],
+  ['_5ftype',['_type',['../class_socket_1_1_t_c_p___c_s.html#a8e0b16cbf17fa7085cf7316d6b3ee6a0',1,'Socket::TCP_CS::_type()'],['../struct_log_data.html#aeea5ae53c93f72df7b6ad27f3af12a09',1,'LogData::_type()']]],
   ['_5ftypeval',['_typeval',['../struct_log_data.html#a5893a4a21145ed3970c7489d99df4846',1,'LogData']]]
 ];

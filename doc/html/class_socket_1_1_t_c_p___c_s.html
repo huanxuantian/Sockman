@@ -1,0 +1,856 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.6"/>
+<title>sockman: Socket::TCP_CS类 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">sockman
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.8.6 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'搜索');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>首页</span></a></li>
+      <li><a href="pages.html"><span>相关页面</span></a></li>
+      <li><a href="namespaces.html"><span>命名空间</span></a></li>
+      <li class="current"><a href="annotated.html"><span>类</span></a></li>
+      <li><a href="files.html"><span>文件</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="搜索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="annotated.html"><span>类列表</span></a></li>
+      <li><a href="classes.html"><span>类索引</span></a></li>
+      <li><a href="hierarchy.html"><span>类继承关系</span></a></li>
+      <li><a href="functions.html"><span>类成员</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全部</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>类</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>命名空间</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>文件</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>函数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>变量</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>类型定义</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>枚举</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>枚举值</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>友元</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>宏定义</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>页</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="namespace_socket.html">Socket</a></li><li class="navelem"><a class="el" href="class_socket_1_1_t_c_p___c_s.html">TCP_CS</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">类</a> &#124;
+<a href="#pub-types">Public 类型</a> &#124;
+<a href="#pub-methods">Public 成员函数</a> &#124;
+<a href="#pro-types">Protected 类型</a> &#124;
+<a href="#pro-static-methods">静态 Protected 成员函数</a> &#124;
+<a href="#pro-attribs">Protected 属性</a> &#124;
+<a href="class_socket_1_1_t_c_p___c_s-members.html">所有成员列表</a>  </div>
+  <div class="headertitle">
+<div class="title">Socket::TCP_CS类 参考</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_t_c_p___c_s_8hpp_source.html">TCP_CS.hpp</a>&gt;</code></p>
+<div class="dynheader">
+类 Socket::TCP_CS 继承关系图:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="class_socket_1_1_t_c_p___c_s.png" usemap="#Socket::TCP_CS_map" alt=""/>
+  <map id="Socket::TCP_CS_map" name="Socket::TCP_CS_map">
+<area href="class_socket_1_1_t_c_p.html" alt="Socket::TCP" shape="rect" coords="0,56,142,80"/>
+<area href="class_socket_1_1_common_socket.html" alt="Socket::CommonSocket" shape="rect" coords="0,0,142,24"/>
+</map>
+ </div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+类</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_socket_1_1_t_c_p___c_s_1_1_t_c_p___c_s___c_l_i_e_n_t_p_a_r_a.html">TCP_CS_CLIENTPARA</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_socket_1_1_t_c_p___c_s_1_1_t_c_p___c_s___s_e_r_v_e_r_p_a_r_a.html">TCP_CS_SERVERPARA</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_socket_1_1_t_c_p___c_s_1_1_t_c_p___c_s___t_i_m_e_p_a_r_a.html">TCP_CS_TIMEPARA</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Public 类型</h2></td></tr>
+<tr class="memitem:a442b15fa71536d5b8e5f56c3977cd3b5"><td class="memItemLeft" align="right" valign="top">typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_socket_1_1_t_c_p___c_s.html#a442b15fa71536d5b8e5f56c3977cd3b5">TCP_CS_PROC</a> )(<a class="el" href="class_socket_1_1_t_c_p___c_s.html">TCP_CS</a> *<a class="el" href="sockman_8cpp.html#ac9cf5d732dd74f8737330352197ab202">server</a>, <a class="el" href="class_socket_1_1_t_c_p___c_s.html">TCP_CS</a> *client)</td></tr>
+<tr class="separator:a442b15fa71536d5b8e5f56c3977cd3b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public 成员函数</h2></td></tr>
+<tr class="memitem:a4adb6bf7ce6b0cf6713909060693fa42"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_socket_1_1_t_c_p___c_s.html#a4adb6bf7ce6b0cf6713909060693fa42">TCP_CS</a> (void)</td></tr>
+<tr class="separator:a4adb6bf7ce6b0cf6713909060693fa42"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a44c0367c16eb50d299fa2ebdbfc5a99f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_socket_1_1_t_c_p___c_s.html#a44c0367c16eb50d299fa2ebdbfc5a99f">TCP_CS</a> (const <a class="el" href="class_socket_1_1_t_c_p___c_s.html">TCP_CS</a> &amp;)</td></tr>
+<tr class="separator:a44c0367c16eb50d299fa2ebdbfc5a99f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a62863b2c21e02fdd801f42e1215434c2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_socket_1_1_t_c_p___c_s.html#a62863b2c21e02fdd801f42e1215434c2">~TCP_CS</a> ()</td></tr>
+<tr class="separator:a62863b2c21e02fdd801f42e1215434c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf7bef600be288c9c614905206bdbbac"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_socket_1_1_t_c_p___c_s.html#ae33a25d2cbe79dc26b371b717ffa10f6">TCP_CS_TYPE</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_socket_1_1_t_c_p___c_s.html#aaf7bef600be288c9c614905206bdbbac">get_tcp_type</a> ()</td></tr>
+<tr class="separator:aaf7bef600be288c9c614905206bdbbac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3654727ad40e5b6a7550f7cce3fce9ca"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_socket_1_1_t_c_p.html">TCP</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_socket_1_1_t_c_p___c_s.html#a3654727ad40e5b6a7550f7cce3fce9ca">get_tcp</a> ()</td></tr>
+<tr class="separator:a3654727ad40e5b6a7550f7cce3fce9ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a737935d87d8743ca34a31fc3b194fed1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_socket_1_1_t_c_p___c_s.html#a737935d87d8743ca34a31fc3b194fed1">is_connecteed</a> (<a class="el" href="class_socket_1_1_t_c_p___c_s.html">TCP_CS</a> <a class="el" href="sockman_8cpp.html#ac9cf5d732dd74f8737330352197ab202">server</a>)</td></tr>
+<tr class="separator:a737935d87d8743ca34a31fc3b194fed1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac40638db15d7084862d2c73617cfa80"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_socket_1_1_t_c_p___c_s.html#aac40638db15d7084862d2c73617cfa80">is_connecteed</a> ()</td></tr>
+<tr class="separator:aac40638db15d7084862d2c73617cfa80"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad1db7cefd2cdb173ead9d9ae5f1471fd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_socket_1_1_t_c_p___c_s.html#ad1db7cefd2cdb173ead9d9ae5f1471fd">is_on_server</a> (<a class="el" href="class_socket_1_1_t_c_p___c_s.html">TCP_CS</a> <a class="el" href="sockman_8cpp.html#ac9cf5d732dd74f8737330352197ab202">server</a>)</td></tr>
+<tr class="separator:ad1db7cefd2cdb173ead9d9ae5f1471fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adcbeb3b1d46687bef96e21f313c10ada"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_socket_1_1_t_c_p___c_s.html#adcbeb3b1d46687bef96e21f313c10ada">is_on_server</a> ()</td></tr>
+<tr class="separator:adcbeb3b1d46687bef96e21f313c10ada"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b6fdca884e68d1c4b17be6da4717386"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_socket_1_1_t_c_p___c_s.html#a8b6fdca884e68d1c4b17be6da4717386">creat_server</a> (<a class="el" href="struct_socket_1_1_address.html">Address</a> bind_address, unsigned int listeners=1)</td></tr>
+<tr class="separator:a8b6fdca884e68d1c4b17be6da4717386"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac612dd7e73747c3a306a52690d32020a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_socket_1_1_t_c_p___c_s.html#ac612dd7e73747c3a306a52690d32020a">creat_server</a> (<a class="el" href="namespace_socket.html#ab3e21fdc4c3718a292b430305c892481">Port</a> <a class="el" href="class_socket_1_1_t_c_p.html#aac9c6d33625b3b84039e6c9838333db5">port</a>, unsigned int listeners=1)</td></tr>
+<tr class="separator:ac612dd7e73747c3a306a52690d32020a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a2d89d784d156d11b6373a40f943c45"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_socket_1_1_t_c_p___c_s.html#a0a2d89d784d156d11b6373a40f943c45">start_server</a> (<a class="el" href="class_socket_1_1_t_c_p___c_s.html#a442b15fa71536d5b8e5f56c3977cd3b5">TCP_CS_PROC</a> lpDealFunc)</td></tr>
+<tr class="separator:a0a2d89d784d156d11b6373a40f943c45"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c9f8824dfa46d0164770a1379afeb02"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_socket_1_1_t_c_p___c_s.html#a6c9f8824dfa46d0164770a1379afeb02">start_server</a> (void)</td></tr>
+<tr class="separator:a6c9f8824dfa46d0164770a1379afeb02"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a3680a0af2cd36253f55c653e4eb1ff"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_socket_1_1_t_c_p___c_s.html#a0a3680a0af2cd36253f55c653e4eb1ff">stop_server</a> (void)</td></tr>
+<tr class="separator:a0a3680a0af2cd36253f55c653e4eb1ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a88b652da2a8d55585379d1a0df8b91a6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_socket_1_1_t_c_p___c_s.html#a88b652da2a8d55585379d1a0df8b91a6">stop_client</a> (void)</td></tr>
+<tr class="separator:a88b652da2a8d55585379d1a0df8b91a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8bdb412650ef83f85444373e15de1f72"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_socket_1_1_t_c_p___c_s.html">TCP_CS</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_socket_1_1_t_c_p___c_s.html#a8bdb412650ef83f85444373e15de1f72">accept_client</a> (void)</td></tr>
+<tr class="separator:a8bdb412650ef83f85444373e15de1f72"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9b48343c53409cdd6cd2a8b8d5da5b6d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_socket_1_1_t_c_p___c_s.html#a9b48343c53409cdd6cd2a8b8d5da5b6d">connect_to</a> (<a class="el" href="struct_socket_1_1_address.html">Address</a> <a class="el" href="class_socket_1_1_t_c_p.html#af8a1999f04d583065abeb19c2d712057">address</a>)</td></tr>
+<tr class="separator:a9b48343c53409cdd6cd2a8b8d5da5b6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_class_socket_1_1_t_c_p"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_socket_1_1_t_c_p')"><img src="closed.png" alt="-"/>&#160;Public 成员函数 继承自 <a class="el" href="class_socket_1_1_t_c_p.html">Socket::TCP</a></td></tr>
+<tr class="memitem:abc36cf2852f6e293fea1cbc1ce1b3266 inherit pub_methods_class_socket_1_1_t_c_p"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_socket_1_1_t_c_p.html#abc36cf2852f6e293fea1cbc1ce1b3266">TCP</a> (void)</td></tr>
+<tr class="separator:abc36cf2852f6e293fea1cbc1ce1b3266 inherit pub_methods_class_socket_1_1_t_c_p"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b96df8b104a10dca0679ca80a2e5323 inherit pub_methods_class_socket_1_1_t_c_p"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_socket_1_1_t_c_p.html#a1b96df8b104a10dca0679ca80a2e5323">TCP</a> (const <a class="el" href="class_socket_1_1_t_c_p.html">TCP</a> &amp;)</td></tr>
+<tr class="separator:a1b96df8b104a10dca0679ca80a2e5323 inherit pub_methods_class_socket_1_1_t_c_p"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a625cfa8dad791a763cea6278527039a7 inherit pub_methods_class_socket_1_1_t_c_p"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_socket.html#aa611dadb2bdd6d10e669a8a5eb49da13">Ip</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_socket_1_1_t_c_p.html#a625cfa8dad791a763cea6278527039a7">ip</a> (void)</td></tr>
+<tr class="separator:a625cfa8dad791a763cea6278527039a7 inherit pub_methods_class_socket_1_1_t_c_p"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac9c6d33625b3b84039e6c9838333db5 inherit pub_methods_class_socket_1_1_t_c_p"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_socket.html#ab3e21fdc4c3718a292b430305c892481">Port</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_socket_1_1_t_c_p.html#aac9c6d33625b3b84039e6c9838333db5">port</a> (void)</td></tr>
+<tr class="separator:aac9c6d33625b3b84039e6c9838333db5 inherit pub_methods_class_socket_1_1_t_c_p"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af8a1999f04d583065abeb19c2d712057 inherit pub_methods_class_socket_1_1_t_c_p"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_socket_1_1_address.html">Address</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_socket_1_1_t_c_p.html#af8a1999f04d583065abeb19c2d712057">address</a> (void)</td></tr>
+<tr class="separator:af8a1999f04d583065abeb19c2d712057 inherit pub_methods_class_socket_1_1_t_c_p"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a94d20293a9e629bc98e2a64417d4f891 inherit pub_methods_class_socket_1_1_t_c_p"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_socket_1_1_t_c_p.html#a94d20293a9e629bc98e2a64417d4f891">listen_on_port</a> (<a class="el" href="namespace_socket.html#ab3e21fdc4c3718a292b430305c892481">Port</a>, unsigned int listeners=1)</td></tr>
+<tr class="separator:a94d20293a9e629bc98e2a64417d4f891 inherit pub_methods_class_socket_1_1_t_c_p"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd33806defc803e986b570183b805d62 inherit pub_methods_class_socket_1_1_t_c_p"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_socket_1_1_t_c_p.html#afd33806defc803e986b570183b805d62">connect_to</a> (<a class="el" href="struct_socket_1_1_address.html">Address</a>)</td></tr>
+<tr class="separator:afd33806defc803e986b570183b805d62 inherit pub_methods_class_socket_1_1_t_c_p"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab8607aa2e41fc3e654958128b21e4c1c inherit pub_methods_class_socket_1_1_t_c_p"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_socket_1_1_t_c_p.html">TCP</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_socket_1_1_t_c_p.html#ab8607aa2e41fc3e654958128b21e4c1c">accept_client</a> (void)</td></tr>
+<tr class="separator:ab8607aa2e41fc3e654958128b21e4c1c inherit pub_methods_class_socket_1_1_t_c_p"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7084a00d06faff1a23aa49b9dd3d5b63 inherit pub_methods_class_socket_1_1_t_c_p"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
+<tr class="memitem:a7084a00d06faff1a23aa49b9dd3d5b63 inherit pub_methods_class_socket_1_1_t_c_p"><td class="memTemplItemLeft" align="right" valign="top">int&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_socket_1_1_t_c_p.html#a7084a00d06faff1a23aa49b9dd3d5b63">send</a> (const T *, size_t)</td></tr>
+<tr class="separator:a7084a00d06faff1a23aa49b9dd3d5b63 inherit pub_methods_class_socket_1_1_t_c_p"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a057924c803288f515d1006fa70a53596 inherit pub_methods_class_socket_1_1_t_c_p"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
+<tr class="memitem:a057924c803288f515d1006fa70a53596 inherit pub_methods_class_socket_1_1_t_c_p"><td class="memTemplItemLeft" align="right" valign="top">int&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_socket_1_1_t_c_p.html#a057924c803288f515d1006fa70a53596">receive</a> (T *, size_t)</td></tr>
+<tr class="separator:a057924c803288f515d1006fa70a53596 inherit pub_methods_class_socket_1_1_t_c_p"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e0d35531df12715b17a125034cdd529 inherit pub_methods_class_socket_1_1_t_c_p"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_socket_1_1_t_c_p.html#a6e0d35531df12715b17a125034cdd529">send_file</a> (string)</td></tr>
+<tr class="separator:a6e0d35531df12715b17a125034cdd529 inherit pub_methods_class_socket_1_1_t_c_p"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6343ebbe9ca8ad7741785b67c8d97298 inherit pub_methods_class_socket_1_1_t_c_p"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_socket_1_1_t_c_p.html#a6343ebbe9ca8ad7741785b67c8d97298">receive_file</a> (string)</td></tr>
+<tr class="separator:a6343ebbe9ca8ad7741785b67c8d97298 inherit pub_methods_class_socket_1_1_t_c_p"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_class_socket_1_1_common_socket"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_socket_1_1_common_socket')"><img src="closed.png" alt="-"/>&#160;Public 成员函数 继承自 <a class="el" href="class_socket_1_1_common_socket.html">Socket::CommonSocket</a></td></tr>
+<tr class="memitem:aff3bed2d6f19c202ea5033c587784a1b inherit pub_methods_class_socket_1_1_common_socket"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_socket_1_1_common_socket.html#aff3bed2d6f19c202ea5033c587784a1b">CommonSocket</a> (void)</td></tr>
+<tr class="separator:aff3bed2d6f19c202ea5033c587784a1b inherit pub_methods_class_socket_1_1_common_socket"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a386ea8c18a4f3b45fd3c8e05d4a84c inherit pub_methods_class_socket_1_1_common_socket"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_socket_1_1_common_socket.html#a9a386ea8c18a4f3b45fd3c8e05d4a84c">CommonSocket</a> (int)</td></tr>
+<tr class="separator:a9a386ea8c18a4f3b45fd3c8e05d4a84c inherit pub_methods_class_socket_1_1_common_socket"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a93bafe1180e7ca1eee711ed62fd4608c inherit pub_methods_class_socket_1_1_common_socket"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_socket_1_1_common_socket.html#a93bafe1180e7ca1eee711ed62fd4608c">~CommonSocket</a> (void)</td></tr>
+<tr class="separator:a93bafe1180e7ca1eee711ed62fd4608c inherit pub_methods_class_socket_1_1_common_socket"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a64f2617c3e487bc6908e77f9b40b9b7e inherit pub_methods_class_socket_1_1_common_socket"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_socket_1_1_common_socket.html#a64f2617c3e487bc6908e77f9b40b9b7e">open</a> (void)</td></tr>
+<tr class="separator:a64f2617c3e487bc6908e77f9b40b9b7e inherit pub_methods_class_socket_1_1_common_socket"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a29ce9d9bedd51d136620c700a95a5789 inherit pub_methods_class_socket_1_1_common_socket"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_socket_1_1_common_socket.html#a29ce9d9bedd51d136620c700a95a5789">close</a> (void)</td></tr>
+<tr class="separator:a29ce9d9bedd51d136620c700a95a5789 inherit pub_methods_class_socket_1_1_common_socket"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63fa8d1c21f415facdb18b2e7d4e43c8 inherit pub_methods_class_socket_1_1_common_socket"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_socket_1_1_common_socket.html#a63fa8d1c21f415facdb18b2e7d4e43c8">listen_on_port</a> (<a class="el" href="namespace_socket.html#ab3e21fdc4c3718a292b430305c892481">Port</a>)</td></tr>
+<tr class="separator:a63fa8d1c21f415facdb18b2e7d4e43c8 inherit pub_methods_class_socket_1_1_common_socket"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-types"></a>
+Protected 类型</h2></td></tr>
+<tr class="memitem:ae33a25d2cbe79dc26b371b717ffa10f6"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_socket_1_1_t_c_p___c_s.html#ae33a25d2cbe79dc26b371b717ffa10f6">TCP_CS_TYPE</a> { <a class="el" href="class_socket_1_1_t_c_p___c_s.html#ae33a25d2cbe79dc26b371b717ffa10f6aa5f73127e943d55c9ada2bea3279515a">TCP_CLIENT_TYPE</a> =0, 
+<a class="el" href="class_socket_1_1_t_c_p___c_s.html#ae33a25d2cbe79dc26b371b717ffa10f6af6f543564992c2a5bc29997f2bdd3021">TCP_SERVER_TYPE</a> =1, 
+<a class="el" href="class_socket_1_1_t_c_p___c_s.html#ae33a25d2cbe79dc26b371b717ffa10f6a4c1fa5f787ee03739642d49948cd3dd2">TCP_UNINIT_TYPE</a> =2
+ }</td></tr>
+<tr class="separator:ae33a25d2cbe79dc26b371b717ffa10f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-static-methods"></a>
+静态 Protected 成员函数</h2></td></tr>
+<tr class="memitem:a51c1a38ec5f80e75f7050427cdf10473"><td class="memItemLeft" align="right" valign="top">static void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_socket_1_1_t_c_p___c_s.html#a51c1a38ec5f80e75f7050427cdf10473">TimeoutControl</a> (<a class="el" href="_t_c_p___c_s_8hpp.html#a085f5f68a0ee4ab24d9f3954a78e8063">LPVOID</a> lpParm)</td></tr>
+<tr class="separator:a51c1a38ec5f80e75f7050427cdf10473"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ed191a07658231f9c9e000cb97c9857"><td class="memItemLeft" align="right" valign="top">static void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_socket_1_1_t_c_p___c_s.html#a6ed191a07658231f9c9e000cb97c9857">ServerProc</a> (<a class="el" href="_t_c_p___c_s_8hpp.html#a085f5f68a0ee4ab24d9f3954a78e8063">LPVOID</a> lpParm)</td></tr>
+<tr class="separator:a6ed191a07658231f9c9e000cb97c9857"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a02efdbc659119ca85e2fd3776762e583"><td class="memItemLeft" align="right" valign="top">static void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_socket_1_1_t_c_p___c_s.html#a02efdbc659119ca85e2fd3776762e583">DealProc</a> (<a class="el" href="_t_c_p___c_s_8hpp.html#a085f5f68a0ee4ab24d9f3954a78e8063">LPVOID</a> lpParm)</td></tr>
+<tr class="separator:a02efdbc659119ca85e2fd3776762e583"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a91e9b4d9c9e7e0b5c9a2054d8ba0eb1d"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_socket_1_1_t_c_p___c_s.html#a91e9b4d9c9e7e0b5c9a2054d8ba0eb1d">call_back</a> (<a class="el" href="class_socket_1_1_t_c_p___c_s.html">TCP_CS</a> *<a class="el" href="sockman_8cpp.html#ac9cf5d732dd74f8737330352197ab202">server</a>, <a class="el" href="class_socket_1_1_t_c_p___c_s.html">TCP_CS</a> *client)</td></tr>
+<tr class="separator:a91e9b4d9c9e7e0b5c9a2054d8ba0eb1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
+Protected 属性</h2></td></tr>
+<tr class="memitem:a96cf174a1139d60c9ca65f5c70c93f1b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_socket_1_1_t_c_p.html">TCP</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_socket_1_1_t_c_p___c_s.html#a96cf174a1139d60c9ca65f5c70c93f1b">_server</a></td></tr>
+<tr class="separator:a96cf174a1139d60c9ca65f5c70c93f1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa33b9724a75109516a5a09b2310a9380"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_socket_1_1_t_c_p.html">TCP</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_socket_1_1_t_c_p___c_s.html#aa33b9724a75109516a5a09b2310a9380">_client</a></td></tr>
+<tr class="separator:aa33b9724a75109516a5a09b2310a9380"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad89fe9961ce0eb87eff0d09d5e70eb90"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_socket_1_1_t_c_p___c_s.html#ad89fe9961ce0eb87eff0d09d5e70eb90">_bserver</a></td></tr>
+<tr class="separator:ad89fe9961ce0eb87eff0d09d5e70eb90"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9814ad6264d20e2eb289014c36189e51"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_socket_1_1_t_c_p___c_s.html#a9814ad6264d20e2eb289014c36189e51">_bconnected</a></td></tr>
+<tr class="separator:a9814ad6264d20e2eb289014c36189e51"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e0b16cbf17fa7085cf7316d6b3ee6a0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_socket_1_1_t_c_p___c_s.html#ae33a25d2cbe79dc26b371b717ffa10f6">TCP_CS_TYPE</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_socket_1_1_t_c_p___c_s.html#a8e0b16cbf17fa7085cf7316d6b3ee6a0">_type</a></td></tr>
+<tr class="separator:a8e0b16cbf17fa7085cf7316d6b3ee6a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_attribs_class_socket_1_1_common_socket"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_class_socket_1_1_common_socket')"><img src="closed.png" alt="-"/>&#160;Protected 属性 继承自 <a class="el" href="class_socket_1_1_common_socket.html">Socket::CommonSocket</a></td></tr>
+<tr class="memitem:a6d18e0441ab4fe38aac876c49ebacf18 inherit pro_attribs_class_socket_1_1_common_socket"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_socket.html#af400f8c28780f5ac43f8132f4a17f3b8">SocketId</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_socket_1_1_common_socket.html#a6d18e0441ab4fe38aac876c49ebacf18">_socket_id</a></td></tr>
+<tr class="separator:a6d18e0441ab4fe38aac876c49ebacf18 inherit pro_attribs_class_socket_1_1_common_socket"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab741c21593ce2a76ba36f7c3965a1772 inherit pro_attribs_class_socket_1_1_common_socket"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_socket_1_1_common_socket.html#ab741c21593ce2a76ba36f7c3965a1772">_socket_type</a></td></tr>
+<tr class="separator:ab741c21593ce2a76ba36f7c3965a1772 inherit pro_attribs_class_socket_1_1_common_socket"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad46fbe32b84bd68d9bc92cd66816e6f5 inherit pro_attribs_class_socket_1_1_common_socket"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_socket_1_1_common_socket.html#ad46fbe32b84bd68d9bc92cd66816e6f5">_opened</a></td></tr>
+<tr class="separator:ad46fbe32b84bd68d9bc92cd66816e6f5 inherit pro_attribs_class_socket_1_1_common_socket"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d2e4973c37eab8a4bd4a0774e786601 inherit pro_attribs_class_socket_1_1_common_socket"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_socket_1_1_common_socket.html#a6d2e4973c37eab8a4bd4a0774e786601">_binded</a></td></tr>
+<tr class="separator:a6d2e4973c37eab8a4bd4a0774e786601 inherit pro_attribs_class_socket_1_1_common_socket"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock">
+<p>在文件 <a class="el" href="_t_c_p___c_s_8hpp_source.html">TCP_CS.hpp</a> 第 <a class="el" href="_t_c_p___c_s_8hpp_source.html#l00025">25</a> 行定义.</p>
+</div><h2 class="groupheader">成员类型定义说明</h2>
+<a class="anchor" id="a442b15fa71536d5b8e5f56c3977cd3b5"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef void(*  Socket::TCP_CS::TCP_CS_PROC)(<a class="el" href="class_socket_1_1_t_c_p___c_s.html">TCP_CS</a> *<a class="el" href="sockman_8cpp.html#ac9cf5d732dd74f8737330352197ab202">server</a>, <a class="el" href="class_socket_1_1_t_c_p___c_s.html">TCP_CS</a> *client)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>在文件 <a class="el" href="_t_c_p___c_s_8hpp_source.html">TCP_CS.hpp</a> 第 <a class="el" href="_t_c_p___c_s_8hpp_source.html#l00031">31</a> 行定义.</p>
+
+</div>
+</div>
+<h2 class="groupheader">成员枚举类型说明</h2>
+<a class="anchor" id="ae33a25d2cbe79dc26b371b717ffa10f6"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="class_socket_1_1_t_c_p___c_s.html#ae33a25d2cbe79dc26b371b717ffa10f6">Socket::TCP_CS::TCP_CS_TYPE</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">枚举值</th></tr><tr><td class="fieldname"><em><a class="anchor" id="ae33a25d2cbe79dc26b371b717ffa10f6aa5f73127e943d55c9ada2bea3279515a"></a>TCP_CLIENT_TYPE</em>&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ae33a25d2cbe79dc26b371b717ffa10f6af6f543564992c2a5bc29997f2bdd3021"></a>TCP_SERVER_TYPE</em>&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ae33a25d2cbe79dc26b371b717ffa10f6a4c1fa5f787ee03739642d49948cd3dd2"></a>TCP_UNINIT_TYPE</em>&#160;</td><td class="fielddoc">
+</td></tr>
+</table>
+
+<p>在文件 <a class="el" href="_t_c_p___c_s_8hpp_source.html">TCP_CS.hpp</a> 第 <a class="el" href="_t_c_p___c_s_8hpp_source.html#l00035">35</a> 行定义.</p>
+
+</div>
+</div>
+<h2 class="groupheader">构造及析构函数说明</h2>
+<a class="anchor" id="a4adb6bf7ce6b0cf6713909060693fa42"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Socket::TCP_CS::TCP_CS </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>在文件 <a class="el" href="_t_c_p___c_s_8cpp_source.html">TCP_CS.cpp</a> 第 <a class="el" href="_t_c_p___c_s_8cpp_source.html#l00019">19</a> 行定义.</p>
+
+</div>
+</div>
+<a class="anchor" id="a44c0367c16eb50d299fa2ebdbfc5a99f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Socket::TCP_CS::TCP_CS </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_socket_1_1_t_c_p___c_s.html">TCP_CS</a> &amp;&#160;</td>
+          <td class="paramname"><em>tcp</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>在文件 <a class="el" href="_t_c_p___c_s_8cpp_source.html">TCP_CS.cpp</a> 第 <a class="el" href="_t_c_p___c_s_8cpp_source.html#l00029">29</a> 行定义.</p>
+
+</div>
+</div>
+<a class="anchor" id="a62863b2c21e02fdd801f42e1215434c2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Socket::TCP_CS::~TCP_CS </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>在文件 <a class="el" href="_t_c_p___c_s_8cpp_source.html">TCP_CS.cpp</a> 第 <a class="el" href="_t_c_p___c_s_8cpp_source.html#l00042">42</a> 行定义.</p>
+
+</div>
+</div>
+<h2 class="groupheader">成员函数说明</h2>
+<a class="anchor" id="a8bdb412650ef83f85444373e15de1f72"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_socket_1_1_t_c_p___c_s.html">TCP_CS</a> Socket::TCP_CS::accept_client </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>在文件 <a class="el" href="_t_c_p___c_s_8cpp_source.html">TCP_CS.cpp</a> 第 <a class="el" href="_t_c_p___c_s_8cpp_source.html#l00188">188</a> 行定义.</p>
+
+</div>
+</div>
+<a class="anchor" id="a91e9b4d9c9e7e0b5c9a2054d8ba0eb1d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Socket::TCP_CS::call_back </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_socket_1_1_t_c_p___c_s.html">TCP_CS</a> *&#160;</td>
+          <td class="paramname"><em>server</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_socket_1_1_t_c_p___c_s.html">TCP_CS</a> *&#160;</td>
+          <td class="paramname"><em>client</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>在文件 <a class="el" href="_t_c_p___c_s_8cpp_source.html">TCP_CS.cpp</a> 第 <a class="el" href="_t_c_p___c_s_8cpp_source.html#l00343">343</a> 行定义.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9b48343c53409cdd6cd2a8b8d5da5b6d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Socket::TCP_CS::connect_to </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_socket_1_1_address.html">Address</a>&#160;</td>
+          <td class="paramname"><em>address</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>在文件 <a class="el" href="_t_c_p___c_s_8cpp_source.html">TCP_CS.cpp</a> 第 <a class="el" href="_t_c_p___c_s_8cpp_source.html#l00204">204</a> 行定义.</p>
+
+</div>
+</div>
+<a class="anchor" id="a8b6fdca884e68d1c4b17be6da4717386"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Socket::TCP_CS::creat_server </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_socket_1_1_address.html">Address</a>&#160;</td>
+          <td class="paramname"><em>bind_address</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>listeners</em> = <code>1</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>在文件 <a class="el" href="_t_c_p___c_s_8cpp_source.html">TCP_CS.cpp</a> 第 <a class="el" href="_t_c_p___c_s_8cpp_source.html#l00102">102</a> 行定义.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac612dd7e73747c3a306a52690d32020a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Socket::TCP_CS::creat_server </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_socket.html#ab3e21fdc4c3718a292b430305c892481">Port</a>&#160;</td>
+          <td class="paramname"><em>port</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>listeners</em> = <code>1</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>在文件 <a class="el" href="_t_c_p___c_s_8cpp_source.html">TCP_CS.cpp</a> 第 <a class="el" href="_t_c_p___c_s_8cpp_source.html#l00107">107</a> 行定义.</p>
+
+</div>
+</div>
+<a class="anchor" id="a02efdbc659119ca85e2fd3776762e583"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void * Socket::TCP_CS::DealProc </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_t_c_p___c_s_8hpp.html#a085f5f68a0ee4ab24d9f3954a78e8063">LPVOID</a>&#160;</td>
+          <td class="paramname"><em>lpParm</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>在文件 <a class="el" href="_t_c_p___c_s_8cpp_source.html">TCP_CS.cpp</a> 第 <a class="el" href="_t_c_p___c_s_8cpp_source.html#l00297">297</a> 行定义.</p>
+
+</div>
+</div>
+<a class="anchor" id="a3654727ad40e5b6a7550f7cce3fce9ca"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_socket_1_1_t_c_p.html">TCP</a> Socket::TCP_CS::get_tcp </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>在文件 <a class="el" href="_t_c_p___c_s_8cpp_source.html">TCP_CS.cpp</a> 第 <a class="el" href="_t_c_p___c_s_8cpp_source.html#l00056">56</a> 行定义.</p>
+
+</div>
+</div>
+<a class="anchor" id="aaf7bef600be288c9c614905206bdbbac"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_socket_1_1_t_c_p___c_s.html#ae33a25d2cbe79dc26b371b717ffa10f6">TCP_CS::TCP_CS_TYPE</a> Socket::TCP_CS::get_tcp_type </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>在文件 <a class="el" href="_t_c_p___c_s_8cpp_source.html">TCP_CS.cpp</a> 第 <a class="el" href="_t_c_p___c_s_8cpp_source.html#l00051">51</a> 行定义.</p>
+
+</div>
+</div>
+<a class="anchor" id="a737935d87d8743ca34a31fc3b194fed1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Socket::TCP_CS::is_connecteed </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_socket_1_1_t_c_p___c_s.html">TCP_CS</a>&#160;</td>
+          <td class="paramname"><em>server</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>在文件 <a class="el" href="_t_c_p___c_s_8cpp_source.html">TCP_CS.cpp</a> 第 <a class="el" href="_t_c_p___c_s_8cpp_source.html#l00062">62</a> 行定义.</p>
+
+</div>
+</div>
+<a class="anchor" id="aac40638db15d7084862d2c73617cfa80"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Socket::TCP_CS::is_connecteed </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>在文件 <a class="el" href="_t_c_p___c_s_8cpp_source.html">TCP_CS.cpp</a> 第 <a class="el" href="_t_c_p___c_s_8cpp_source.html#l00067">67</a> 行定义.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad1db7cefd2cdb173ead9d9ae5f1471fd"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Socket::TCP_CS::is_on_server </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_socket_1_1_t_c_p___c_s.html">TCP_CS</a>&#160;</td>
+          <td class="paramname"><em>server</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>在文件 <a class="el" href="_t_c_p___c_s_8cpp_source.html">TCP_CS.cpp</a> 第 <a class="el" href="_t_c_p___c_s_8cpp_source.html#l00092">92</a> 行定义.</p>
+
+</div>
+</div>
+<a class="anchor" id="adcbeb3b1d46687bef96e21f313c10ada"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Socket::TCP_CS::is_on_server </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>在文件 <a class="el" href="_t_c_p___c_s_8cpp_source.html">TCP_CS.cpp</a> 第 <a class="el" href="_t_c_p___c_s_8cpp_source.html#l00097">97</a> 行定义.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6ed191a07658231f9c9e000cb97c9857"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void * Socket::TCP_CS::ServerProc </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_t_c_p___c_s_8hpp.html#a085f5f68a0ee4ab24d9f3954a78e8063">LPVOID</a>&#160;</td>
+          <td class="paramname"><em>lpParm</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>在文件 <a class="el" href="_t_c_p___c_s_8cpp_source.html">TCP_CS.cpp</a> 第 <a class="el" href="_t_c_p___c_s_8cpp_source.html#l00227">227</a> 行定义.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0a2d89d784d156d11b6373a40f943c45"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Socket::TCP_CS::start_server </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_socket_1_1_t_c_p___c_s.html#a442b15fa71536d5b8e5f56c3977cd3b5">TCP_CS_PROC</a>&#160;</td>
+          <td class="paramname"><em>lpDealFunc</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>在文件 <a class="el" href="_t_c_p___c_s_8cpp_source.html">TCP_CS.cpp</a> 第 <a class="el" href="_t_c_p___c_s_8cpp_source.html#l00125">125</a> 行定义.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6c9f8824dfa46d0164770a1379afeb02"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Socket::TCP_CS::start_server </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>在文件 <a class="el" href="_t_c_p___c_s_8cpp_source.html">TCP_CS.cpp</a> 第 <a class="el" href="_t_c_p___c_s_8cpp_source.html#l00156">156</a> 行定义.</p>
+
+</div>
+</div>
+<a class="anchor" id="a88b652da2a8d55585379d1a0df8b91a6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Socket::TCP_CS::stop_client </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>在文件 <a class="el" href="_t_c_p___c_s_8cpp_source.html">TCP_CS.cpp</a> 第 <a class="el" href="_t_c_p___c_s_8cpp_source.html#l00175">175</a> 行定义.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0a3680a0af2cd36253f55c653e4eb1ff"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Socket::TCP_CS::stop_server </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>在文件 <a class="el" href="_t_c_p___c_s_8cpp_source.html">TCP_CS.cpp</a> 第 <a class="el" href="_t_c_p___c_s_8cpp_source.html#l00162">162</a> 行定义.</p>
+
+</div>
+</div>
+<a class="anchor" id="a51c1a38ec5f80e75f7050427cdf10473"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void * Socket::TCP_CS::TimeoutControl </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_t_c_p___c_s_8hpp.html#a085f5f68a0ee4ab24d9f3954a78e8063">LPVOID</a>&#160;</td>
+          <td class="paramname"><em>lpParm</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>在文件 <a class="el" href="_t_c_p___c_s_8cpp_source.html">TCP_CS.cpp</a> 第 <a class="el" href="_t_c_p___c_s_8cpp_source.html#l00215">215</a> 行定义.</p>
+
+</div>
+</div>
+<h2 class="groupheader">类成员变量说明</h2>
+<a class="anchor" id="a9814ad6264d20e2eb289014c36189e51"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Socket::TCP_CS::_bconnected</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>在文件 <a class="el" href="_t_c_p___c_s_8hpp_source.html">TCP_CS.hpp</a> 第 <a class="el" href="_t_c_p___c_s_8hpp_source.html#l00075">75</a> 行定义.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad89fe9961ce0eb87eff0d09d5e70eb90"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Socket::TCP_CS::_bserver</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>在文件 <a class="el" href="_t_c_p___c_s_8hpp_source.html">TCP_CS.hpp</a> 第 <a class="el" href="_t_c_p___c_s_8hpp_source.html#l00073">73</a> 行定义.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa33b9724a75109516a5a09b2310a9380"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_socket_1_1_t_c_p.html">TCP</a> Socket::TCP_CS::_client</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>在文件 <a class="el" href="_t_c_p___c_s_8hpp_source.html">TCP_CS.hpp</a> 第 <a class="el" href="_t_c_p___c_s_8hpp_source.html#l00071">71</a> 行定义.</p>
+
+</div>
+</div>
+<a class="anchor" id="a96cf174a1139d60c9ca65f5c70c93f1b"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_socket_1_1_t_c_p.html">TCP</a> Socket::TCP_CS::_server</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>在文件 <a class="el" href="_t_c_p___c_s_8hpp_source.html">TCP_CS.hpp</a> 第 <a class="el" href="_t_c_p___c_s_8hpp_source.html#l00069">69</a> 行定义.</p>
+
+</div>
+</div>
+<a class="anchor" id="a8e0b16cbf17fa7085cf7316d6b3ee6a0"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_socket_1_1_t_c_p___c_s.html#ae33a25d2cbe79dc26b371b717ffa10f6">TCP_CS_TYPE</a> Socket::TCP_CS::_type</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>在文件 <a class="el" href="_t_c_p___c_s_8hpp_source.html">TCP_CS.hpp</a> 第 <a class="el" href="_t_c_p___c_s_8hpp_source.html#l00078">78</a> 行定义.</p>
+
+</div>
+</div>
+<hr/>该类的文档由以下文件生成:<ul>
+<li>/opt/test/Sockman/sockman/<a class="el" href="_t_c_p___c_s_8hpp_source.html">TCP_CS.hpp</a></li>
+<li>/opt/test/Sockman/sockman/<a class="el" href="_t_c_p___c_s_8cpp_source.html">TCP_CS.cpp</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+生成于 2017年 六月 24日 星期六 14:29:47 , 为 sockman使用  &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.6
+</small></address>
+</body>
+</html>

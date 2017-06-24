@@ -2,6 +2,8 @@ var searchData=
 [
   ['get',['get',['../class_json_1_1_value.html#a28282c9b76fa031eba7a1843c47c16fe',1,'Json::Value::get(ArrayIndex index, const Value &amp;defaultValue) const '],['../class_json_1_1_value.html#ab76b3323cde14c7db20676d07b260ce7',1,'Json::Value::get(const char *key, const Value &amp;defaultValue) const '],['../class_json_1_1_value.html#a54a34264356e01ee9c21a75ccfc809e9',1,'Json::Value::get(const std::string &amp;key, const Value &amp;defaultValue) const ']]],
   ['get_5flogger',['get_logger',['../loger_8cpp.html#afddad02c07f6998c85be60de48199f4a',1,'get_logger():&#160;loger.cpp'],['../loger_8hpp.html#afddad02c07f6998c85be60de48199f4a',1,'get_logger():&#160;loger.cpp']]],
+  ['get_5ftcp',['get_tcp',['../class_socket_1_1_t_c_p___c_s.html#a3654727ad40e5b6a7550f7cce3fce9ca',1,'Socket::TCP_CS']]],
+  ['get_5ftcp_5ftype',['get_tcp_type',['../class_socket_1_1_t_c_p___c_s.html#aaf7bef600be288c9c614905206bdbbac',1,'Socket::TCP_CS']]],
   ['getcomment',['getComment',['../class_json_1_1_value.html#aa1e105b5d7f55d6e42f4fb2f3674116f',1,'Json::Value']]],
   ['getcurrentlen',['getCurrentLen',['../class_log4z_stream.html#a2c8e2a831737bcbc78511bb7406fc364',1,'Log4zStream']]],
   ['getformatederrormessages',['getFormatedErrorMessages',['../class_json_1_1_reader.html#afa4a59e962d23c4d1c38b433fc95eefa',1,'Json::Reader']]],

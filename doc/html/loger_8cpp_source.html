@@ -3,16 +3,15 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<meta name="generator" content="Doxygen 1.8.11"/>
-<title>sockman: E:/work/code/SockWin/git/Sockman/sockman/loger.cpp 源文件</title>
+<meta name="generator" content="Doxygen 1.8.6"/>
+<title>sockman: /opt/test/Sockman/sockman/loger.cpp 源文件</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
-  $(document).ready(function() { init_search(); });
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
 </script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
@@ -22,7 +21,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectalign" style="padding-left: 0.5em;">
+  <td style="padding-left: 0.5em;">
    <div id="projectname">sockman
    </div>
   </td>
@@ -31,7 +30,7 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- 制作者 Doxygen 1.8.11 -->
+<!-- 制作者 Doxygen 1.8.6 -->
 <script type="text/javascript">
 var searchBox = new SearchBox("searchBox", "search",false,'搜索');
 </script>
@@ -71,7 +70,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'搜索');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-</div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全部</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>类</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>命名空间</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>文件</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>函数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>变量</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>类型定义</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>枚举</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>枚举值</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>友元</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>宏定义</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>页</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -90,11 +89,37 @@ var searchBox = new SearchBox("searchBox", "search",false,'搜索');
 <div class="title">loger.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="loger_8cpp.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="loger_8hpp.html">loger.hpp</a>&quot;</span></div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="keyword">using namespace </span><a class="code" href="namespacezsummer_1_1log4z.html">zsummer::log4z</a>;</div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">using namespace </span><a class="code" href="namespacestd.html">std</a>;</div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div><div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="loger_8cpp.html#a4b9160c3dd6a7afa81ac8718d14d8c19">    7</a></span>&#160;<a class="code" href="log4z_8h.html#a99f61f92fb9519f319b5989fb14ff6e0">LoggerId</a> <a class="code" href="loger_8cpp.html#a4b9160c3dd6a7afa81ac8718d14d8c19">LOGID_TEST</a>;</div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div><div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="loger_8hpp.html#a245306f7a0e9d637fc74de5f3fd5508a">    9</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="loger_8cpp.html#a245306f7a0e9d637fc74de5f3fd5508a">setup_loger</a>()</div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;{</div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <span class="comment">//start log4z</span></div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    cout&lt;&lt;<span class="stringliteral">&quot;setup loger!!&quot;</span>&lt;&lt;endl;</div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <a class="code" href="loger_8cpp.html#a4b9160c3dd6a7afa81ac8718d14d8c19">LOGID_TEST</a> = <a class="code" href="class_i_log4z_manager.html#a5998a8365814ef8ece74cb0e28d66ca0">ILog4zManager::getRef</a>().<a class="code" href="class_i_log4z_manager.html#a85f95c276de4e5efd57bba78dc602819">createLogger</a>(<span class="stringliteral">&quot;test&quot;</span> );</div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;   <span class="comment">// ILog4zManager::getRef().config(&quot;config.cfg&quot;);</span></div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <a class="code" href="class_i_log4z_manager.html#a5998a8365814ef8ece74cb0e28d66ca0">ILog4zManager::getRef</a>().<a class="code" href="class_i_log4z_manager.html#a0a8cc7d2b6b1d51c0726660473df58a5">setLoggerDisplay</a>(<a class="code" href="log4z_8h.html#af7e2e6c734863d4c9568502debc056d4">LOG4Z_MAIN_LOGGER_ID</a>, <span class="keyword">false</span>);</div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <a class="code" href="class_i_log4z_manager.html#a5998a8365814ef8ece74cb0e28d66ca0">ILog4zManager::getRef</a>().<a class="code" href="class_i_log4z_manager.html#a7614db95ddf5b57b2136d8007f6b712d">setLoggerOutFile</a>(<a class="code" href="log4z_8h.html#af7e2e6c734863d4c9568502debc056d4">LOG4Z_MAIN_LOGGER_ID</a>, <span class="keyword">false</span>);</div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <a class="code" href="class_i_log4z_manager.html#a5998a8365814ef8ece74cb0e28d66ca0">ILog4zManager::getRef</a>().<a class="code" href="class_i_log4z_manager.html#a0a8cc7d2b6b1d51c0726660473df58a5">setLoggerDisplay</a>(<a class="code" href="loger_8cpp.html#a4b9160c3dd6a7afa81ac8718d14d8c19">LOGID_TEST</a>, <span class="keyword">true</span>);</div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <a class="code" href="class_i_log4z_manager.html#a5998a8365814ef8ece74cb0e28d66ca0">ILog4zManager::getRef</a>().<a class="code" href="class_i_log4z_manager.html#a7614db95ddf5b57b2136d8007f6b712d">setLoggerOutFile</a>(<a class="code" href="loger_8cpp.html#a4b9160c3dd6a7afa81ac8718d14d8c19">LOGID_TEST</a>, <span class="keyword">true</span>);</div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <a class="code" href="class_i_log4z_manager.html#a5998a8365814ef8ece74cb0e28d66ca0">ILog4zManager::getRef</a>().<a class="code" href="class_i_log4z_manager.html#aa34202d655a2534ef3f4eddca7d3782e">start</a>();</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    cout&lt;&lt;<span class="stringliteral">&quot;LOGID_TEST:&quot;</span>&lt;&lt;<a class="code" href="loger_8cpp.html#a4b9160c3dd6a7afa81ac8718d14d8c19">LOGID_TEST</a>&lt;&lt;(<span class="stringliteral">&quot;!setup finish!!&quot;</span>)&lt;&lt;endl;</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordflow">return</span> 0;</div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;}</div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div><div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="loger_8hpp.html#afddad02c07f6998c85be60de48199f4a">   25</a></span>&#160;<a class="code" href="log4z_8h.html#a99f61f92fb9519f319b5989fb14ff6e0">LoggerId</a> <a class="code" href="loger_8cpp.html#afddad02c07f6998c85be60de48199f4a">get_logger</a>()</div><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;{</div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="loger_8cpp.html#a4b9160c3dd6a7afa81ac8718d14d8c19">LOGID_TEST</a>;</div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;}</div><div class="ttc" id="log4z_8h_html_af7e2e6c734863d4c9568502debc056d4"><div class="ttname"><a href="log4z_8h.html#af7e2e6c734863d4c9568502debc056d4">LOG4Z_MAIN_LOGGER_ID</a></div><div class="ttdeci">const int LOG4Z_MAIN_LOGGER_ID</div><div class="ttdef"><b>Definition:</b> <a href="log4z_8h_source.html#l00212">log4z.h:212</a></div></div>
+<a href="loger_8cpp.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="loger_8hpp.html">loger.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="keyword">using namespace </span>zsummer::log4z;</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">using namespace </span>std;</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
+<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="loger_8cpp.html#a4b9160c3dd6a7afa81ac8718d14d8c19">    7</a></span>&#160;<a class="code" href="log4z_8h.html#a99f61f92fb9519f319b5989fb14ff6e0">LoggerId</a> <a class="code" href="loger_8cpp.html#a4b9160c3dd6a7afa81ac8718d14d8c19">LOGID_TEST</a>;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
+<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="loger_8hpp.html#a245306f7a0e9d637fc74de5f3fd5508a">    9</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="loger_8cpp.html#a245306f7a0e9d637fc74de5f3fd5508a">setup_loger</a>()</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;{</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <span class="comment">//start log4z</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    cout&lt;&lt;<span class="stringliteral">&quot;setup loger!!&quot;</span>&lt;&lt;endl;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <a class="code" href="loger_8cpp.html#a4b9160c3dd6a7afa81ac8718d14d8c19">LOGID_TEST</a> = <a class="code" href="class_i_log4z_manager.html#a5998a8365814ef8ece74cb0e28d66ca0">ILog4zManager::getRef</a>().<a class="code" href="class_i_log4z_manager.html#a85f95c276de4e5efd57bba78dc602819">createLogger</a>(<span class="stringliteral">&quot;test&quot;</span> );</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;   <span class="comment">// ILog4zManager::getRef().config(&quot;config.cfg&quot;);</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <a class="code" href="class_i_log4z_manager.html#a5998a8365814ef8ece74cb0e28d66ca0">ILog4zManager::getRef</a>().<a class="code" href="class_i_log4z_manager.html#a0a8cc7d2b6b1d51c0726660473df58a5">setLoggerDisplay</a>(<a class="code" href="log4z_8h.html#af7e2e6c734863d4c9568502debc056d4">LOG4Z_MAIN_LOGGER_ID</a>, <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <a class="code" href="class_i_log4z_manager.html#a5998a8365814ef8ece74cb0e28d66ca0">ILog4zManager::getRef</a>().<a class="code" href="class_i_log4z_manager.html#a7614db95ddf5b57b2136d8007f6b712d">setLoggerOutFile</a>(<a class="code" href="log4z_8h.html#af7e2e6c734863d4c9568502debc056d4">LOG4Z_MAIN_LOGGER_ID</a>, <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <a class="code" href="class_i_log4z_manager.html#a5998a8365814ef8ece74cb0e28d66ca0">ILog4zManager::getRef</a>().<a class="code" href="class_i_log4z_manager.html#a0a8cc7d2b6b1d51c0726660473df58a5">setLoggerDisplay</a>(<a class="code" href="loger_8cpp.html#a4b9160c3dd6a7afa81ac8718d14d8c19">LOGID_TEST</a>, <span class="keyword">true</span>);</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <a class="code" href="class_i_log4z_manager.html#a5998a8365814ef8ece74cb0e28d66ca0">ILog4zManager::getRef</a>().<a class="code" href="class_i_log4z_manager.html#a7614db95ddf5b57b2136d8007f6b712d">setLoggerOutFile</a>(<a class="code" href="loger_8cpp.html#a4b9160c3dd6a7afa81ac8718d14d8c19">LOGID_TEST</a>, <span class="keyword">true</span>);</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <a class="code" href="class_i_log4z_manager.html#a5998a8365814ef8ece74cb0e28d66ca0">ILog4zManager::getRef</a>().<a class="code" href="class_i_log4z_manager.html#aa34202d655a2534ef3f4eddca7d3782e">start</a>();</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    cout&lt;&lt;<span class="stringliteral">&quot;LOGID_TEST:&quot;</span>&lt;&lt;<a class="code" href="loger_8cpp.html#a4b9160c3dd6a7afa81ac8718d14d8c19">LOGID_TEST</a>&lt;&lt;(<span class="stringliteral">&quot;!setup finish!!&quot;</span>)&lt;&lt;endl;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;}</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="loger_8hpp.html#afddad02c07f6998c85be60de48199f4a">   25</a></span>&#160;<a class="code" href="log4z_8h.html#a99f61f92fb9519f319b5989fb14ff6e0">LoggerId</a> <a class="code" href="loger_8cpp.html#afddad02c07f6998c85be60de48199f4a">get_logger</a>()</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;{</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="loger_8cpp.html#a4b9160c3dd6a7afa81ac8718d14d8c19">LOGID_TEST</a>;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;}</div>
+<div class="ttc" id="log4z_8h_html_af7e2e6c734863d4c9568502debc056d4"><div class="ttname"><a href="log4z_8h.html#af7e2e6c734863d4c9568502debc056d4">LOG4Z_MAIN_LOGGER_ID</a></div><div class="ttdeci">const int LOG4Z_MAIN_LOGGER_ID</div><div class="ttdef"><b>Definition:</b> <a href="log4z_8h_source.html#l00212">log4z.h:212</a></div></div>
 <div class="ttc" id="loger_8cpp_html_a4b9160c3dd6a7afa81ac8718d14d8c19"><div class="ttname"><a href="loger_8cpp.html#a4b9160c3dd6a7afa81ac8718d14d8c19">LOGID_TEST</a></div><div class="ttdeci">LoggerId LOGID_TEST</div><div class="ttdef"><b>Definition:</b> <a href="loger_8cpp_source.html#l00007">loger.cpp:7</a></div></div>
-<div class="ttc" id="namespacezsummer_1_1log4z_html"><div class="ttname"><a href="namespacezsummer_1_1log4z.html">log4z</a></div></div>
 <div class="ttc" id="loger_8cpp_html_a245306f7a0e9d637fc74de5f3fd5508a"><div class="ttname"><a href="loger_8cpp.html#a245306f7a0e9d637fc74de5f3fd5508a">setup_loger</a></div><div class="ttdeci">int setup_loger()</div><div class="ttdef"><b>Definition:</b> <a href="loger_8cpp_source.html#l00009">loger.cpp:9</a></div></div>
-<div class="ttc" id="namespacestd_html"><div class="ttname"><a href="namespacestd.html">std</a></div></div>
 <div class="ttc" id="class_i_log4z_manager_html_a5998a8365814ef8ece74cb0e28d66ca0"><div class="ttname"><a href="class_i_log4z_manager.html#a5998a8365814ef8ece74cb0e28d66ca0">ILog4zManager::getRef</a></div><div class="ttdeci">static ILog4zManager &amp; getRef()</div><div class="ttdef"><b>Definition:</b> <a href="log4z_8h_source.html#l00308">log4z.h:308</a></div></div>
 <div class="ttc" id="loger_8cpp_html_afddad02c07f6998c85be60de48199f4a"><div class="ttname"><a href="loger_8cpp.html#afddad02c07f6998c85be60de48199f4a">get_logger</a></div><div class="ttdeci">LoggerId get_logger()</div><div class="ttdef"><b>Definition:</b> <a href="loger_8cpp_source.html#l00025">loger.cpp:25</a></div></div>
 <div class="ttc" id="class_i_log4z_manager_html_aa34202d655a2534ef3f4eddca7d3782e"><div class="ttname"><a href="class_i_log4z_manager.html#aa34202d655a2534ef3f4eddca7d3782e">ILog4zManager::start</a></div><div class="ttdeci">virtual bool start()=0</div><div class="ttdoc">Start Log Thread. This method can only be called once by one process. </div></div>
@@ -106,9 +131,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'搜索');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-生成于 2017年 四月 17日 星期一 16:50:41 , 为 sockman使用  &#160;<a href="http://www.doxygen.org/index.html">
+生成于 2017年 六月 24日 星期六 14:29:46 , 为 sockman使用  &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.11
+</a> 1.8.6
 </small></address>
 </body>
 </html>

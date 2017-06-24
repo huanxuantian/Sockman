@@ -6,6 +6,8 @@ var searchData=
   ['init_5fprint_5fthread',['init_print_thread',['../log__debug_8cpp.html#a5879f4afc9b1203fbfbde43704301c4d',1,'init_print_thread():&#160;log_debug.cpp'],['../log__debug_8h.html#a5879f4afc9b1203fbfbde43704301c4d',1,'init_print_thread():&#160;log_debug.cpp']]],
   ['initrecyclequeue',['InitRecycleQueue',['../class_c_recycle_queue.html#acecfb82d5702bec294683c7f9f83f7f7',1,'CRecycleQueue']]],
   ['ip',['ip',['../struct_socket_1_1_address.html#a7d1a9133592df6be01331c7130cac015',1,'Socket::Address::ip(void)'],['../struct_socket_1_1_address.html#a473b59b7f5d3022841992ce387174fac',1,'Socket::Address::ip(Ip)'],['../class_socket_1_1_t_c_p.html#a625cfa8dad791a763cea6278527039a7',1,'Socket::TCP::ip()']]],
+  ['is_5fconnecteed',['is_connecteed',['../class_socket_1_1_t_c_p___c_s.html#a737935d87d8743ca34a31fc3b194fed1',1,'Socket::TCP_CS::is_connecteed(TCP_CS server)'],['../class_socket_1_1_t_c_p___c_s.html#aac40638db15d7084862d2c73617cfa80',1,'Socket::TCP_CS::is_connecteed()']]],
+  ['is_5fon_5fserver',['is_on_server',['../class_socket_1_1_t_c_p___c_s.html#ad1db7cefd2cdb173ead9d9ae5f1471fd',1,'Socket::TCP_CS::is_on_server(TCP_CS server)'],['../class_socket_1_1_t_c_p___c_s.html#adcbeb3b1d46687bef96e21f313c10ada',1,'Socket::TCP_CS::is_on_server()']]],
   ['isarray',['isArray',['../class_json_1_1_value.html#ac8c898f93543e55b67418f94bced20af',1,'Json::Value']]],
   ['isbool',['isBool',['../class_json_1_1_value.html#a3c3716cc7a0216cb1b654bb8f61c8d13',1,'Json::Value']]],
   ['isconvertibleto',['isConvertibleTo',['../class_json_1_1_value.html#a7ec153803631a27abf58cba2bb1af70c',1,'Json::Value']]],

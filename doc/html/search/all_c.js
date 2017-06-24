@@ -97,5 +97,7 @@ var searchData=
   ['logi',['LOGI',['../log4z_8h.html#a77eb198175ea0848af3f4376b67f2ce0',1,'log4z.h']]],
   ['logid_5ftest',['LOGID_TEST',['../loger_8cpp.html#a4b9160c3dd6a7afa81ac8718d14d8c19',1,'loger.cpp']]],
   ['logt',['LOGT',['../log4z_8h.html#a4f500f2589a72b95fbffe418848c683f',1,'log4z.h']]],
-  ['logw',['LOGW',['../log4z_8h.html#a15a8cb552140b97571fccfa4055a3176',1,'log4z.h']]]
+  ['logw',['LOGW',['../log4z_8h.html#a15a8cb552140b97571fccfa4055a3176',1,'log4z.h']]],
+  ['lpdealfunc',['lpDealFunc',['../struct_socket_1_1_t_c_p___c_s_1_1_t_c_p___c_s___s_e_r_v_e_r_p_a_r_a.html#a5e1b929842c2c6790e3ab1538ccb5de1',1,'Socket::TCP_CS::TCP_CS_SERVERPARA::lpDealFunc()'],['../struct_socket_1_1_t_c_p___c_s_1_1_t_c_p___c_s___c_l_i_e_n_t_p_a_r_a.html#a56eb401500bb51f116bff48a96496fa6',1,'Socket::TCP_CS::TCP_CS_CLIENTPARA::lpDealFunc()']]],
+  ['lpvoid',['LPVOID',['../_t_c_p___c_s_8hpp.html#a085f5f68a0ee4ab24d9f3954a78e8063',1,'TCP_CS.hpp']]]
 ];

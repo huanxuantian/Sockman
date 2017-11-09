@@ -89,6 +89,7 @@ namespace Socket
 #endif
     Address _address;
 	Port listen_port;
+	bool GetLocalIP(SocketId fd, std::string* local_ip, int* port);
   public://公开接口，业务接口
     //获取对象类型
     TCP_CS_TYPE get_tcp_type();
@@ -120,6 +121,8 @@ namespace Socket
 	TCP_CS accept_client(void);
 	//客户链接到服务地址
 	void connect_to(Address address);
+	
+	Address get_address();
   protected://保护的内部接口
   	/*
 	 *@超时控制线程

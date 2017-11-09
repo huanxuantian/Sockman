@@ -37,6 +37,7 @@ namespace Socket
 		this->_socket_id = tcp._socket_id;
 		this->_opened = tcp._opened;
 		this->_binded = tcp._binded;
+		this->_address = tcp._address;
 
 	}
 	TCP_CS::~TCP_CS()
@@ -344,6 +345,7 @@ namespace Socket
     {
          printf("%s,%d new socket %d accept ,start for server socket %d ++++++\r\n",__FUNCTION__,__LINE__,
 			 client->_socket_id,server->_socket_id);
+			
 	if(server->_socket_id<=0||client->_socket_id<=0)
 	{
 	    client->stop_client();

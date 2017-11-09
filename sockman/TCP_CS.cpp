@@ -210,6 +210,43 @@ namespace Socket
         this->_bconnected = true;
     }
 
+    bool TCP_CS::GetLocalIP(int fd, std::string* local_ip, int* port) {
+       struct sockaddr local_addr;
+        socklen_t len = sizeof(sockaddr);
+        if (getsockname(fd, &local_addr, &len) == 0) {
+          struct sockaddr_in* sin = (struct sockaddr_in*)(&local_addr);
+          *port = sin->sin_port;
+          char addr_buffer[INET_ADDRSTRLEN];
+          void * tmp = &(sin->sin_addr);
+          if (inet_ntop(AF_INET, tmp, addr_buffer, INET_ADDRSTRLEN) == NULL){
+            cerr << "inet_ntop err";
+            return false;
+          }   
+          //cout << "addr:" << addr_buffer;
+          if (local_ip != NULL) {
+            local_ip->assign(addr_buffer);
+          }   
+          return true;
+        } else {
+          cerr << "getsockname err";
+          return false;
+        }
+    }
+    Address TCP_CS::get_address()
+    {
+        //this->_address
+        string local_ip;
+        int port;
+        GetLocalIP(this->_socket_id,&local_ip,&port);
+
+        //printf("connect address: %s:%d\r\n",local_ip.c_str(),port);
+
+        this->_address.ip(local_ip);
+        this->_address.port(port);
+
+        return this->_address;
+    }
+
     #ifdef WINDOWS
     void* CALLBACK TCP_CS::TimeoutControl(LPVOID lpParm)
     #else
@@ -343,8 +380,11 @@ namespace Socket
 //extern TCP_CS* new_client;
     void TCP_CS::call_back(TCP_CS* server,TCP_CS* client)
     {
+
          printf("%s,%d new socket %d accept ,start for server socket %d ++++++\r\n",__FUNCTION__,__LINE__,
 			 client->_socket_id,server->_socket_id);
+			
+        printf("%s::client connect from %s:%d\n", __FUNCTION__,client->_address.ip().c_str(), client->_address.port());
 			
 	if(server->_socket_id<=0||client->_socket_id<=0)
 	{

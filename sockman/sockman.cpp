@@ -22,6 +22,8 @@
 TCP_CS* new_client;
 TCP_CS server;
 
+TCP_CS c_client;
+
 using namespace zsummer::log4z;
 using namespace Json;
 using namespace std;
@@ -337,6 +339,32 @@ int main(int argc,char *argv[]){
 			//test_data
 		    }
 
+	}
+	else if(strcmp(argv[1],"cclient")==0)
+	{
+		LOG_TI("start c client for send "<<SEND_FILE);
+		//json_test1();
+        if(argc>=3)
+        {
+            s_port=atoi(argv[2]);
+            if(argc>=4)
+            {
+                s_ip=argv[3];
+                LOG_TA("start c client connect to ip "<<s_ip);
+            }
+            LOG_TA("client c connect to port "<<s_port);
+		}
+		Socket::Address to(s_ip, s_port);
+		c_client.connect_to(to);
+		{
+			printf("%s::client connect from %s:%d\n", __FUNCTION__,c_client.get_address().ip().c_str(), c_client.get_address().port());
+		}
+		while(c_client.is_connecteed())
+		{
+			sleep(10);
+			//printf("%s::client connect from %s:%d\n", __FUNCTION__,c_client.get_address().ip().c_str(), c_client.get_address().port());
+		}
+		
 	}
 	else
 	{

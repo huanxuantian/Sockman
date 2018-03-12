@@ -28,4 +28,5 @@ devenv Sockman.sln /Build "Release|Win32"
 
 =======
 
+report with jenkins test
 

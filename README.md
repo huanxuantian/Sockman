@@ -16,4 +16,5 @@ development new style framework in c++
 
 =======
 Auto build
+report with jenkins test
 

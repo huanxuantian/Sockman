@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>sockman: /opt/test/Sockman/sockman/CPPSocket/Socket.hpp 源文件</title>
+<title>sockman: /opt/em/Sockman/sockman/CPPSocket/Socket.hpp 源文件</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -387,8 +387,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'搜索');
 <div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt; <span class="keywordtype">int</span> send(<a class="code" href="struct_socket_1_1_address.html">Address</a>, vector&lt;T&gt;);</div>
 <div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;        </div>
 <div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt; <span class="keywordtype">int</span> receive(<a class="code" href="struct_socket_1_1_address.html">Address</a>*, T*, <span class="keywordtype">size_t</span>, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>*);</div>
-<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt; <a class="code" href="struct_socket_1_1_datagram.html">Datagram&lt;T*&gt;</a> receive(T*, <span class="keywordtype">size_t</span>);</div>
-<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">class</span> T, <span class="keywordtype">size_t</span> N&gt; <a class="code" href="struct_socket_1_1_datagram.html">Datagram&lt;T[N]&gt;</a> receive(<span class="keywordtype">size_t</span>);</div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt; <a class="code" href="struct_socket_1_1_datagram.html">Datagram&lt;T*&gt;</a> receive(T*, <span class="keywordtype">size_t</span> len= <a class="code" href="_socket_8hpp.html#a53bbb0386990bed294fda40cf77c889f">SOCKET_MAX_BUFFER_LEN</a>);</div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">class</span> T, <span class="keywordtype">size_t</span> N&gt; <a class="code" href="struct_socket_1_1_datagram.html">Datagram&lt;T[N]&gt;</a> receive(<span class="keywordtype">size_t</span> len=N);</div>
 <div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt; <a class="code" href="struct_socket_1_1_datagram.html">Datagram&lt;T&gt;</a> receive(<span class="keywordtype">void</span>);</div>
 <div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt; <a class="code" href="struct_socket_1_1_datagram.html">Datagram&lt;vector&lt;T&gt;</a> &gt; receive(<span class="keywordtype">size_t</span>);</div>
 <div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;<span class="preprocessor">        #endif</span></div>
@@ -503,7 +503,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'搜索');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-生成于 2017年 六月 24日 星期六 14:29:46 , 为 sockman使用  &#160;<a href="http://www.doxygen.org/index.html">
+生成于 2018年 三月 12日 星期一 13:13:16 , 为 sockman使用  &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

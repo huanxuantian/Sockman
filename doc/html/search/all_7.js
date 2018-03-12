@@ -1,6 +1,7 @@
 var searchData=
 [
   ['get',['get',['../class_json_1_1_value.html#a28282c9b76fa031eba7a1843c47c16fe',1,'Json::Value::get(ArrayIndex index, const Value &amp;defaultValue) const '],['../class_json_1_1_value.html#ab76b3323cde14c7db20676d07b260ce7',1,'Json::Value::get(const char *key, const Value &amp;defaultValue) const '],['../class_json_1_1_value.html#a54a34264356e01ee9c21a75ccfc809e9',1,'Json::Value::get(const std::string &amp;key, const Value &amp;defaultValue) const ']]],
+  ['get_5faddress',['get_address',['../class_socket_1_1_t_c_p___c_s.html#a0d5507f30d67eafc1198110d71e308e8',1,'Socket::TCP_CS']]],
   ['get_5flogger',['get_logger',['../loger_8cpp.html#afddad02c07f6998c85be60de48199f4a',1,'get_logger():&#160;loger.cpp'],['../loger_8hpp.html#afddad02c07f6998c85be60de48199f4a',1,'get_logger():&#160;loger.cpp']]],
   ['get_5ftcp',['get_tcp',['../class_socket_1_1_t_c_p___c_s.html#a3654727ad40e5b6a7550f7cce3fce9ca',1,'Socket::TCP_CS']]],
   ['get_5ftcp_5ftype',['get_tcp_type',['../class_socket_1_1_t_c_p___c_s.html#aaf7bef600be288c9c614905206bdbbac',1,'Socket::TCP_CS']]],

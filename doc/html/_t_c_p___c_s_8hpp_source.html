@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>sockman: /opt/test/Sockman/sockman/TCP_CS.hpp 源文件</title>
+<title>sockman: /opt/em/Sockman/sockman/TCP_CS.hpp 源文件</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -180,60 +180,64 @@ var searchBox = new SearchBox("searchBox", "search",false,'搜索');
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="preprocessor"></span>    <a class="code" href="struct_socket_1_1_address.html">Address</a> _address;</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <a class="code" href="namespace_socket.html#ab3e21fdc4c3718a292b430305c892481">Port</a> listen_port;</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;  <span class="keyword">public</span>:<span class="comment">//公开接口，业务接口</span></div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="comment">//获取对象类型</span></div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <a class="code" href="class_socket_1_1_t_c_p___c_s.html#ae33a25d2cbe79dc26b371b717ffa10f6">TCP_CS_TYPE</a> get_tcp_type();</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="comment">//获取对象核心数据，如果是客户端对象，则返回监听对象信息，否则返回客户对象信息。</span></div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <a class="code" href="class_socket_1_1_t_c_p.html">TCP</a> get_tcp();</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="comment">//获取指定对象链接状态</span></div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="comment">//服务socket（监听socket）的状态除非退出服务，否则总返回true</span></div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="comment">//客户sock（accect客户的socket）则根据select的客户状态返回</span></div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keywordtype">bool</span> is_connecteed(<a class="code" href="class_socket_1_1_t_c_p___c_s.html">TCP_CS</a> <a class="code" href="sockman_8cpp.html#ac9cf5d732dd74f8737330352197ab202">server</a>); </div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="comment">//获取对象链接状态</span></div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <span class="keywordtype">bool</span> is_connecteed();</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    <span class="comment">//获取指定对象是否为服务状态，对于非监听socket永远返回false</span></div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <span class="keywordtype">bool</span> is_on_server(<a class="code" href="class_socket_1_1_t_c_p___c_s.html">TCP_CS</a> <a class="code" href="sockman_8cpp.html#ac9cf5d732dd74f8737330352197ab202">server</a>); </div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="comment">//获取服务状态（在检测线程以及创建服务前检测用，返回_bserver，非监听socket永远返回false）</span></div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="keywordtype">bool</span> is_on_server();</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <span class="comment">//使用指定的地址结构创建服务（指定IP和端口）</span></div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="keywordtype">bool</span> creat_server(<a class="code" href="struct_socket_1_1_address.html">Address</a> bind_address,<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> listeners = 1);</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    <span class="comment">//使用指定端口创建服务，不指定IP的服务</span></div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <span class="keywordtype">bool</span> creat_server(<a class="code" href="namespace_socket.html#ab3e21fdc4c3718a292b430305c892481">Port</a> port,<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> listeners = 1);</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="comment">//指定外部回调接口，外部处理</span></div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <span class="keywordtype">bool</span> start_server(TCP_CS_PROC lpDealFunc);</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <span class="comment">//使用内部接口回调call_back</span></div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <span class="keywordtype">bool</span> start_server(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <span class="comment">//使用默认关闭流程函数</span></div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    <span class="keywordtype">bool</span> stop_server(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <span class="comment">//</span></div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    <span class="keywordtype">bool</span> stop_client(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <span class="comment">//接受客户端</span></div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <a class="code" href="class_socket_1_1_t_c_p___c_s.html">TCP_CS</a> accept_client(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <span class="comment">//客户链接到服务地址</span></div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <span class="keywordtype">void</span> connect_to(<a class="code" href="struct_socket_1_1_address.html">Address</a> address);</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;  <span class="keyword">protected</span>:<span class="comment">//保护的内部接口</span></div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    <span class="comment">/*</span></div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;<span class="comment">     *@超时控制线程</span></div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;<span class="comment">     *@服务进行客户ACCECT线程</span></div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;<span class="comment">     *@客户处理函数</span></div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;<span class="comment">    */</span></div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;<span class="preprocessor">    #ifdef WINDOWS</span></div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;<span class="preprocessor"></span>    <span class="keyword">static</span> <span class="keywordtype">void</span>* CALLBACK TimeoutControl(<a class="code" href="_t_c_p___c_s_8hpp.html#a085f5f68a0ee4ab24d9f3954a78e8063">LPVOID</a> lpParm);</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span>* CALLBACK ServerProc(<a class="code" href="_t_c_p___c_s_8hpp.html#a085f5f68a0ee4ab24d9f3954a78e8063">LPVOID</a> lpParm);</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span>* CALLBACK DealProc(<a class="code" href="_t_c_p___c_s_8hpp.html#a085f5f68a0ee4ab24d9f3954a78e8063">LPVOID</a> lpParm);</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;<span class="preprocessor">    #else</span></div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;<span class="preprocessor"></span>    <span class="keyword">static</span> <span class="keywordtype">void</span>*  TimeoutControl(<a class="code" href="_t_c_p___c_s_8hpp.html#a085f5f68a0ee4ab24d9f3954a78e8063">LPVOID</a> lpParm);</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span>*  ServerProc(<a class="code" href="_t_c_p___c_s_8hpp.html#a085f5f68a0ee4ab24d9f3954a78e8063">LPVOID</a> lpParm);</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span>*  DealProc(<a class="code" href="_t_c_p___c_s_8hpp.html#a085f5f68a0ee4ab24d9f3954a78e8063">LPVOID</a> lpParm);</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;<span class="preprocessor">    #endif</span></div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;<span class="preprocessor"></span>    <span class="comment">//@客户处理函数的默认回调函数</span></div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> call_back(<a class="code" href="class_socket_1_1_t_c_p___c_s.html">TCP_CS</a>* <a class="code" href="sockman_8cpp.html#ac9cf5d732dd74f8737330352197ab202">server</a>,<a class="code" href="class_socket_1_1_t_c_p___c_s.html">TCP_CS</a>* client);</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;  };</div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;}</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;<span class="preprocessor">#ifndef WINDOWS</span></div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#include &quot;<a class="code" href="_t_c_p___c_s_8cpp.html">TCP_CS.cpp</a>&quot;</span></div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keywordtype">bool</span> GetLocalIP(<a class="code" href="namespace_socket.html#af400f8c28780f5ac43f8132f4a17f3b8">SocketId</a> fd, std::string* local_ip, <span class="keywordtype">int</span>* port);</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;  <span class="keyword">public</span>:<span class="comment">//公开接口，业务接口</span></div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="comment">//获取对象类型</span></div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <a class="code" href="class_socket_1_1_t_c_p___c_s.html#ae33a25d2cbe79dc26b371b717ffa10f6">TCP_CS_TYPE</a> get_tcp_type();</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="comment">//获取对象核心数据，如果是客户端对象，则返回监听对象信息，否则返回客户对象信息。</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <a class="code" href="class_socket_1_1_t_c_p.html">TCP</a> get_tcp();</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="comment">//获取指定对象链接状态</span></div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="comment">//服务socket（监听socket）的状态除非退出服务，否则总返回true</span></div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="comment">//客户sock（accect客户的socket）则根据select的客户状态返回</span></div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keywordtype">bool</span> is_connecteed(<a class="code" href="class_socket_1_1_t_c_p___c_s.html">TCP_CS</a> <a class="code" href="sockman_8cpp.html#ac9cf5d732dd74f8737330352197ab202">server</a>); </div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <span class="comment">//获取对象链接状态</span></div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    <span class="keywordtype">bool</span> is_connecteed();</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <span class="comment">//获取指定对象是否为服务状态，对于非监听socket永远返回false</span></div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="keywordtype">bool</span> is_on_server(<a class="code" href="class_socket_1_1_t_c_p___c_s.html">TCP_CS</a> <a class="code" href="sockman_8cpp.html#ac9cf5d732dd74f8737330352197ab202">server</a>); </div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="comment">//获取服务状态（在检测线程以及创建服务前检测用，返回_bserver，非监听socket永远返回false）</span></div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <span class="keywordtype">bool</span> is_on_server();</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="comment">//使用指定的地址结构创建服务（指定IP和端口）</span></div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    <span class="keywordtype">bool</span> creat_server(<a class="code" href="struct_socket_1_1_address.html">Address</a> bind_address,<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> listeners = 1);</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <span class="comment">//使用指定端口创建服务，不指定IP的服务</span></div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="keywordtype">bool</span> creat_server(<a class="code" href="namespace_socket.html#ab3e21fdc4c3718a292b430305c892481">Port</a> port,<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> listeners = 1);</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <span class="comment">//指定外部回调接口，外部处理</span></div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <span class="keywordtype">bool</span> start_server(TCP_CS_PROC lpDealFunc);</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <span class="comment">//使用内部接口回调call_back</span></div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <span class="keywordtype">bool</span> start_server(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    <span class="comment">//使用默认关闭流程函数</span></div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <span class="keywordtype">bool</span> stop_server(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    <span class="comment">//</span></div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <span class="keywordtype">bool</span> stop_client(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <span class="comment">//接受客户端</span></div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <a class="code" href="class_socket_1_1_t_c_p___c_s.html">TCP_CS</a> accept_client(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <span class="comment">//客户链接到服务地址</span></div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    <span class="keywordtype">void</span> connect_to(<a class="code" href="struct_socket_1_1_address.html">Address</a> address);</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    </div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    <a class="code" href="struct_socket_1_1_address.html">Address</a> get_address();</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;  <span class="keyword">protected</span>:<span class="comment">//保护的内部接口</span></div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    <span class="comment">/*</span></div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;<span class="comment">     *@超时控制线程</span></div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;<span class="comment">     *@服务进行客户ACCECT线程</span></div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;<span class="comment">     *@客户处理函数</span></div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;<span class="comment">    */</span></div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;<span class="preprocessor">    #ifdef WINDOWS</span></div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;<span class="preprocessor"></span>    <span class="keyword">static</span> <span class="keywordtype">void</span>* CALLBACK TimeoutControl(<a class="code" href="_t_c_p___c_s_8hpp.html#a085f5f68a0ee4ab24d9f3954a78e8063">LPVOID</a> lpParm);</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span>* CALLBACK ServerProc(<a class="code" href="_t_c_p___c_s_8hpp.html#a085f5f68a0ee4ab24d9f3954a78e8063">LPVOID</a> lpParm);</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span>* CALLBACK DealProc(<a class="code" href="_t_c_p___c_s_8hpp.html#a085f5f68a0ee4ab24d9f3954a78e8063">LPVOID</a> lpParm);</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;<span class="preprocessor">    #else</span></div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;<span class="preprocessor"></span>    <span class="keyword">static</span> <span class="keywordtype">void</span>*  TimeoutControl(<a class="code" href="_t_c_p___c_s_8hpp.html#a085f5f68a0ee4ab24d9f3954a78e8063">LPVOID</a> lpParm);</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span>*  ServerProc(<a class="code" href="_t_c_p___c_s_8hpp.html#a085f5f68a0ee4ab24d9f3954a78e8063">LPVOID</a> lpParm);</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span>*  DealProc(<a class="code" href="_t_c_p___c_s_8hpp.html#a085f5f68a0ee4ab24d9f3954a78e8063">LPVOID</a> lpParm);</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;<span class="preprocessor">    #endif</span></div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;<span class="preprocessor"></span>    <span class="comment">//@客户处理函数的默认回调函数</span></div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> call_back(<a class="code" href="class_socket_1_1_t_c_p___c_s.html">TCP_CS</a>* <a class="code" href="sockman_8cpp.html#ac9cf5d732dd74f8737330352197ab202">server</a>,<a class="code" href="class_socket_1_1_t_c_p___c_s.html">TCP_CS</a>* client);</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;  };</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;}</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;<span class="preprocessor">#ifndef WINDOWS</span></div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#include &quot;<a class="code" href="_t_c_p___c_s_8cpp.html">TCP_CS.cpp</a>&quot;</span></div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="namespace_socket_html_af400f8c28780f5ac43f8132f4a17f3b8"><div class="ttname"><a href="namespace_socket.html#af400f8c28780f5ac43f8132f4a17f3b8">Socket::SocketId</a></div><div class="ttdeci">int SocketId</div><div class="ttdef"><b>Definition:</b> <a href="_socket_8hpp_source.html#l00058">Socket.hpp:58</a></div></div>
 <div class="ttc" id="struct_socket_1_1_t_c_p___c_s_1_1_t_c_p___c_s___s_e_r_v_e_r_p_a_r_a_html_a5e1b929842c2c6790e3ab1538ccb5de1"><div class="ttname"><a href="struct_socket_1_1_t_c_p___c_s_1_1_t_c_p___c_s___s_e_r_v_e_r_p_a_r_a.html#a5e1b929842c2c6790e3ab1538ccb5de1">Socket::TCP_CS::TCP_CS_SERVERPARA::lpDealFunc</a></div><div class="ttdeci">TCP_CS_PROC lpDealFunc</div><div class="ttdef"><b>Definition:</b> <a href="_t_c_p___c_s_8hpp_source.html#l00050">TCP_CS.hpp:50</a></div></div>
 <div class="ttc" id="struct_socket_1_1_t_c_p___c_s_1_1_t_c_p___c_s___t_i_m_e_p_a_r_a_html_acc6e7d1016b44ebcfcbadd301d246795"><div class="ttname"><a href="struct_socket_1_1_t_c_p___c_s_1_1_t_c_p___c_s___t_i_m_e_p_a_r_a.html#acc6e7d1016b44ebcfcbadd301d246795">Socket::TCP_CS::TCP_CS_TIMEPARA::client</a></div><div class="ttdeci">TCP_CS * client</div><div class="ttdef"><b>Definition:</b> <a href="_t_c_p___c_s_8hpp_source.html#l00043">TCP_CS.hpp:43</a></div></div>
 <div class="ttc" id="class_socket_1_1_t_c_p___c_s_html_ae33a25d2cbe79dc26b371b717ffa10f6"><div class="ttname"><a href="class_socket_1_1_t_c_p___c_s.html#ae33a25d2cbe79dc26b371b717ffa10f6">Socket::TCP_CS::TCP_CS_TYPE</a></div><div class="ttdeci">TCP_CS_TYPE</div><div class="ttdef"><b>Definition:</b> <a href="_t_c_p___c_s_8hpp_source.html#l00035">TCP_CS.hpp:35</a></div></div>
@@ -263,7 +267,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'搜索');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-生成于 2017年 六月 24日 星期六 14:29:46 , 为 sockman使用  &#160;<a href="http://www.doxygen.org/index.html">
+生成于 2018年 三月 12日 星期一 13:13:16 , 为 sockman使用  &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

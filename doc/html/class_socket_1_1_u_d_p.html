@@ -133,12 +133,12 @@ Public 成员函数</h2></td></tr>
 <tr class="memitem:aa17812525370f98f0f71f0048f6f5ab6"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
 <tr class="memitem:aa17812525370f98f0f71f0048f6f5ab6"><td class="memTemplItemLeft" align="right" valign="top">int&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_socket_1_1_u_d_p.html#aa17812525370f98f0f71f0048f6f5ab6">receive</a> (<a class="el" href="struct_socket_1_1_address.html">Address</a> *, T *, size_t, unsigned int *)</td></tr>
 <tr class="separator:aa17812525370f98f0f71f0048f6f5ab6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a864b03acc2a4b817348db2e438859f1b"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
-<tr class="memitem:a864b03acc2a4b817348db2e438859f1b"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="struct_socket_1_1_datagram.html">Datagram</a>&lt; T * &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_socket_1_1_u_d_p.html#a864b03acc2a4b817348db2e438859f1b">receive</a> (T *, size_t)</td></tr>
-<tr class="separator:a864b03acc2a4b817348db2e438859f1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aded2962c662ed416f5348de3f5d7844c"><td class="memTemplParams" colspan="2">template&lt;class T , size_t N&gt; </td></tr>
-<tr class="memitem:aded2962c662ed416f5348de3f5d7844c"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="struct_socket_1_1_datagram.html">Datagram</a>&lt; T[N]&gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_socket_1_1_u_d_p.html#aded2962c662ed416f5348de3f5d7844c">receive</a> (size_t)</td></tr>
-<tr class="separator:aded2962c662ed416f5348de3f5d7844c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab5597eaa35fa8ce949a873a81b6acc53"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
+<tr class="memitem:ab5597eaa35fa8ce949a873a81b6acc53"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="struct_socket_1_1_datagram.html">Datagram</a>&lt; T * &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_socket_1_1_u_d_p.html#ab5597eaa35fa8ce949a873a81b6acc53">receive</a> (T *, size_t len=<a class="el" href="_socket_8hpp.html#a53bbb0386990bed294fda40cf77c889f">SOCKET_MAX_BUFFER_LEN</a>)</td></tr>
+<tr class="separator:ab5597eaa35fa8ce949a873a81b6acc53"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad9a7228ee6fc210a8d06c7a9251a72b7"><td class="memTemplParams" colspan="2">template&lt;class T , size_t N&gt; </td></tr>
+<tr class="memitem:ad9a7228ee6fc210a8d06c7a9251a72b7"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="struct_socket_1_1_datagram.html">Datagram</a>&lt; T[N]&gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_socket_1_1_u_d_p.html#ad9a7228ee6fc210a8d06c7a9251a72b7">receive</a> (size_t len=N)</td></tr>
+<tr class="separator:ad9a7228ee6fc210a8d06c7a9251a72b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a95ae1da3302976e876308767312e27b3"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
 <tr class="memitem:a95ae1da3302976e876308767312e27b3"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="struct_socket_1_1_datagram.html">Datagram</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_socket_1_1_u_d_p.html#a95ae1da3302976e876308767312e27b3">receive</a> (void)</td></tr>
 <tr class="separator:a95ae1da3302976e876308767312e27b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -283,7 +283,7 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="a864b03acc2a4b817348db2e438859f1b"></a>
+<a class="anchor" id="ab5597eaa35fa8ce949a873a81b6acc53"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
@@ -313,7 +313,7 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="aded2962c662ed416f5348de3f5d7844c"></a>
+<a class="anchor" id="ad9a7228ee6fc210a8d06c7a9251a72b7"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
@@ -650,13 +650,13 @@ template&lt;class T &gt; </div>
 </div>
 </div>
 <hr/>该类的文档由以下文件生成:<ul>
-<li>/opt/test/Sockman/sockman/CPPSocket/<a class="el" href="_socket_8hpp_source.html">Socket.hpp</a></li>
-<li>/opt/test/Sockman/sockman/CPPSocket/<a class="el" href="_u_d_p_8cpp_source.html">UDP.cpp</a></li>
+<li>/opt/em/Sockman/sockman/CPPSocket/<a class="el" href="_socket_8hpp_source.html">Socket.hpp</a></li>
+<li>/opt/em/Sockman/sockman/CPPSocket/<a class="el" href="_u_d_p_8cpp_source.html">UDP.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-生成于 2017年 六月 24日 星期六 14:29:47 , 为 sockman使用  &#160;<a href="http://www.doxygen.org/index.html">
+生成于 2018年 三月 12日 星期一 13:13:16 , 为 sockman使用  &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

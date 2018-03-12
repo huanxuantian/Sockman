@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['c_5fclient',['c_client',['../sockman_8cpp.html#a426101ca096a008730efbd60765f792f',1,'sockman.cpp']]],
   ['c_5fstr',['c_str',['../class_json_1_1_static_string.html#ab86fc6a3183adf12fdba4b370acf1754',1,'Json::StaticString']]],
   ['call_5fback',['call_back',['../class_socket_1_1_t_c_p___c_s.html#a91e9b4d9c9e7e0b5c9a2054d8ba0eb1d',1,'Socket::TCP_CS']]],
   ['char',['Char',['../class_json_1_1_reader.html#a3eec9118f3e9a672ba8348c3a79d0f45',1,'Json::Reader']]],

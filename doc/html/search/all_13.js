@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['socket',['Socket',['../md__opt_test__sockman_sockman__c_p_p_socket__r_e_a_d_m_e.html',1,'']]],
-  ['sockman',['Sockman',['../md__opt_test__sockman_sockman__r_e_a_d_m_e.html',1,'']]],
+  ['socket',['Socket',['../md__opt_em__sockman_sockman__c_p_p_socket__r_e_a_d_m_e.html',1,'']]],
+  ['sockman',['Sockman',['../md__opt_em__sockman_sockman__r_e_a_d_m_e.html',1,'']]],
   ['s_5fip',['s_ip',['../sockman_8cpp.html#a4cb64b8b8e7e5bfa9c25fc65b06991cd',1,'sockman.cpp']]],
   ['s_5fport',['s_port',['../sockman_8cpp.html#a64a4e967ab04459f1c52927c32bede66',1,'s_port():&#160;sockman.cpp'],['../bar_8c.html#a64a4e967ab04459f1c52927c32bede66',1,'s_port():&#160;bar.c']]],
   ['savelog',['SaveLog',['../log__debug_8cpp.html#a0dd03e3465ee51c92f13f60fde1b1d77',1,'SaveLog(char *buf, uint16 len):&#160;log_debug.cpp'],['../log__debug_8cpp.html#ab4fa51dc4369b0d45df2c1c763b580eb',1,'SaveLog(char *buf):&#160;log_debug.cpp']]],
@@ -11,6 +11,7 @@ var searchData=
   ['send',['send',['../class_socket_1_1_u_d_p.html#a647e332e5602a198bb25456f02b9028c',1,'Socket::UDP::send(Ip, Port, const T *, size_t)'],['../class_socket_1_1_u_d_p.html#ac433ce5d7b3fc48f1ce2fa5428dceda3',1,'Socket::UDP::send(Address, const T *, size_t)'],['../class_socket_1_1_u_d_p.html#aca27202652e8cffadf0034470f5cb5ab',1,'Socket::UDP::send(Ip, Port, T)'],['../class_socket_1_1_u_d_p.html#a7970b42c051953718f6fb74a103c2dc3',1,'Socket::UDP::send(Address, T)'],['../class_socket_1_1_u_d_p.html#a52b86ec468b4dd17588ddc33d60e87a5',1,'Socket::UDP::send(Ip, Port, vector&lt; T &gt;)'],['../class_socket_1_1_u_d_p.html#ac6891abeaa97359d6e2f7b1967f0f8af',1,'Socket::UDP::send(Address, vector&lt; T &gt;)'],['../class_socket_1_1_t_c_p.html#a7084a00d06faff1a23aa49b9dd3d5b63',1,'Socket::TCP::send()'],['../class_socket_1_1_u_d_p.html#a5899cbe7c8b9ee0621331ec93af3ef5a',1,'Socket::UDP::send(Ip ip, Port port, string data)'],['../class_socket_1_1_u_d_p.html#a674eb51e0bb993bf574819925aacf7b6',1,'Socket::UDP::send(Address address, string data)']]],
   ['send_5ffile',['send_file',['../class_socket_1_1_t_c_p___m_a_n.html#a40c1868e8260f55b15cd73cd48b40f94',1,'Socket::TCP_MAN::send_file()'],['../class_socket_1_1_t_c_p.html#a6e0d35531df12715b17a125034cdd529',1,'Socket::TCP::send_file()'],['../sockman_8cpp.html#a19b9c0cfc2f9ec256e215750d657f58b',1,'SEND_FILE():&#160;sockman.cpp']]],
   ['server',['server',['../struct_socket_1_1_t_c_p___c_s_1_1_t_c_p___c_s___s_e_r_v_e_r_p_a_r_a.html#a67b5cfd82684c9d29458e1f75f888e70',1,'Socket::TCP_CS::TCP_CS_SERVERPARA::server()'],['../struct_socket_1_1_t_c_p___c_s_1_1_t_c_p___c_s___c_l_i_e_n_t_p_a_r_a.html#a1f28a7a17a55b193ff9a9410a4f15f05',1,'Socket::TCP_CS::TCP_CS_CLIENTPARA::server()'],['../sockman_8cpp.html#ac9cf5d732dd74f8737330352197ab202',1,'server():&#160;sockman.cpp']]],
+  ['server_5fok',['server_ok',['../sockman_8cpp.html#a6f661c646120a5c9516efb1b69cf1be8',1,'sockman.cpp']]],
   ['serverproc',['ServerProc',['../class_socket_1_1_t_c_p___c_s.html#a6ed191a07658231f9c9e000cb97c9857',1,'Socket::TCP_CS']]],
   ['setautoupdate',['setAutoUpdate',['../class_loger_manager.html#a25db7020e1b8ac3b4732a22051882a0c',1,'LogerManager::setAutoUpdate()'],['../class_i_log4z_manager.html#aaba3905d17500219ab3e0ef11f8c1587',1,'ILog4zManager::setAutoUpdate()']]],
   ['setcomment',['setComment',['../class_json_1_1_value.html#a29f3a30f7e5d3af6f38d57999bf5b480',1,'Json::Value::setComment(const char *comment, CommentPlacement placement)'],['../class_json_1_1_value.html#a6d68a2e7d4e1e317cd9e812e12181689',1,'Json::Value::setComment(const std::string &amp;comment, CommentPlacement placement)']]],
@@ -46,8 +47,8 @@ var searchData=
   ['strictmode',['strictMode',['../class_json_1_1_features.html#ae23176c14b2e79e81fb61fb1a8ab58ee',1,'Json::Features']]],
   ['strictroot_5f',['strictRoot_',['../class_json_1_1_features.html#a1162c37a1458adc32582b585b552f9c3',1,'Json::Features']]],
   ['stringvalue',['stringValue',['../namespace_json.html#a7d654b75c16a57007925868e38212b4ea804ef857affea2d415843c73f261c258',1,'Json']]],
-  ['styledstreamwriter',['StyledStreamWriter',['../class_json_1_1_styled_stream_writer.html',1,'Json']]],
   ['styledstreamwriter',['StyledStreamWriter',['../class_json_1_1_styled_stream_writer.html#ae87567a08de865b6dc84d7218a3001df',1,'Json::StyledStreamWriter']]],
+  ['styledstreamwriter',['StyledStreamWriter',['../class_json_1_1_styled_stream_writer.html',1,'Json']]],
   ['styledwriter',['StyledWriter',['../class_json_1_1_styled_writer.html#a1f1b5f922a6a0ef0e56c6dd2f6170192',1,'Json::StyledWriter']]],
   ['styledwriter',['StyledWriter',['../class_json_1_1_styled_writer.html',1,'Json']]],
   ['swap',['swap',['../class_json_1_1_value.html#aab841120d78e296e1bc06a373345e822',1,'Json::Value']]]

@@ -16,4 +16,3 @@ development new style framework in c++
 
 =======
  auto build to jenkins with gitlab api
-fuuuuuu

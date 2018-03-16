@@ -26,9 +26,12 @@
 #define _TCP_CPP_
 
 #include "Socket.hpp"
+using namespace Socket;
 
 namespace Socket
 {
+
+
     TCP::TCP(void) : CommonSocket(SOCK_STREAM)
     {
     }
@@ -55,7 +58,7 @@ namespace Socket
         return Address(this->_address);
     }
     
-    void TCP::listen_on_port(Port port, unsigned int listeners = 1)
+    void TCP::listen_on_port(Port port, unsigned int listeners)
     {
         CommonSocket::listen_on_port(port);
         
@@ -95,45 +98,7 @@ namespace Socket
         
         return ret;
     }
-    
-    template <class T>
-    int TCP::send(const T* buffer, size_t len)
-    {
-        if (!this->_binded) throw SocketException("[send] Socket not binded");
-        if (!this->_opened) throw SocketException("[send] Socket not opened");
         
-        len *= sizeof(T);
-        if (len > (SOCKET_MAX_BUFFER_LEN * sizeof(T)))
-        {
-            stringstream error;
-            error << "[send] [len=" << len << "] Data length higher then max buffer len (" << SOCKET_MAX_BUFFER_LEN << ")";
-            throw SocketException(error.str());
-        }
-        
-        int ret;
-        if ((ret = ::send(this->_socket_id, (const char*)buffer, len, 0)) == -1) throw SocketException("[send] Cannot send");
-        return ret;
-    }
-    
-    template <class T>
-    int TCP::receive(T* buffer, size_t len)
-    {
-        if (!this->_binded) throw SocketException("[send_file] Socket not binded");
-        if (!this->_opened) throw SocketException("[send_file] Socket not opened");
-        
-        len *= sizeof(T);
-        if (len > (SOCKET_MAX_BUFFER_LEN * sizeof(T)))
-        {
-            stringstream error;
-            error << "[receive] [len=" << len << "] Data length higher then max buffer len (" << SOCKET_MAX_BUFFER_LEN << ")";
-            throw SocketException(error.str());
-        }
-        
-        int ret;
-        if ((ret = recv(this->_socket_id, buffer, len, 0)) == -1) throw SocketException("[send] Cannot receive");
-        return ret;
-    }
-    
     void TCP::send_file(string file_name)
     {
         unsigned long long file_size;
@@ -185,7 +150,7 @@ namespace Socket
         }
         
         this->receive<unsigned long long>(&file_size, 1);
-        
+     
         for(unsigned long long i = 0; i < file_size / SOCKET_MAX_BUFFER_LEN; i++)
         {
             this->send<char>(&sync, 1);
@@ -202,6 +167,48 @@ namespace Socket
         
         fp.close();
     }
+
+#ifndef WINDOWS
+	template <class T>
+	int TCP::send(const T* buffer, size_t len)
+	{
+		if (!this->_binded) throw SocketException("[send] Socket not binded");
+		if (!this->_opened) throw SocketException("[send] Socket not opened");
+
+		len *= sizeof(T);
+		if (len > (SOCKET_MAX_BUFFER_LEN * sizeof(T)))
+		{
+			stringstream error;
+			error << "[send] [len=" << len << "] Data length higher then max buffer len (" << SOCKET_MAX_BUFFER_LEN << ")";
+			throw SocketException(error.str());
+		}
+
+		int ret;
+		if ((ret = ::send(this->_socket_id, (const char*)buffer, len, 0)) == -1) throw SocketException("[send] Cannot send");
+		return ret;
+	}
+	//template <class T> int receive(T*, size_t);
+	template <class T>
+	int TCP::receive(T* buffer, size_t len)
+	{
+		if (!this->_binded) throw SocketException("[send_file] Socket not binded");
+		if (!this->_opened) throw SocketException("[send_file] Socket not opened");
+
+		len *= sizeof(T);
+		if (len > (SOCKET_MAX_BUFFER_LEN * sizeof(T)))
+		{
+			stringstream error;
+			error << "[receive] [len=" << len << "] Data length higher then max buffer len (" << SOCKET_MAX_BUFFER_LEN << ")";
+			throw SocketException(error.str());
+		}
+
+		int ret;
+		if ((ret = recv(this->_socket_id, (char*)buffer, len, 0)) == -1) throw SocketException("[send] Cannot receive");
+		return ret;
+	}
+    #endif
+
 }
+
 
 #endif

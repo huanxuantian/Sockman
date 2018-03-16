@@ -26,9 +26,11 @@
 #define _COMMON_SOCKET_CPP_
 
 #include "Socket.hpp"
+//using namespace Socket;
 
 namespace Socket
 {
+
 #ifdef WINDOWS
     unsigned int CommonSocket::_num_sockets = 0;
 #endif
@@ -111,6 +113,8 @@ namespace Socket
 
         this->_binded = true;
     }
+
 }
+
 
 #endif

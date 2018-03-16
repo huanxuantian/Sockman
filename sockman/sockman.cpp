@@ -11,22 +11,32 @@
 #include<string.h>
 
 #include "loger.hpp"
+#include "CPPSocket/Socket.hpp"
 #include "TCPMan.hpp"
+#include "TCP_CS.hpp"
+#include "./log4z/log4z.h"
 #include "./json/json.h"
-#include "./CQ/CRecycleQueue.h"
+//#include "./CQ/CRecycleQueue.h"
+
+
+TCP_CS* new_client;
+TCP_CS server;
+
+TCP_CS c_client;
 
 using namespace zsummer::log4z;
 using namespace Json;
 using namespace std;
 
-
+unsigned char test_data[] ={0x7E ,0x07 ,0x86 ,0x02 ,0x00 ,0x3F ,0x00 ,0x00 ,0x00 ,0x5E ,0x01 ,0xE3 ,0x7E};
 
 #define IP   "127.0.0.1"
+//#define IP   "120.25.166.144"
 #define PORT 10009
 
 int s_port=PORT;
 
-const char* s_ip=IP;
+char* s_ip=IP;
 
 #define SEND_FILE "test.hex"
 
@@ -38,7 +48,7 @@ StyledWriter writer;
 
 int json_test1()
 {
-	LOG_TA( __FUNCTION__<<":read string and parse json rewrite json");
+	LOGA( __FUNCTION__<<":read string and parse json rewrite json");
 	LOG_TI("input:"<< "json{\"Device_COM\":\"-1\",\"state\":-1,\"result\":true}");
 	LOG_TI("rewrite:"<< "Device_COM=\"2\",state=0,result=false");
 	bool parsingSuccessful = reader.parse("{\"Device_COM\":\"-1\",\"state\":-1,\"result\":true}", root );
@@ -84,25 +94,24 @@ struct prova
     float somethingelse;
 };
 
-CRecycleQueue<Socket::TCP_MAN> *tcp_queue = new CRecycleQueue<Socket::TCP_MAN>;
+//CRecycleQueue<Socket::TCP_MAN> *tcp_queue = new CRecycleQueue<Socket::TCP_MAN>;
 /*@brief test for tcp server mode */
 void tcp_receiver(void)
 {
     try
     {
         Socket::TCP_MAN server;
-        tcp_queue->InitRecycleQueue(3);
+        //tcp_queue->InitRecycleQueue(3);
         server.listen_on_port(s_port,SOMAXCONN);
         Socket::TCP_MAN client = server.accept_client();
-        tcp_queue->Push(&client);
+        //tcp_queue->Push(&client);
         cout << "receiving ..." << endl;
-        Socket::TCP_MAN* h_client=tcp_queue->Pop();
+        Socket::TCP_MAN* h_client=&client;//tcp_queue->Pop();
         h_client->receive_file(RECV_FILE);
     }
     catch (Socket::SocketException &e)
     {
         cout << e << endl;
-        LOG_TE("err:"<<e.what());
     }
 }
 /*@brief test for tcp server mode */
@@ -119,39 +128,34 @@ void tcp_sender(void)
     catch (Socket::SocketException &e)
     {
         cout << e << endl;
-        LOG_TE("err:"<<e.what());
     }
 }
-
+#if 1
 void udp_receiver(void)
 {
     try
     {
         Socket::UDP sock;
-        //double buffer[SOCKET_MAX_BUFFER_LEN];
-        unsigned char char_buffer[SOCKET_MAX_BUFFER_LEN];
+        double buffer[SOCKET_MAX_BUFFER_LEN];
         int i;
-         Socket::Datagram<unsigned char*> recv_Byte;
 
-        sock.listen_on_port(s_port);
-        //while(1)
-        {
-            recv_Byte = sock.receive<unsigned char>(char_buffer);
-            //received_bytes
-            LOG_TI("data:"<<Log4zBinary(recv_Byte.data,recv_Byte.received_bytes));
-        }
-        /*
+        sock.listen_on_port(PORT);
+
         Socket::Datagram<string>            rec_str = sock.receive<string>();
         LOG_TA("string data:"<<Log4zBinary(rec_str.data.c_str(),strlen(rec_str.data.c_str())));//log
         Socket::Datagram<int[5]>            rec_arr = sock.receive<int, 5>(); // ([, 5]);
         LOG_TA("int array:"<<Log4zBinary(rec_arr.data,sizeof(rec_arr.data)));//log
         Socket::Datagram<float>             rec_var = sock.receive<float>();
-        LOG_TA("float:"<<Log4zBinary((char*)&rec_var.data,sizeof(rec_var.data)));//log
-        Socket::Datagram<double*>           rec_pnt = sock.receive<double>(buffer); // (buffer [, SOCKET_MAX_BUFFER_LEN]);
+        LOG_TA("float:"<<Log4zBinary((char*)&rec_var.data,sizeof(rec_var.received_bytes)));//log
+		
+		/*
+		Socket::Datagram<double*>           rec_pnt = sock.receive<double>(buffer); // (buffer [, SOCKET_MAX_BUFFER_LEN]);
         LOG_TA("double array"<<Log4zBinary((char*)rec_pnt.data,sizeof(rec_pnt.data)*rec_pnt.received_elements));//log
-        Socket::Datagram<vector<prova> >    rec_vec = sock.receive<prova>(5); // conflict with the first one, must be specified
-        LOG_TA("vec data:"<<Log4zBinary((char*)&rec_vec.data,sizeof(rec_vec.data)*rec_vec.received_elements));//log
-        */
+
+		Socket::Datagram<vector<prova> >    rec_vec = sock.receive<prova>(5); // conflict with the first one, must be specified
+        for (i = 0; i < (int)rec_vec.data.size(); i++)
+        LOG_TA("vec data["<<i<<"]:"<<Log4zBinary((char*)&rec_vec.data[i],sizeof(prova)));//log
+		*/
         /*
         cout << rec_str.data << endl;
         cout << endl;
@@ -170,15 +174,8 @@ void udp_receiver(void)
     catch (Socket::SocketException &e)
     {
         cout << e << endl;
-        LOG_TE("err:"<<e.what());
     }
 }
-
-unsigned char udp_test[]=
-{
-    0x24,0x24,0x01,0x00,0x02,0x00,0x00,0x00,0x00,0x02,0x00,0x15,0x45,0x01,0x00,0x02,0xae,0x3f
-};
-
 
 void udp_sender(void)
 {
@@ -186,27 +183,23 @@ void udp_sender(void)
     {
     	int i;
         Socket::UDP sock;
-        Socket::Address to(s_ip, s_port);
-        Socket::Datagram<unsigned char*> recv_Byte;
-        unsigned char char_buffer[SOCKET_MAX_BUFFER_LEN];
-        LOG_TI("send:"<<Log4zBinary((char*)&udp_test,sizeof(udp_test)));
-        sock.send<unsigned char>(to, udp_test, sizeof(udp_test));
-        while(1)
-        {
-            recv_Byte = sock.receive<unsigned char>(char_buffer);
-            //received_bytes
-            LOG_TI("data:"<<Log4zBinary(recv_Byte.data,recv_Byte.received_bytes));
-        }
-        /*
+        Socket::Address to(IP, PORT);
+
         sock.send<string>(to, "this is the string"); // ("127.0.0.1", 10000, "this is a string");
                                                      // as well as the others
 
         int iarr[5] = { 0, 1, 2, 3, 4 };
+		char iarr1[5] = { 0, 1, 2, 3, 4 };
+		float f_send=5.0;
         LOG_TA("int array:"<<Log4zBinary((char*)&iarr,sizeof(iarr)));//log
+
+		 //sock.send<INT8>(to, 'A');
+		
         sock.send<int>(to, iarr, 5);
-
+		LOG_TA("float:"<<Log4zBinary((char*)&f_send,sizeof(float)));//log
         sock.send<float>(to, 5.0);
-
+		
+		/*
         double darr[5] = { 0.0, 1.0, 2.0, 3.0, 4.0 };
         LOG_TA("double array:"<<Log4zBinary((char*)&darr,sizeof(darr)));//log
         sock.send<double>(to, darr, 5);
@@ -215,16 +208,16 @@ void udp_sender(void)
         for (i = 0; i < 5; i++) vec.push_back( { i, (float)(i + 1.0) });
         LOG_TA("vector data::"<<Log4zBinary((char*)vec.data(),sizeof(vec.data())*vec.size()));//log
         sock.send<prova>(to, vec);
-        */
+		*/
         sock.close();
     }
     catch (Socket::SocketException &e)
     {
         cout << e << endl;
-        LOG_TE("err:"<<e.what());
     }
 }
-
+#endif
+bool server_ok =false;
 
 int main(int argc,char *argv[]){
     if(argc < 2)
@@ -237,6 +230,7 @@ int main(int argc,char *argv[]){
         return -1;
     }
     setup_loger();
+	int count =0;
 	LOG_TA("start test\r\n");
 	if(strcmp(argv[1],"server")==0)
 	{
@@ -268,18 +262,6 @@ int main(int argc,char *argv[]){
 	else if(strcmp(argv[1],"udpcli")==0)
 	{
 		LOG_TI("start client for udp test "<<SEND_FILE);
-        
-        if(argc>=3)
-        {
-            s_port=atoi(argv[2]);
-            if(argc>=4)
-            {
-                s_ip=argv[3];
-                LOG_TA("start client connect to ip "<<s_ip);
-            }
-            LOG_TA("client connect to port "<<s_port);
-        }
-        
 		udp_sender();
 	}
 	else if(strcmp(argv[1],"udpsrv")==0)
@@ -287,10 +269,108 @@ int main(int argc,char *argv[]){
 		LOG_TI("start serve for udp test "<<SEND_FILE);
 		udp_receiver();
 	}
+	else if(strcmp(argv[1],"cserver")==0)
+	{
+		if(argc>=3)
+		{
+			s_port=atoi(argv[2]);
+			LOG_TA("server listen_on port "<<s_port);
+			while(count<30)
+			{
+			    try
+			    {
+
+				    server_ok = server.creat_server(s_port,10);
+				    if(server_ok)
+				    {
+				    server.start_server();
+				    break;
+				    }
+
+			    }
+			    catch(SocketException& me)
+			    {
+				LOG_TE(me.what());
+				server.stop_server();
+				    //puts("end\r\n");
+				    //return -1;
+			    }
+			    sleep(10);
+			    count++;
+			}
+			if(count==30)
+			{
+				server.stop_server();
+				puts("end\r\n");
+				return -1; 
+			}
+		}
+
+		while(1)
+		    {
+
+			 try
+		        {
+		        if(new_client!=NULL&&new_client->is_connecteed())
+			    {
+				int i;
+				int data_len =sizeof(test_data);
+				int n_send_byte = new_client->send<char>((char*)test_data,data_len);
+				printf("%s,%d socket sned start len=%d:  ++++++\r\n",__FUNCTION__,__LINE__,n_send_byte);
+				     for(i=0;i<data_len;i++)
+				     {
+					    printf("send_buff[%d]=0x%02x\r\n",i,test_data[i]&0xff);
+				    }
+				    printf("%s,%d socket data end:  ++++++\r\n",__FUNCTION__,__LINE__);
+				//printf("send data to %d!!!\r\n",new_client->_socket_id);
+				sleep(20);
+				break;
+			    }
+			    else
+			    {
+				sleep(1);
+			    }
+		        }
+		        catch(SocketException& me)
+		        {
+			    cout<<me.what();
+		        }
+
+			//test_data
+		    }
+
+	}
+	else if(strcmp(argv[1],"cclient")==0)
+	{
+		LOG_TI("start c client for send "<<SEND_FILE);
+		//json_test1();
+        if(argc>=3)
+        {
+            s_port=atoi(argv[2]);
+            if(argc>=4)
+            {
+                s_ip=argv[3];
+                LOG_TA("start c client connect to ip "<<s_ip);
+            }
+            LOG_TA("client c connect to port "<<s_port);
+		}
+		Socket::Address to(s_ip, s_port);
+		c_client.connect_to(to);
+		{
+			printf("%s::client connect from %s:%d\n", __FUNCTION__,c_client.get_address().ip().c_str(), c_client.get_address().port());
+		}
+		while(c_client.is_connecteed())
+		{
+			sleep(10);
+			//printf("%s::client connect from %s:%d\n", __FUNCTION__,c_client.get_address().ip().c_str(), c_client.get_address().port());
+		}
+		
+	}
 	else
 	{
 		LOG_TI("unknow cmd"<<argv[1]);
 	}
+	server.stop_server();
 	puts("end\r\n");
 	return EXIT_SUCCESS;
 }

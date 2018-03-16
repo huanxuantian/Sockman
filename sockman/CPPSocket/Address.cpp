@@ -27,8 +27,11 @@
 
 #include "Socket.hpp"
 
+using namespace std;
+
 namespace Socket
 {
+
     void Address::_address(Ip ip, Port port)
     {
         this->sin_family = AF_INET;
@@ -110,6 +113,8 @@ namespace Socket
         out << address.ip() << ":" << address.port();
         return out;
     }
+
 }
+
 
 #endif

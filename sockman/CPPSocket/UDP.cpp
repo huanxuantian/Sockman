@@ -21,11 +21,12 @@
  * Boston, MA  02110-1301  USA
  */
 
+
 #ifndef _UDP_CPP_
 
 #define _UDP_CPP_
-
 #include "Socket.hpp"
+using namespace Socket;
 
 namespace Socket
 {
@@ -40,6 +41,7 @@ namespace Socket
         this->_binded = udp._binded;
     }
 
+#ifndef WINDOWS
     template <class T>
     int UDP::send(Ip ip, Port port, const T *data, size_t len)
     {
@@ -136,7 +138,7 @@ namespace Socket
     }
 
     template <class T>
-    Datagram<T*> UDP::receive(T *buffer, size_t len = SOCKET_MAX_BUFFER_LEN)
+    Datagram<T*> UDP::receive(T *buffer, size_t len)
     {
         Datagram<T*> ret;
         
@@ -147,7 +149,7 @@ namespace Socket
     }
 
     template <class T, size_t N>
-    Datagram<T[N]> UDP::receive(size_t len = N)
+    Datagram<T[N]> UDP::receive(size_t len)
     {
         Datagram<T[N]> ret;
         ret.received_bytes = this->receive<T>(&ret.address, ret.data, len, &ret.received_elements);
@@ -185,6 +187,7 @@ namespace Socket
         
         return ret;
     }
+    #endif
 }
-
 #endif
+

@@ -4,6 +4,13 @@
 #define _TCP_MAN_CPP_
 
 #include "TCPMan.hpp"
+//#include "loger.hpp"
+
+//using namespace Socket;
+
+//using namespace zsummer::log4z;
+using namespace std;
+
 namespace Socket
 {
 
@@ -63,13 +70,13 @@ namespace Socket
 	    file_size = fp.tellg();
 	    fp.seekg(0, ifstream::beg);
 	    this->send<unsigned long long>(&file_size, 1);
-	    LOG_TI(Log4zBinary(&file_size, sizeof(file_size)));//debug 2016-9-29
+	    //LOG_TI(Log4zBinary(&file_size, sizeof(file_size)));//debug 2016-9-29
 
 	    for (unsigned long long i = 0; i < file_size / SOCKET_MAX_BUFFER_LEN; i++)
 	    {
 	        this->receive<unsigned char>(&sync, 1);
 	        fp.read((char*)chunk, SOCKET_MAX_BUFFER_LEN);
-	        LOG_TI(Log4zBinary(&chunk, SOCKET_MAX_BUFFER_LEN));//debug 2016-9-29
+	        //LOG_TI(Log4zBinary(&chunk, SOCKET_MAX_BUFFER_LEN));//debug 2016-9-29
 	        this->send<unsigned char>(chunk, SOCKET_MAX_BUFFER_LEN);
 	    }
 
@@ -77,7 +84,7 @@ namespace Socket
 	    {
 	        this->receive<unsigned char>(&sync, 1);
 	        fp.read((char*)chunk, file_size % SOCKET_MAX_BUFFER_LEN);
-	        LOG_TI(Log4zBinary(&chunk, file_size % SOCKET_MAX_BUFFER_LEN));//debug 2016-9-29
+	        //LOG_TI(Log4zBinary(&chunk, file_size % SOCKET_MAX_BUFFER_LEN));//debug 2016-9-29
 	        this->send<unsigned char>(chunk, file_size % SOCKET_MAX_BUFFER_LEN);
 	    }
 
@@ -99,13 +106,13 @@ namespace Socket
 	    }
 
 	    this->receive<unsigned long long>(&file_size, 1);
-	    LOG_TI(Log4zBinary(&file_size, sizeof(file_size)));//debug 2016-9-29
+	    //LOG_TI(Log4zBinary(&file_size, sizeof(file_size)));//debug 2016-9-29
 
 	    for(unsigned long long i = 0; i < file_size / SOCKET_MAX_BUFFER_LEN; i++)
 	    {
 	        this->send<unsigned char>(&sync, 1);
 	        this->receive<unsigned char>(chunk, SOCKET_MAX_BUFFER_LEN);
-	        LOG_TI(Log4zBinary(&chunk, SOCKET_MAX_BUFFER_LEN));//debug 2016-9-29
+	        //LOG_TI(Log4zBinary(&chunk, SOCKET_MAX_BUFFER_LEN));//debug 2016-9-29
 	        fp.write((char*)chunk, SOCKET_MAX_BUFFER_LEN);
 	    }
 
@@ -113,7 +120,7 @@ namespace Socket
 	    {
 	        this->send<unsigned char>(&sync, 1);
 	        this->receive<unsigned char>(chunk, file_size % SOCKET_MAX_BUFFER_LEN);
-	        LOG_TI(Log4zBinary(&chunk,  file_size % SOCKET_MAX_BUFFER_LEN));//debug 2016-9-29
+	        //LOG_TI(Log4zBinary(&chunk,  file_size % SOCKET_MAX_BUFFER_LEN));//debug 2016-9-29
 	        fp.write((char*)chunk, file_size % SOCKET_MAX_BUFFER_LEN);
 	    }
 
@@ -121,4 +128,5 @@ namespace Socket
 	}
 
 }//end namespace Socket
+
 #endif

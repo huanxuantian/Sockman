@@ -36,7 +36,7 @@ unsigned char test_data[] ={0x7E ,0x07 ,0x86 ,0x02 ,0x00 ,0x3F ,0x00 ,0x00 ,0x00
 
 int s_port=PORT;
 
-char* s_ip=IP;
+char* s_ip=(char*)IP;
 
 #define SEND_FILE "test.hex"
 
@@ -136,8 +136,6 @@ void udp_receiver(void)
     try
     {
         Socket::UDP sock;
-        double buffer[SOCKET_MAX_BUFFER_LEN];
-        int i;
 
         sock.listen_on_port(PORT);
 
@@ -149,6 +147,9 @@ void udp_receiver(void)
         LOG_TA("float:"<<Log4zBinary((char*)&rec_var.data,sizeof(rec_var.received_bytes)));//log
 		
 		/*
+		double buffer[SOCKET_MAX_BUFFER_LEN];
+		int i;
+		 
 		Socket::Datagram<double*>           rec_pnt = sock.receive<double>(buffer); // (buffer [, SOCKET_MAX_BUFFER_LEN]);
         LOG_TA("double array"<<Log4zBinary((char*)rec_pnt.data,sizeof(rec_pnt.data)*rec_pnt.received_elements));//log
 
@@ -181,7 +182,7 @@ void udp_sender(void)
 {
     try
     {
-    	int i;
+    	
         Socket::UDP sock;
         Socket::Address to(IP, PORT);
 
@@ -189,7 +190,6 @@ void udp_sender(void)
                                                      // as well as the others
 
         int iarr[5] = { 0, 1, 2, 3, 4 };
-		char iarr1[5] = { 0, 1, 2, 3, 4 };
 		float f_send=5.0;
         LOG_TA("int array:"<<Log4zBinary((char*)&iarr,sizeof(iarr)));//log
 
@@ -203,8 +203,9 @@ void udp_sender(void)
         double darr[5] = { 0.0, 1.0, 2.0, 3.0, 4.0 };
         LOG_TA("double array:"<<Log4zBinary((char*)&darr,sizeof(darr)));//log
         sock.send<double>(to, darr, 5);
-
+		
         vector<prova> vec;
+        int i;
         for (i = 0; i < 5; i++) vec.push_back( { i, (float)(i + 1.0) });
         LOG_TA("vector data::"<<Log4zBinary((char*)vec.data(),sizeof(vec.data())*vec.size()));//log
         sock.send<prova>(to, vec);

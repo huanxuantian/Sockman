@@ -1,2 +1,2 @@
 #!/bin/bash
-git push origin :refs/for/master
+git push origin HEAD:refs/for/master

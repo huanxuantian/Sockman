@@ -403,8 +403,8 @@ namespace Socket
 	new_client = client;
         char rcv_buff[SOCKET_MAX_BUFFER_LEN]={0};
         int rcv_byte=0;
-        int send_byte=0;
         int i=0;
+        
         while(server->is_on_server()&&client->is_connecteed())
         {
             memset(rcv_buff,0,SOCKET_MAX_BUFFER_LEN);
@@ -419,6 +419,7 @@ namespace Socket
 		}
 		printf("%s,%d socket %d data end:  ++++++\r\n",__FUNCTION__,__LINE__,client->_socket_id);
 		/*
+				int send_byte=0;
                 send_byte = client->send<char>(rcv_buff,rcv_byte);//echo only
                 if(send_byte<0||send_byte!=rcv_byte)
                 {

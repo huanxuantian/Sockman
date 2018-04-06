@@ -15,4 +15,4 @@ development new style framework in c++
 
 =======
 
- auto build to jenkins with gerrit
+repo test here and gerrit review then kenkins build it

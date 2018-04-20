@@ -317,10 +317,15 @@ int main(int argc,char *argv[]){
 				int i;
 				int data_len =sizeof(test_data);
 				int n_send_byte = new_client->send<char>((char*)test_data,data_len);
-				printf("%s,%d socket sned start len=%d:  ++++++\r\n",__FUNCTION__,__LINE__,n_send_byte);
+				printf("%s,%d socket data_head:  0x%02x------\r\n",__FUNCTION__,__LINE__,test_data[i]&0xff);
 				     for(i=0;i<data_len;i++)
 				     {
-					    printf("send_buff[%d]=0x%02x\r\n",i,test_data[i]&0xff);
+					    printf("buff[%d]:0x%02X\r\n",i,test_data[i]&0xff);
+					    if(i>=16)
+					      {
+						 printf("msg too long not display other bytes\r\n");
+					         break;
+					      }
 				    }
 				    printf("%s,%d socket data end:  ++++++\r\n",__FUNCTION__,__LINE__);
 				//printf("send data to %d!!!\r\n",new_client->_socket_id);
@@ -334,7 +339,7 @@ int main(int argc,char *argv[]){
 		        }
 		        catch(SocketException& me)
 		        {
-			    cout<<me.what();
+		            LOG_TE(me.what());
 		        }
 
 			//test_data

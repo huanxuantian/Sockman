@@ -317,12 +317,12 @@ int main(int argc,char *argv[]){
 				int i;
 				int data_len =sizeof(test_data);
 				int n_send_byte = new_client->send<char>((char*)test_data,data_len);
-				printf("%s,%d socket sned start len=%d:  ++++++\r\n",__FUNCTION__,__LINE__,n_send_byte);
+				LOG_TA("%s,%d socket sned start len=%d:  ++++++\r\n",__FUNCTION__,__LINE__,n_send_byte);
 				     for(i=0;i<data_len;i++)
 				     {
 					    printf("send_buff[%d]=0x%02x\r\n",i,test_data[i]&0xff);
 				    }
-				    printf("%s,%d socket data end:  ++++++\r\n",__FUNCTION__,__LINE__);
+				    LOG_TA("%s,%d socket data end:  ++++++\r\n",__FUNCTION__,__LINE__);
 				//printf("send data to %d!!!\r\n",new_client->_socket_id);
 				sleep(20);
 				break;
@@ -358,7 +358,7 @@ int main(int argc,char *argv[]){
 		Socket::Address to(s_ip, s_port);
 		c_client.connect_to(to);
 		{
-			printf("%s::client connect from %s:%d\n", __FUNCTION__,c_client.get_address().ip().c_str(), c_client.get_address().port());
+			LOG_TA("%s::client connect from %s:%d\n", __FUNCTION__,c_client.get_address().ip().c_str(), c_client.get_address().port());
 		}
 		while(c_client.is_connecteed())
 		{

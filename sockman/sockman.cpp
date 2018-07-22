@@ -12,8 +12,6 @@
 
 #include "loger.hpp"
 #include "CPPSocket/Socket.hpp"
-#include "TCPMan.hpp"
-#include "TCP_CS.hpp"
 #include "./log4z/log4z.h"
 #include "./json/json.h"
 //#include "./CQ/CRecycleQueue.h"

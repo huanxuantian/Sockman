@@ -20,5 +20,9 @@ Info
 
 now we had add this code to gerrit and jenkins will build if commit submit 
 
+WorkFlow
+========
+pull from gerrit ,modify git,commit with changeid(autogen) template,push change to remote refs/for/<branch> ,verify and sumbit in gerrit,merge into git rep ,pull from gerrit.
+
 
 

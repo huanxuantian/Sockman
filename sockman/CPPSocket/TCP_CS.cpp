@@ -1,15 +1,14 @@
 ﻿#ifndef _TCP_CS_CPP_
 #define _TCP_CS_CPP_
 
-//#include "CPPSocket/Socket.hpp"
-#include <unistd.h>
 #include <stdlib.h>
 #include <cstring>
 #include <iostream>
 #include "Socket.hpp"
 
-extern TCP_CS* new_client;
+
 using namespace Socket;
+extern TCP_CS* new_client;
 
 using namespace std;
 
@@ -218,10 +217,14 @@ namespace Socket
           *port = sin->sin_port;
           char addr_buffer[INET_ADDRSTRLEN];
           void * tmp = &(sin->sin_addr);
+		  #ifdef WIN32
+		  memcpy(addr_buffer, tmp, sizeof(sin->sin_addr));
+		  #else	
           if (inet_ntop(AF_INET, tmp, addr_buffer, INET_ADDRSTRLEN) == NULL){
             cerr << "inet_ntop err";
             return false;
           }   
+		  #endif	
           //cout << "addr:" << addr_buffer;
           if (local_ip != NULL) {
             local_ip->assign(addr_buffer);
@@ -446,7 +449,11 @@ namespace Socket
 	    }
 	    else
 	    {
-		 usleep(20*1000);
+#ifdef WIN32
+			Sleep(20);
+#else
+			usleep(20*1000);
+#endif
 	    }
         }
 		if(!client->is_connecteed())

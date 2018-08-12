@@ -42,6 +42,7 @@
     //#include <winsock.h>
 	#include <WINSOCK2.h>
 	#pragma comment(lib,"WS2_32.LIB")
+#define INET_ADDRSTRLEN 16 /* for IPv4 dotted-decimal */
 #else
     #include <sys/socket.h>
     #include <netinet/in.h>

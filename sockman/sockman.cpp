@@ -12,10 +12,11 @@
 
 #include "loger.hpp"
 #include "CPPSocket/Socket.hpp"
-#include "./log4z/log4z.h"
-#include "./json/json.h"
+#include "log4z/log4z.h"
+#include "json/json.h"
 //#include "./CQ/CRecycleQueue.h"
 
+using namespace Socket;
 
 TCP_CS* new_client;
 TCP_CS server;
@@ -294,7 +295,11 @@ int main(int argc,char *argv[]){
 				    //puts("end\r\n");
 				    //return -1;
 			    }
+				#ifdef WIN32
+				Sleep(10 * HZ);
+				#else
 			    sleep(10);
+				#endif
 			    count++;
 			}
 			if(count==30)
@@ -328,12 +333,20 @@ int main(int argc,char *argv[]){
 				    }
 				    LOG_TA(__FUNCTION__<<"::"<<__LINE__<<" socket data end:  ++++++\r\n");
 				//printf("send data to %d!!!\r\n",new_client->_socket_id);
+				#ifdef WIN32
+					Sleep(20 * HZ);
+				#else
 				sleep(20);
+				#endif
 				break;
 			    }
 			    else
 			    {
+				#ifdef WIN32
+					Sleep(1 * HZ);
+				#else
 				sleep(1);
+				#endif
 			    }
 		        }
 		        catch(SocketException& me)
@@ -366,7 +379,11 @@ int main(int argc,char *argv[]){
 		}
 		while(c_client.is_connecteed())
 		{
+			#ifdef WIN32
+			Sleep(10 * HZ);
+			#else
 			sleep(10);
+			#endif
 			//printf("%s::client connect from %s:%d\n", __FUNCTION__,c_client.get_address().ip().c_str(), c_client.get_address().port());
 		}
 		

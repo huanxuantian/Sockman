@@ -51,7 +51,10 @@
     <ClCompile Include="..\log4z\log4z.cpp">
       <Filter>log4z</Filter>
     </ClCompile>
-    <ClCompile Include="..\TCPMan.cpp">
+    <ClCompile Include="..\CPPSocket\TCPMan.cpp">
+      <Filter>sockwin</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CPPSocket\TCP_CS.cpp">
       <Filter>sockwin</Filter>
     </ClCompile>
   </ItemGroup>
@@ -64,9 +67,6 @@
     </ClInclude>
     <ClInclude Include="..\log4z\log4z.h">
       <Filter>log4z</Filter>
-    </ClInclude>
-    <ClInclude Include="..\TCPMan.hpp">
-      <Filter>sockwin</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

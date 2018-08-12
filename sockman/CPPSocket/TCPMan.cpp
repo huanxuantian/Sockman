@@ -3,7 +3,7 @@
 #ifndef _TCP_MAN_CPP_
 #define _TCP_MAN_CPP_
 
-#include "TCPMan.hpp"
+#include "Socket.hpp"
 //#include "loger.hpp"
 
 //using namespace Socket;

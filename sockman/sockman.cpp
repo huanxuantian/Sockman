@@ -12,8 +12,6 @@
 
 #include "loger.hpp"
 #include "CPPSocket/Socket.hpp"
-#include "TCPMan.hpp"
-#include "TCP_CS.hpp"
 #include "./log4z/log4z.h"
 #include "./json/json.h"
 //#include "./CQ/CRecycleQueue.h"
@@ -364,7 +362,7 @@ int main(int argc,char *argv[]){
 		Socket::Address to(s_ip, s_port);
 		c_client.connect_to(to);
 		{
-			LOG_TA(__FUNCTION__<<"::client connect from "<<c_client.get_address().ip().c_str()<<"£º"<<c_client.get_address().port());
+			LOG_TA(__FUNCTION__<<"::client connect from "<<c_client.get_address().ip().c_str()<<":"<<c_client.get_address().port());
 		}
 		while(c_client.is_connecteed())
 		{

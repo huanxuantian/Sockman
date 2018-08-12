@@ -7,17 +7,19 @@ Sockman
 
 master head for all module for project framework
 
+    module
+    -------
+        test
+
+test case for sockman 
 
 Trage
 =======
 
 development new style framework in c++ 
 
-=======
-
-repo test here and gerrit review then jenkins build it
-
+now we have cmake build in project and ctest in case
 
 =======
 
-ref from my gerrit and test jenkins
+

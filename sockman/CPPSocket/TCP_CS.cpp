@@ -84,8 +84,8 @@ namespace Socket
     Time_Recv.tv_usec = 0;
 
 	nRet = select(this->_socket_id+1, &Fd_Recv, NULL, NULL, &Time_Recv);
-
-    this->_bconnected = (nRet == 0);
+	printf("socket %d:status ret:%d\r\n",this->_socket_id,nRet);
+    this->_bconnected = (nRet >= 0);
         return this->_bconnected;
     }
 
@@ -350,14 +350,22 @@ namespace Socket
             return NULL;
             #endif
         }
-
+		if (client_param->client->_socket_id <= 3)
+		{
+			printf("client socket error");
+#ifdef WINDOWS
+			return (void*)0;
+#else
+			return NULL;
+#endif
+		}
         TCP_CS* client = client_param->client;
         TCP_CS* server = client_param->server;
         TCP_CS_PROC lpDealFunc = client_param->lpDealFunc;
         delete client_param;
 
 		//lpDealFunc(server,client);
-		
+
         try
         {
             lpDealFunc(server,client);

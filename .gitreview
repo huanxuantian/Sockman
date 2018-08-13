@@ -5,3 +5,4 @@ project=sockman
 defaultbranch=master
 defaultremote=origin
 defaultrebase=0
+

@@ -37,6 +37,11 @@ int s_port=PORT;
 
 char* s_ip=(char*)IP;
 
+#define MAX_RECV_LEN	1024
+unsigned char recv_buffer[MAX_RECV_LEN] = { 0 };
+
+#define CLIENT_ACK	"ack ok!"
+
 #define SEND_FILE "test.hex"
 
 #define RECV_FILE "recv.hex"
@@ -222,7 +227,7 @@ bool server_ok =false;
 int main(int argc,char *argv[]){
     if(argc < 2)
     {
-        printf("%s should not take %d agrement\n  USAGE: %s server \n\t %s client\n\t%s udpsrv\n\t %s udpcli\n",argv[0],argc-1,argv[0],argv[0],argv[0],argv[0]);
+        printf("%s should not take %d agrement\n  USAGE: %s server \n\t %s client\n\t%s udpsrv\n\t %s udpcli\n\t %s cserver <port>\n\t %s cclient [<ip>] <port>\n",argv[0],argc-1,argv[0],argv[0],argv[0],argv[0], argv[0], argv[0]);
         //argv[1] =(char*)"server";
         //argv[1] =(char*)"client";
        //printf("default to %s\n",argv[1]);
@@ -321,18 +326,10 @@ int main(int argc,char *argv[]){
 				int data_len =sizeof(test_data);
 				int n_send_byte = new_client->send<char>((char*)test_data,data_len);
 
-				LOG_TA(__FUNCTION__<<"::"<<__LINE__<<" socket sned start len:"<<n_send_byte);
-				     for(i=0;i<data_len;i++)
-				     {
-					    printf("buff[%d]:0x%02X\r\n",i,test_data[i]&0xff);
-					    if(i>=16)
-					      {
-						 printf("msg too long not display other bytes\r\n");
-					         break;
-					      }
-				    }
-				    LOG_TA(__FUNCTION__<<"::"<<__LINE__<<" socket data end:  ++++++\r\n");
-				//printf("send data to %d!!!\r\n",new_client->_socket_id);
+				LOG_TA(__FUNCTION__<<"::"<<__LINE__<<" socket sned start len:"<<n_send_byte<<"data:"<< Log4zBinary((unsigned char*)test_data, data_len));
+				
+				LOG_TA(__FUNCTION__<<"::"<<__LINE__<<" socket data end:  ++++++\r\n");
+				
 				#ifdef WIN32
 					Sleep(20 * HZ);
 				#else
@@ -367,10 +364,10 @@ int main(int argc,char *argv[]){
             s_port=atoi(argv[2]);
             if(argc>=4)
             {
-                s_ip=argv[3];
-                LOG_TA("start c client connect to ip "<<s_ip);
+                s_ip=argv[2];
+				s_port = atoi(argv[3]);
             }
-            LOG_TA("client c connect to port "<<s_port);
+			LOG_TA("start c client connect to " << s_ip << ":" << s_port);
 		}
 		Socket::Address to(s_ip, s_port);
 		c_client.connect_to(to);
@@ -380,12 +377,18 @@ int main(int argc,char *argv[]){
 		while(c_client.is_connecteed())
 		{
 			#ifdef WIN32
-			Sleep(10 * HZ);
+			Sleep(1 * HZ);
 			#else
-			sleep(10);
+			sleep(1);
 			#endif
-			//printf("%s::client connect from %s:%d\n", __FUNCTION__,c_client.get_address().ip().c_str(), c_client.get_address().port());
+			int client_recv_byte = c_client.receive<unsigned char>(recv_buffer, MAX_RECV_LEN);
+			if (client_recv_byte > 0)
+			{
+				LOG_TA(" socket recv data len:" << client_recv_byte << "data:" << Log4zBinary((unsigned char*)recv_buffer, client_recv_byte));
+				c_client.send<char>(CLIENT_ACK,strlen(CLIENT_ACK));
+			}
 		}
+		LOG_TA(__FUNCTION__ << "::client connect exit from " << c_client.get_address().ip().c_str() << ":" << c_client.get_address().port());
 		
 	}
 	else

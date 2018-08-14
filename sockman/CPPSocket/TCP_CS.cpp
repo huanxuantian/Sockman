@@ -8,6 +8,10 @@
 #include "../log4z/log4z.h"
 #include "../loger.hpp"
 
+#ifndef WIN32
+#include<unistd.h>
+#endif
+
 using namespace Socket;
 extern TCP_CS* new_client;
 

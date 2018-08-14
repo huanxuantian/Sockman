@@ -466,7 +466,7 @@ namespace Socket
 		{
 			client->stop_client();
 		}
-        LOG_TI("exit server socket handle for linsten server "<<server->_socket_id<<"for port "<<server->listen_port<<",state:"<<server->listen_port,server->is_on_server()<<","<<client->is_connecteed()<<" +++++++");
+        LOG_TI("exit server socket handle for linsten server "<<server->_socket_id<<"for port "<<server->listen_port<<",state:"<<server->is_on_server()<<","<<client->is_connecteed()<<" +++++++");
 		
 		return;
 	    }
@@ -485,7 +485,7 @@ namespace Socket
 			{
 			new_client = NULL;
 			}
-            LOG_TI("exit client socket handle for client "<<client->_socket_id<<",state:"<<server->listen_port,server->is_on_server()<<","<<client->is_connecteed()<<" +++++++");
+            LOG_TI("exit client socket handle for client "<<client->_socket_id<<",state:"<<server->is_on_server()<<","<<client->is_connecteed()<<" +++++++");
 			
 		}
 		if(!server->is_on_server())
@@ -498,7 +498,7 @@ namespace Socket
 			{
 				client->stop_client();
 			}
-            LOG_TI("exit server socket handle for linsten server "<<server->_socket_id<<"for port "<<server->listen_port<<",state:"<<server->listen_port,server->is_on_server()<<","<<client->is_connecteed()<<" +++++++");
+            LOG_TI("exit server socket handle for linsten server "<<server->_socket_id<<"for port "<<server->listen_port<<",state:"<<server->is_on_server()<<","<<client->is_connecteed()<<" +++++++");
 			
 		}
 

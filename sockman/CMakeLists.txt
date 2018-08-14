@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 2.8)
 project (sockman)
-INCLUDE_DIRECTORIES(CPPSocket json)
+INCLUDE_DIRECTORIES(CPPSocket json .)
 AUX_SOURCE_DIRECTORY("." DIR_SRCS)
 AUX_SOURCE_DIRECTORY("log4z" DIR_SRCS)
 SET(SOCKMAN ${DIR_SRCS})

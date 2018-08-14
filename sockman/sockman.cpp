@@ -16,6 +16,10 @@
 #include "json/json.h"
 //#include "./CQ/CRecycleQueue.h"
 
+#ifndef WIN32
+#include<unistd.h>
+#endif
+
 using namespace Socket;
 
 TCP_CS* new_client;

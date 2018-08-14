@@ -2,7 +2,7 @@
 host=120.25.166.144
 port=29418
 project=sockman
-defaultbranch=master
+defaultbranch=feature_1.0.2
 defaultremote=origin
 defaultrebase=0
 

@@ -1,4 +1,4 @@
-﻿#ifndef _TCP_CS_CPP_
+#ifndef _TCP_CS_CPP_
 #define _TCP_CS_CPP_
 
 #include <stdlib.h>
@@ -216,6 +216,10 @@ namespace Socket
 
     void TCP_CS::connect_to(Address address)
     {
+	if(this->_type ==TCP_SERVER_TYPE)
+	{
+		return;
+	}
         TCP::connect_to(address);
         this->_type = TCP_CLIENT_TYPE;
         this->_bserver = false;
@@ -360,7 +364,7 @@ namespace Socket
         client_param = (TCP_CS_CLIENTPARA*)lpParm;
         LOG_TI("server socket "<<client_param->server->_socket_id<<" <-> "<<client_param->client->_socket_id<<" +++++++");
         
-		//	 client_param->server->_socket_id,client_param->client->_socket_id);
+		
         if(client_param==NULL)
         {
             #ifdef WINDOWS
@@ -372,7 +376,6 @@ namespace Socket
 		if (client_param->client->_socket_id <= 3)
 		{
             LOG_TI("client socket error");
-			//printf("client socket error");
 #ifdef WINDOWS
 			return (void*)0;
 #else
@@ -383,8 +386,6 @@ namespace Socket
         TCP_CS* server = client_param->server;
         TCP_CS_PROC lpDealFunc = client_param->lpDealFunc;
         delete client_param;
-
-		//lpDealFunc(server,client);
 
         try
         {
@@ -413,7 +414,6 @@ namespace Socket
     {
         LOG_TI("new socket "<<client->_socket_id<<" accept for server socket "<<server->_socket_id<<" +++++++");
         
-		//	 client->_socket_id,server->_socket_id);
 		LOG_TI("client connect from "<<client->_address.ip()<<":"<<client->_address.port()<<" +++++++");
         
 			

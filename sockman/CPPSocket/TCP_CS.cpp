@@ -1,17 +1,18 @@
-﻿#ifndef _TCP_CS_CPP_
+#ifndef _TCP_CS_CPP_
 #define _TCP_CS_CPP_
 
-//#include "CPPSocket/Socket.hpp"
-#include <unistd.h>
 #include <stdlib.h>
 #include <cstring>
 #include <iostream>
 #include "Socket.hpp"
+#include "../log4z/log4z.h"
+#include "../loger.hpp"
 
-extern TCP_CS* new_client;
 using namespace Socket;
+extern TCP_CS* new_client;
 
 using namespace std;
+using namespace zsummer::log4z;
 
 namespace Socket
 {
@@ -85,8 +86,9 @@ namespace Socket
     Time_Recv.tv_usec = 0;
 
 	nRet = select(this->_socket_id+1, &Fd_Recv, NULL, NULL, &Time_Recv);
-
-    this->_bconnected = (nRet == 0);
+    LOG_TI("socket "<<this->_socket_id<<" :status ret:"<<nRet);
+	
+    this->_bconnected = (nRet >= 0);
         return this->_bconnected;
     }
 
@@ -125,13 +127,15 @@ namespace Socket
 
     bool TCP_CS::start_server(TCP_CS_PROC lpDealFunc)
     {
-        printf("%s,%d server socket %d ++++++\r\n",__FUNCTION__,__LINE__,this->_socket_id);
+        LOG_TI("server socket"<<this->_socket_id<<"+++++++");
+        
         TCP_CS_SERVERPARA* server_param;
         if(!this->_bserver||this->_type!=TCP_SERVER_TYPE)
         {
             return false;//not server 
         }
-        printf("%s,%d server socket %d ++++++\r\n",__FUNCTION__,__LINE__,this->_socket_id);
+        LOG_TI("server socket"<<this->_socket_id<<"+++++++");
+        
         server_param = new  TCP_CS_SERVERPARA;
         server_param->server = this;
         server_param->lpDealFunc = lpDealFunc;
@@ -150,13 +154,15 @@ namespace Socket
 			return false;
 		}
 		#endif
-        printf("%s,%d server socket %d ++++++\r\n",__FUNCTION__,__LINE__,this->_socket_id);
+        LOG_TI("server socket"<<this->_socket_id<<"+++++++");
+        
         return true;
     }
 
     bool TCP_CS::start_server(void)
     {
-         printf("%s,%d server socket %d ++++++\r\n",__FUNCTION__,__LINE__,this->_socket_id);
+        LOG_TI("server socket"<<this->_socket_id<<"+++++++");
+        
         return start_server((TCP_CS_PROC)TCP_CS::call_back);
     }
 
@@ -166,7 +172,8 @@ namespace Socket
 		{
 			return false;//not server 
 		}
-		printf("%s,%d stop server socket %d ++++++\r\n",__FUNCTION__,__LINE__,this->_socket_id);
+        LOG_TI("stop server socket "<<this->_socket_id<<"+++++++");
+		
 		this->_bserver = false;
 		this->close();
 		//Sleep(3*HZ);
@@ -179,7 +186,8 @@ namespace Socket
 		{
 			return false;//not client
 		}
-		printf("%s,%d stop client socket %d ++++++\r\n",__FUNCTION__,__LINE__,this->_socket_id);
+        LOG_TI("stop server socket "<<this->_socket_id<<"+++++++");
+		
 		this->_bconnected = false;
 		this->close();
 		//Sleep(3*HZ);
@@ -218,10 +226,16 @@ namespace Socket
           *port = sin->sin_port;
           char addr_buffer[INET_ADDRSTRLEN];
           void * tmp = &(sin->sin_addr);
+		  #ifdef WIN32
+		  sockaddr_in _in_t;
+		  memcpy(&_in_t.sin_addr, tmp, sizeof(sin->sin_addr));
+		  sprintf(addr_buffer, "%s", inet_ntoa(_in_t.sin_addr));
+		  #else	
           if (inet_ntop(AF_INET, tmp, addr_buffer, INET_ADDRSTRLEN) == NULL){
             cerr << "inet_ntop err";
             return false;
           }   
+		  #endif	
           //cout << "addr:" << addr_buffer;
           if (local_ip != NULL) {
             local_ip->assign(addr_buffer);
@@ -238,8 +252,8 @@ namespace Socket
         string local_ip;
         int port;
         GetLocalIP(this->_socket_id,&local_ip,&port);
-
-        //printf("connect address: %s:%d\r\n",local_ip.c_str(),port);
+        LOG_TI("connect address: "<<local_ip<<":"<<port<<"+++++++");
+        
 
         this->_address.ip(local_ip);
         this->_address.port(port);
@@ -276,10 +290,12 @@ namespace Socket
             return NULL;
             #endif
         }
-		printf("%s,%d server object -> %ld++++++\r\n",__FUNCTION__,__LINE__,(long int)server_param->server);
+        LOG_TI("server object -> "<<(long int)server_param->server<<"+++++++");
+		
         TCP_CS* pserver = server_param->server;
         TCP_CS_PROC lpDealFunc = server_param->lpDealFunc;
-		printf("%s,%d server socket %d ++++++\r\n",__FUNCTION__,__LINE__,pserver->_socket_id);
+        LOG_TI("server socket "<<pserver->_socket_id<<"+++++++");
+		
         TCP_CS_CLIENTPARA* client_param;
 
         delete server_param;
@@ -322,7 +338,8 @@ namespace Socket
             #endif
 
         }
-         printf("%s,%d server socket %d accept client %d ++++++\r\n",__FUNCTION__,__LINE__,pserver->_socket_id,client._socket_id);
+        LOG_TI("server socket "<<pserver->_socket_id<<" accept client "<<client._socket_id<<" +++++++");
+        
         #ifdef WINDOWS
         return (void*)0;
         #else
@@ -337,8 +354,9 @@ namespace Socket
     {
         TCP_CS_CLIENTPARA* client_param;
         client_param = (TCP_CS_CLIENTPARA*)lpParm;
-         printf("%s,%d server socket %d <->client socket %d ++++++\r\n",__FUNCTION__,__LINE__,
-			 client_param->server->_socket_id,client_param->client->_socket_id);
+        LOG_TI("server socket "<<client_param->server->_socket_id<<" <-> "<<client_param->client->_socket_id<<" +++++++");
+        
+		
         if(client_param==NULL)
         {
             #ifdef WINDOWS
@@ -347,14 +365,20 @@ namespace Socket
             return NULL;
             #endif
         }
-
+		if (client_param->client->_socket_id <= 3)
+		{
+            LOG_TI("client socket error");
+#ifdef WINDOWS
+			return (void*)0;
+#else
+			return NULL;
+#endif
+		}
         TCP_CS* client = client_param->client;
         TCP_CS* server = client_param->server;
         TCP_CS_PROC lpDealFunc = client_param->lpDealFunc;
         delete client_param;
 
-		//lpDealFunc(server,client);
-		
         try
         {
             lpDealFunc(server,client);
@@ -380,11 +404,10 @@ namespace Socket
 //extern TCP_CS* new_client;
     void TCP_CS::call_back(TCP_CS* server,TCP_CS* client)
     {
-
-         printf("%s,%d new socket %d accept ,start for server socket %d ++++++\r\n",__FUNCTION__,__LINE__,
-			 client->_socket_id,server->_socket_id);
-			
-        printf("%s::client connect from %s:%d\n", __FUNCTION__,client->_address.ip().c_str(), client->_address.port());
+        LOG_TI("new socket "<<client->_socket_id<<" accept for server socket "<<server->_socket_id<<" +++++++");
+        
+		LOG_TI("client connect from "<<client->_address.ip()<<":"<<client->_address.port()<<" +++++++");
+        
 			
 	if(server->_socket_id<=0||client->_socket_id<=0)
 	{
@@ -396,7 +419,8 @@ namespace Socket
 	    
 	    if(new_client->is_connecteed())
 	    {
-		    printf("%s,%d,socket %d,need stop state:%d ++++++\r\n",__FUNCTION__,__LINE__,new_client->_socket_id,new_client->is_connecteed());
+            LOG_TI("socket "<<new_client->_socket_id<<" need stop,state: "<<new_client->is_connecteed()<<" +++++++");
+		    
 		    new_client->stop_client();
 	    }
 	}
@@ -409,15 +433,12 @@ namespace Socket
         {
             memset(rcv_buff,0,SOCKET_MAX_BUFFER_LEN);
             rcv_byte = client->receive<char>(rcv_buff,SOCKET_MAX_BUFFER_LEN);
-            printf("%s,%d,socket %d,recv:%d,%d ++++++\r\n",__FUNCTION__,__LINE__,client->_socket_id,rcv_byte,client->is_connecteed());
+            LOG_TI("socket "<<client->_socket_id<<",recv:"<<rcv_byte<<","<<client->is_connecteed()<<" +++++++");
+
             if(rcv_byte>0)
             {
-                 printf("%s,%d socket %d echo:  ++++++\r\n",__FUNCTION__,__LINE__,client->_socket_id);
-                 for(i=0;i<rcv_byte;i++)
-                 {
-					 printf("rcv_buff[%d]=0x%02x\r\n",i,rcv_buff[i]&0xff);
-		}
-		printf("%s,%d socket %d data end:  ++++++\r\n",__FUNCTION__,__LINE__,client->_socket_id);
+                LOG_TI("socket echo"<<client->_socket_id<<",recv:"<<rcv_byte<<","<<Log4zBinary((char*)rcv_buff,rcv_byte)<<" +++++++");
+                
 		/*
 				int send_byte=0;
                 send_byte = client->send<char>(rcv_buff,rcv_byte);//echo only
@@ -441,12 +462,17 @@ namespace Socket
 		{
 			client->stop_client();
 		}
-		printf("%s,%d,exit server socket %d for port %d,state:%d,%d ++++++\r\n",__FUNCTION__,__LINE__,server->_socket_id,server->listen_port,server->is_on_server(),client->is_connecteed());
+        LOG_TI("exit server socket handle for linsten server "<<server->_socket_id<<"for port "<<server->listen_port<<",state:"<<server->is_on_server()<<","<<client->is_connecteed()<<" +++++++");
+		
 		return;
 	    }
 	    else
 	    {
-		 usleep(20*1000);
+#ifdef WIN32
+			Sleep(20);
+#else
+			usleep(20*1000);
+#endif
 	    }
         }
 		if(!client->is_connecteed())
@@ -455,7 +481,8 @@ namespace Socket
 			{
 			new_client = NULL;
 			}
-			printf("%s,%d,exit handle for client socket %d,state:%d,%d ++++++\r\n",__FUNCTION__,__LINE__,client->_socket_id,server->is_on_server(),client->is_connecteed());
+            LOG_TI("exit client socket handle for client "<<client->_socket_id<<",state:"<<server->is_on_server()<<","<<client->is_connecteed()<<" +++++++");
+			
 		}
 		if(!server->is_on_server())
 		{
@@ -467,7 +494,8 @@ namespace Socket
 			{
 				client->stop_client();
 			}
-			printf("%s,%d,exit server socket %d for port %d,state:%d,%d ++++++\r\n",__FUNCTION__,__LINE__,server->_socket_id,server->listen_port,server->is_on_server(),client->is_connecteed());
+            LOG_TI("exit server socket handle for linsten server "<<server->_socket_id<<"for port "<<server->listen_port<<",state:"<<server->is_on_server()<<","<<client->is_connecteed()<<" +++++++");
+			
 		}
 
         

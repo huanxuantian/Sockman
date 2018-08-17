@@ -263,3 +263,5 @@ ModelManifest.xml
 CVS/
 *~
 *.resume
+doc/html
+build

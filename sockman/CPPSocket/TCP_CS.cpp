@@ -8,6 +8,10 @@
 #include "../log4z/log4z.h"
 #include "../loger.hpp"
 
+#ifndef WIN32
+#include<unistd.h>
+#endif
+
 using namespace Socket;
 extern TCP_CS* new_client;
 
@@ -212,6 +216,10 @@ namespace Socket
 
     void TCP_CS::connect_to(Address address)
     {
+	if(this->_type ==TCP_SERVER_TYPE)
+	{
+		return;
+	}
         TCP::connect_to(address);
         this->_type = TCP_CLIENT_TYPE;
         this->_bserver = false;

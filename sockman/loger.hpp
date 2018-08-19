@@ -9,7 +9,7 @@
 //using namespace zsummer::log4z;
 using namespace std;
 
-#ifdef WINDOWS
+#ifdef WIN32
 
 #else
 	#include <pthread.h>

@@ -32,7 +32,7 @@
 #include <vector>
 #include <fstream>
 
-#if defined __WIN32 || defined __WIN64
+#if defined __WIN32 || defined __WIN64 || defined WIN32
     #define WINDOWS
 #else
     #undef WINDOWS
@@ -415,112 +415,111 @@ namespace Socket
 	};
   class TCP_CS : public TCP
   {
-  public://公开定义或类型
+  public://define
 	#ifdef WINDOWS
 	typedef void (WINAPI* TCP_CS_PROC)(TCP_CS* server,TCP_CS* client);
 	#else
 	typedef void (* TCP_CS_PROC)(TCP_CS* server,TCP_CS* client);
 	#endif
 
-  protected://保护的类型定义
+  protected://define
   	typedef enum{
 		TCP_CLIENT_TYPE=0,
 		TCP_SERVER_TYPE=1,
 		TCP_UNINIT_TYPE=2
 	}TCP_CS_TYPE;
-    struct TCP_CS_TIMEPARA//计算超时用的线程参数模板
+    struct TCP_CS_TIMEPARA//< timeout process not use now
 	{
 		int		OutTime;
 		TCP_CS*	client;
 		bool bExit;
 		bool IsExit;
-	};//线程函数必须staic，所以无this操作，必须传递对象
-    struct TCP_CS_SERVERPARA//服务ACCECT客户的线程的参数模板
+	};
+    struct TCP_CS_SERVERPARA//listen socket accept process and callback function thread use
 	{
-		TCP_CS*	server;//服务监听socket对象
-		TCP_CS_PROC	lpDealFunc;//透传到客户处理线程的回调函数
-	};//线程函数必须staic，所以无this操作，必须传递对象
+		TCP_CS*	server;//listen socket server object
+		TCP_CS_PROC	lpDealFunc;//accept client and call thread callback to handle connect
+	};//call with static thread function as server_param
 
-	struct TCP_CS_CLIENTPARA//客户处理线程参数模板
+	struct TCP_CS_CLIENTPARA//client accept and make thread process use
 	{
-		TCP_CS* client;//ACCECT后的客户socket对象
-		TCP_CS* server;
-		TCP_CS_PROC	lpDealFunc;//客户处理的回调函数
-	};//线程函数必须staic，所以无this操作，必须传递对象
+		TCP_CS* client;//accept return socket with new client
+		TCP_CS* server;//listen socket server object
+		TCP_CS_PROC	lpDealFunc;//accept client and call thread callback to handle connect
+	};//call with static thread function as client_param
 
-  public://公开的构造与操作相关函数
-    //默认构造
+  public://function
 	TCP_CS(void);
-	//拷贝构造
 	TCP_CS(const TCP_CS&);
-	//析构
 	~TCP_CS();
-  protected://保护的内部变量
-	//指定的服务对象（包含socket以及服务信息和接口），无用
-    TCP _server;
-	//指定的客户对象（包含socket以及服务信息和接口）,无用
+  protected://var
+	//server object tcp,not use
+	TCP _server;
+	//client object tcp,not use
 	TCP _client;
-	//是否在服务，只是标志，用于线程退出，为服务对象状态
+	//server had build and run ,if not run will close all client in case
 	bool _bserver;
-	//链接是否货活，只是标志，用于线程检测，为客户对象状态
+	//client conection status,set with select in case ,if not connect will exit client handle
 	bool _bconnected;
-	//类型，默认为TCP_UNINIT_TYPE，当启动服务后转成服务类型,当链接服务后转成客户类型
-	//为初始化类型时，对应的操作都无法操作，返回未初始化的错误
+	//socket type @see TCP_CS_TYPE default to @TCP_UNINIT_TYPE
 	TCP_CS_TYPE _type;
  private:
+	//server thread hadle id
  	#ifdef WINDOWS
 		HANDLE	m_hServerThread;
 	#else
 		pthread_t m_hServerThread;
 	#endif
+	//client thread handle id [single client handle only now]
 #ifdef WINDOWS
 		HANDLE	hThread;
 #else
 		pthread_t hThread;
 #endif
-    Address _address;
+	//socket address info
+    	Address _address;
+	//server listen port
 	Port listen_port;
+	//get local socket info for client identified
 	bool GetLocalIP(SocketId fd, std::string* local_ip, int* port);
-  public://公开接口，业务接口
-    //获取对象类型
-    TCP_CS_TYPE get_tcp_type();
-	//获取对象核心数据，如果是客户端对象，则返回监听对象信息，否则返回客户对象信息。
+  public://handle function
+    	//get socket type only
+	TCP_CS_TYPE get_tcp_type();
+	//get tcp object ,now not use 
 	TCP get_tcp();
-	//获取指定对象链接状态
-	//服务socket（监听socket）的状态除非退出服务，否则总返回true
-	//客户sock（accect客户的socket）则根据select的客户状态返回
-    bool is_connecteed(TCP_CS server); 
-	//获取对象链接状态
+	//get socket connect status ,
+	//for server return false if server stop,otherwise true,
+	//for client return connect status with select
+	bool is_connecteed(TCP_CS server); //TODO: need refix this function
 	bool is_connecteed();
-    //获取指定对象是否为服务状态，对于非监听socket永远返回false
-    bool is_on_server(TCP_CS server); 
-    //获取服务状态（在检测线程以及创建服务前检测用，返回_bserver，非监听socket永远返回false）
-    bool is_on_server();
-	//使用指定的地址结构创建服务（指定IP和端口）
-	bool creat_server(Address bind_address,unsigned int listeners = 1);
-	//使用指定端口创建服务，不指定IP的服务
+	//only for server object return listen status,client object just return 
+   	bool is_on_server(TCP_CS server); //TODO: need refix this function
+	bool is_on_server();
+	//bind server to _address with limit listeners
+	bool creat_server(Address bind_address,unsigned int listeners = 1);//TODO: need refix this function
+	//bind server to port with all ip
 	bool creat_server(Port port,unsigned int listeners = 1);
-    //指定外部回调接口，外部处理
+    	//start server with callback_function
 	bool start_server(TCP_CS_PROC lpDealFunc);
-	//使用内部接口回调call_back
+	//start server use default callback_function @see call_back
 	bool start_server(void);
-	//使用默认关闭流程函数
+	//stop server and close listen socket
 	bool stop_server(void);
-	//
+	//close client only
 	bool stop_client(void);
-	//接受客户端
+	//accept client and return new client object, @see ServerProc
 	TCP_CS accept_client(void);
-	//客户链接到服务地址
+	//client object connect to server
 	void connect_to(Address address);
-	
+	//get_address
 	Address get_address();
-  protected://保护的内部接口
+  protected://callback function 
   	/*
-	 *@超时控制线程
-	 *@服务进行客户ACCECT线程
-	 *@客户处理函数
+	 *@TimeoutControl noe use now
+	 *@ServerProc use for accept client
+	 *@DealProc client handle thread
 	*/
-    #ifdef WINDOWS
+   	 #ifdef WINDOWS
 	static void* CALLBACK TimeoutControl(LPVOID lpParm);
 	static void* CALLBACK ServerProc(LPVOID lpParm);
 	static void* CALLBACK DealProc(LPVOID lpParm);
@@ -529,8 +528,8 @@ namespace Socket
 	static void*  ServerProc(LPVOID lpParm);
 	static void*  DealProc(LPVOID lpParm);
 	#endif
-	//@客户处理函数的默认回调函数
-    static void call_back(TCP_CS* server,TCP_CS* client);
+	//client default callback_function
+    	static void call_back(TCP_CS* server,TCP_CS* client);
   };
 }
 

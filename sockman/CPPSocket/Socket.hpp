@@ -32,7 +32,7 @@
 #include <vector>
 #include <fstream>
 
-#if defined __WIN32 || defined __WIN64
+#if defined __WIN32 || defined __WIN64 || defined WIN32
     #define WINDOWS
 #else
     #undef WINDOWS

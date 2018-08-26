@@ -7,13 +7,19 @@ Sockman
 
 master head for all module for project framework
 
+    module
+    -------
+        test
+
+test case for sockman 
 
 Trage
 =======
 
 development new style framework in c++ 
 
+now we have cmake build in project and ctest in case
 
 =======
- auto build to jenkins with gitlab api
+
 

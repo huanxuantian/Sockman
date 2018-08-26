@@ -198,6 +198,7 @@ void udp_sender(void)
                                                      // as well as the others
 
         int iarr[5] = { 0, 1, 2, 3, 4 };
+		char iarr1[5] = { 0, 1, 2, 3, 4 };
 		float f_send=5.0;
         LOG_TA("int array:"<<Log4zBinary((char*)&iarr,sizeof(iarr)));//log
 

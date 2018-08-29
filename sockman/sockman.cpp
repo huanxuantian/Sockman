@@ -198,7 +198,6 @@ void udp_sender(void)
                                                      // as well as the others
 
         int iarr[5] = { 0, 1, 2, 3, 4 };
-		char iarr1[5] = { 0, 1, 2, 3, 4 };
 		float f_send=5.0;
         LOG_TA("int array:"<<Log4zBinary((char*)&iarr,sizeof(iarr)));//log
 
@@ -327,28 +326,28 @@ int main(int argc,char *argv[]){
 		        {
 		        if(new_client!=NULL&&new_client->is_connecteed())
 			    {
-				int i;
-				int data_len =sizeof(test_data);
-				int n_send_byte = new_client->send<char>((char*)test_data,data_len);
+					
+					int data_len =sizeof(test_data);
+					int n_send_byte = new_client->send<char>((char*)test_data,data_len);
 
-				LOG_TA(__FUNCTION__<<"::"<<__LINE__<<" socket sned start len:"<<n_send_byte<<"data:"<< Log4zBinary((unsigned char*)test_data, data_len));
-				
-				LOG_TA(__FUNCTION__<<"::"<<__LINE__<<" socket data end:  ++++++\r\n");
-				
-				#ifdef WIN32
+					LOG_TA(__FUNCTION__<<"::"<<__LINE__<<" socket sned start len:"<<n_send_byte<<"data:"<< Log4zBinary((unsigned char*)test_data, data_len));
+					
+					LOG_TA(__FUNCTION__<<"::"<<__LINE__<<" socket data end:  ++++++\r\n");
+					
+					#ifdef WIN32
 					Sleep(20 * HZ);
-				#else
-				sleep(20);
-				#endif
-				//break;
+					#else
+					sleep(20);
+					#endif
+					//break;
 			    }
 			    else
 			    {
-				#ifdef WIN32
+					#ifdef WIN32
 					Sleep(1 * HZ);
-				#else
-				sleep(1);
-				#endif
+					#else
+					sleep(1);
+					#endif
 			    }
 		        }
 		        catch(SocketException& me)

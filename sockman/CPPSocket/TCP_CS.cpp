@@ -435,7 +435,6 @@ namespace Socket
 	new_client = client;
         char rcv_buff[SOCKET_MAX_BUFFER_LEN]={0};
         int rcv_byte=0;
-        int i=0;
         
         while(server->is_on_server()&&client->is_connecteed())
         {

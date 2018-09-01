@@ -237,7 +237,7 @@ namespace Socket
 		  #ifdef WIN32
 		  sockaddr_in _in_t;
 		  memcpy(&_in_t.sin_addr, tmp, sizeof(sin->sin_addr));
-		  sprintf(addr_buffer, "%s", inet_ntoa(_in_t.sin_addr));
+		  snprintf(addr_buffer, INET_ADDRSTRLEN, "%s", inet_ntoa(_in_t.sin_addr));
 		  #else	
           if (inet_ntop(AF_INET, tmp, addr_buffer, INET_ADDRSTRLEN) == NULL){
             cerr << "inet_ntop err";

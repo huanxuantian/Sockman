@@ -47,6 +47,12 @@ namespace Socket
 	}
 	TCP_CS::~TCP_CS()
 	{
+        
+        if(this->_type==TCP_SERVER_TYPE)
+        {
+            stop_server();
+        }
+        
         this->_bserver = false;
         this->_bconnected = false;
 		//~CommonSocket();
@@ -67,7 +73,7 @@ namespace Socket
 
     bool  TCP_CS::is_connecteed(TCP_CS server)
     {
-        return server._bconnected;
+        return server.is_connecteed();
     }
 
     bool TCP_CS::is_connecteed()
@@ -79,11 +85,15 @@ namespace Socket
     fd_set Fd_Recv;
     #endif
     struct timeval Time_Recv;
-    #ifdef WINDOWS
-	memset(&Fd_Recv, 0, sizeof(struct fd_set));
-    #else
+
+    if(!this->_binded)
+    {
+        this->_bconnected = false;
+        return this->_bconnected;
+    }
+
     FD_ZERO(&Fd_Recv);
-    #endif
+
     FD_CLR(this->_socket_id, &Fd_Recv); 
     FD_SET(this->_socket_id, &Fd_Recv); 
     Time_Recv.tv_sec = 0;
@@ -92,7 +102,7 @@ namespace Socket
 	nRet = select(this->_socket_id+1, &Fd_Recv, NULL, NULL, &Time_Recv);
     LOG_TI("socket "<<this->_socket_id<<" :status ret:"<<nRet);
 	
-    this->_bconnected = (nRet >= 0);
+    this->_bconnected = (nRet == 0);
         return this->_bconnected;
     }
 
@@ -177,7 +187,11 @@ namespace Socket
 			return false;//not server 
 		}
         LOG_TI("stop server socket "<<this->_socket_id<<"+++++++");
-		
+		if(single_client)
+        {
+            single_client->stop_client();
+            single_client = NULL;
+        }
 		this->_bserver = false;
 		this->close();
 		//Sleep(3*HZ);
@@ -188,12 +202,20 @@ namespace Socket
 	{
 		if(this->_bserver||this->_type!=TCP_CLIENT_TYPE||!this->_bconnected)
 		{
+            if(this->_socket_id&&this->_type==TCP_CLIENT_TYPE)
+            {
+                this->_binded = false;
+                this->close();
+                this->_type = TCP_UNINIT_TYPE; 
+            }
 			return false;//not client
 		}
         LOG_TI("stop server socket "<<this->_socket_id<<"+++++++");
 		
 		this->_bconnected = false;
+        this->_binded = false;
 		this->close();
+        this->_type = TCP_UNINIT_TYPE;
 		//Sleep(3*HZ);
 		return true;
 	}
@@ -237,7 +259,7 @@ namespace Socket
 		  #ifdef WIN32
 		  sockaddr_in _in_t;
 		  memcpy(&_in_t.sin_addr, tmp, sizeof(sin->sin_addr));
-		  sprintf(addr_buffer, "%s", inet_ntoa(_in_t.sin_addr));
+		  sprintf_s(addr_buffer,INET_ADDRSTRLEN, "%s", inet_ntoa(_in_t.sin_addr));
 		  #else	
           if (inet_ntop(AF_INET, tmp, addr_buffer, INET_ADDRSTRLEN) == NULL){
             cerr << "inet_ntop err";
@@ -422,25 +444,32 @@ namespace Socket
 	    client->stop_client();
 	    return;
 	}
-	if(new_client!=NULL)
+	if(server->single_client!=NULL)
 	{
 	    
-	    if(new_client->is_connecteed())
+	    if(server->single_client->is_connecteed())
 	    {
-            LOG_TI("socket "<<new_client->_socket_id<<" need stop,state: "<<new_client->is_connecteed()<<" +++++++");
+            LOG_TI("socket "<<server->single_client->_socket_id<<" need stop,state: "<<server->single_client->is_connecteed()<<" +++++++");
 		    
-		    new_client->stop_client();
+            server->single_client->stop_client();
 	    }
 	}
-	new_client = client;
+	server->single_client = client;
         char rcv_buff[SOCKET_MAX_BUFFER_LEN]={0};
         int rcv_byte=0;
-        int i=0;
         
         while(server->is_on_server()&&client->is_connecteed())
         {
             memset(rcv_buff,0,SOCKET_MAX_BUFFER_LEN);
+            rcv_byte =0;
+            try
+            {
             rcv_byte = client->receive<char>(rcv_buff,SOCKET_MAX_BUFFER_LEN);
+            }
+            catch(SocketException& me)
+            {
+                LOG_TE(me.what());
+            }
             LOG_TI("socket "<<client->_socket_id<<",recv:"<<rcv_byte<<","<<client->is_connecteed()<<" +++++++");
 
             if(rcv_byte>0)
@@ -462,9 +491,9 @@ namespace Socket
             }
 	    else if(rcv_byte ==0)
 	    {
-		if(client ==new_client)
+		if(client ==server->single_client)
 		{
-		new_client = NULL;
+			server->single_client = NULL;
 		}
 		if(client->is_connecteed())
 		{
@@ -485,18 +514,18 @@ namespace Socket
         }
 		if(!client->is_connecteed())
 		{
-			if(client ==new_client)
+			if(client ==server->single_client)
 			{
-			new_client = NULL;
+				server->single_client = NULL;
 			}
             LOG_TI("exit client socket handle for client "<<client->_socket_id<<",state:"<<server->is_on_server()<<","<<client->is_connecteed()<<" +++++++");
 			
 		}
 		if(!server->is_on_server())
 		{
-			if(client ==new_client)
+			if(client ==server->single_client)
 			{
-			new_client = NULL;
+				server->single_client = NULL;
 			}
 			if(client->is_connecteed())
 			{

@@ -96,13 +96,19 @@ namespace Socket
         this->_binded = false;
     }
     
-    void CommonSocket::listen_on_port(Port port)
+    void CommonSocket::listen_on_port(Port port,int reuse0)
     {
         if (this->_binded) throw SocketException("[listen_on_port] Socket already binded to a port, close the socket before to re-bind");
 
         if (!this->_opened) this->open();
 
         Address address(port);
+        if (setsockopt(this->_socket_id, SOL_SOCKET, SO_REUSEADDR, (char *)&reuse0, sizeof(reuse0))==-1)
+        {
+            stringstream error;
+            error << "[listen_on_port] with [port=" << port << "] Cannot set reuseaddr for socket";
+            throw SocketException(error.str());            
+        }
 
         if (bind(this->_socket_id, (struct sockaddr*)&address, sizeof(struct sockaddr)) == -1)
         {

@@ -151,7 +151,7 @@ namespace Socket
         void open(void);
         void close(void);
         
-        virtual void listen_on_port(Port);
+        virtual void listen_on_port(Port,int reuse0=1);
     };
 
     class UDP : public CommonSocket
@@ -482,7 +482,8 @@ namespace Socket
 	Port listen_port;
 	//get local socket info for client identified
 	bool GetLocalIP(SocketId fd, std::string* local_ip, int* port);
-  public://handle function
+  public://handle function and var
+	TCP_CS* single_client;
     	//get socket type only
 	TCP_CS_TYPE get_tcp_type();
 	//get tcp object ,now not use 

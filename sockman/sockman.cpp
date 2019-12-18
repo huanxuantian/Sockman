@@ -21,7 +21,7 @@
 
 using namespace Socket;
 
-TCP_CS* new_client;
+//TCP_CS* new_client;
 TCP_CS server;
 
 TCP_CS c_client;
@@ -230,7 +230,14 @@ bool server_ok =false;
 int main(int argc,char *argv[]){
     if(argc < 2)
     {
-        printf("%s should not take %d agrement\n  USAGE: %s server \n\t %s client\n\t%s udpsrv\n\t %s udpcli\n\t %s cserver <port>\n\t %s cclient [<ip>] <port>\n",argv[0],argc-1,argv[0],argv[0],argv[0],argv[0], argv[0], argv[0]);
+        printf("%s should not take %d agrement\n  USAGE: %s server \n\t \
+%s client\n\t %s udpsrv\n\t \
+%s udpcli\n\t %s cserver <port>\n\t \
+%s cclient [<ip>] <port>\n",
+		argv[0],argc-1,argv[0],
+		argv[0],argv[0],
+		argv[0], argv[0], 
+		argv[0]);
         //argv[1] =(char*)"server";
         //argv[1] =(char*)"client";
        //printf("default to %s\n",argv[1]);
@@ -318,25 +325,25 @@ int main(int argc,char *argv[]){
 			}
 		}
 
-		while(1)
+			while(1)
 		    {
-
+				int n_send_byte=0;
 			 try
 		        {
-		        if(new_client!=NULL&&new_client->is_connecteed())
+		        if(server.single_client!=NULL&&server.single_client->is_connecteed())
 			    {
 					
 					int data_len =sizeof(test_data);
-					int n_send_byte = new_client->send<char>((char*)test_data,data_len);
+					n_send_byte = server.single_client->send<char>((char*)test_data,data_len);
 
 					LOG_TA(__FUNCTION__<<"::"<<__LINE__<<" socket sned start len:"<<n_send_byte<<"data:"<< Log4zBinary((unsigned char*)test_data, data_len));
 					
 					LOG_TA(__FUNCTION__<<"::"<<__LINE__<<" socket data end:  ++++++\r\n");
 					
 					#ifdef WIN32
-					Sleep(20 * HZ);
+					Sleep(5 * HZ);
 					#else
-					sleep(20);
+					sleep(5);
 					#endif
 					//break;
 			    }
@@ -352,10 +359,16 @@ int main(int argc,char *argv[]){
 		        catch(SocketException& me)
 		        {
 		            LOG_TE(me.what());
+					if(n_send_byte<=0&&server.single_client!=NULL)
+					{
+						server.single_client->stop_client();
+						server.single_client = NULL;
+					}
 		        }
 
 			//test_data
 		    }
+			server.stop_server();
 
 	}
 	else if(strcmp(argv[1],"cclient")==0)
@@ -372,33 +385,100 @@ int main(int argc,char *argv[]){
             }
 			LOG_TA("start c client connect to " << s_ip << ":" << s_port);
 		}
-		Socket::Address to(s_ip, s_port);
-		c_client.connect_to(to);
+		
+		try
+		{
+			Socket::Address to(s_ip, s_port);
+			c_client.connect_to(to);
+		}
+		catch(SocketException& me)
+		{
+			LOG_TE(me.what());
+		}
+		if(c_client.is_connecteed())
 		{
 			LOG_TA(__FUNCTION__<<"::client connect from "<<c_client.get_address().ip().c_str()<<":"<<c_client.get_address().port());
 		}
-		while(c_client.is_connecteed())
+		int count_need_heart_beat=15;
+		while(1)
 		{
+			try
+		    {
+			while(c_client.is_connecteed())
+			{
+				#ifdef WIN32
+				Sleep(1 * HZ);
+				#else
+				sleep(1);
+				#endif
+				int client_recv_byte =0;
+				try
+				{
+					client_recv_byte = c_client.receive<unsigned char>(recv_buffer, MAX_RECV_LEN);
+				}
+				catch(SocketException& me)
+				{
+					LOG_TE(me.what());
+					if(client_recv_byte<0)
+					{
+						c_client.stop_client();
+					}
+				}
+				if (client_recv_byte > 0)
+				{
+					LOG_TA(" socket recv data len:" << client_recv_byte << "data:" << Log4zBinary((unsigned char*)recv_buffer, client_recv_byte));
+					c_client.send<char>(CLIENT_ACK,strlen(CLIENT_ACK));
+				}
+				
+				count_need_heart_beat--;
+				if(count_need_heart_beat==0)
+				{
+					c_client.send<char>(CLIENT_ACK,strlen(CLIENT_ACK));
+					count_need_heart_beat =15;
+				}
+			}
+			}
+			catch(SocketException& me)
+			{
+				LOG_TE(me.what());
+				
+
+			}
 			#ifdef WIN32
 			Sleep(1 * HZ);
 			#else
 			sleep(1);
 			#endif
-			int client_recv_byte = c_client.receive<unsigned char>(recv_buffer, MAX_RECV_LEN);
-			if (client_recv_byte > 0)
+			LOG_TE("STOP CLIENT!!!");
+			c_client.stop_client();
+			try
 			{
-				LOG_TA(" socket recv data len:" << client_recv_byte << "data:" << Log4zBinary((unsigned char*)recv_buffer, client_recv_byte));
-				c_client.send<char>(CLIENT_ACK,strlen(CLIENT_ACK));
+				Socket::Address to(s_ip, s_port);
+				c_client.connect_to(to);
+			}
+			catch(SocketException& me)
+			{
+				LOG_TE(me.what());
+			}
+			if(c_client.is_connecteed())
+			{
+				LOG_TA(__FUNCTION__<<"::client connect from "<<c_client.get_address().ip().c_str()<<":"<<c_client.get_address().port());
 			}
 		}
+		c_client.stop_client();
+		
 		LOG_TA(__FUNCTION__ << "::client connect exit from " << c_client.get_address().ip().c_str() << ":" << c_client.get_address().port());
 		
+	}
+	else if(strcmp(argv[1],"cqr")==0)
+	{
+		encoder.EncodeTest();
 	}
 	else
 	{
 		LOG_TI("unknow cmd"<<argv[1]);
 	}
-	server.stop_server();
+	
 	puts("end\r\n");
 	return EXIT_SUCCESS;
 }
